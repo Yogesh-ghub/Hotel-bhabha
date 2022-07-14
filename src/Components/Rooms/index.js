@@ -8,12 +8,12 @@ import slideimg3 from "../../Assets/images/sliderimg-3.jpeg";
 
 import "./index.css";
 
-const RoomOverview = () => {
+const RoomOverview = (props) => {
   return (
     <div>
       <div className="room-banner">
           <div className="animated animatedFadeInUp fadeInUp">
-            <h1>Deluxe Room</h1>
+            <h1>{props.roomTitle}</h1>
 
             <blockquote className="quote">
               "You kind of owe it to yourself to do all the things you've dreamed of."
@@ -30,7 +30,7 @@ const RoomOverview = () => {
           </Col>
           <Col md={5} lg={6} className="right-col d-flex">
             <div className="animated animatedFadeInUp fadeInUp">
-              <h2>A view to remember</h2>
+              <h2 className="division-heading">A view to remember</h2>
               <p>Our Deluxe Room overlooks the great dunes of Noordwijk and the ever-shifting waves of the North Sea. The room is decorated with beautifully designed furniture and a handmade king size bed. This spacious room also boasts an extraordinary view of the famous Noordwijk sunset.</p>
               
             </div>

@@ -1,0 +1,20 @@
+
+.room-slider-container h2{
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+
+.more{
+    color: #35090b;
+    text-decoration: none;
+}
+
+.more:hover{
+    color: #35090b;
+}
+
+.more:hover .more-icon{
+    margin-left: -1px;
+    cursor: pointer;
+}
