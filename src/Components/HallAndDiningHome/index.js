@@ -22,21 +22,21 @@ function HallAndDiningHome() {
               <Col md={6} className="col-area my-4 ">
                 <Row lg={2}>
                   <Col md={12}>
-                    <div className="mt-4">
+                    <div className="mt-4 d-lg-block d-none">
                       <figure>
                         <img src={weeding} alt="About us" width="100%" />
                       </figure>
                     </div>
                   </Col>{" "}
                   <Col md={12}>
-                    <div className="mt-4">
+                    <div className="mt-4 d-lg-block d-none">
                       <figure>
                         <img src={meeting} alt="About us" width="100%" />
                       </figure>
                     </div>
                   </Col>{" "}
                   <Col md={12}>
-                    <div className="mt-4">
+                    <div className="mt-4 d-lg-block d-none">
                       <figure>
                         <img src={meeting} alt="About us" width="100%" />
                       </figure>
