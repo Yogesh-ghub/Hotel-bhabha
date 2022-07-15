@@ -11,7 +11,7 @@ import {
 import logo1 from "../../Assets/images/logo-1.png";
 import logo2 from "../../Assets/images/logo-2.png";
 import { Link } from "react-router-dom";
-
+import RoomDropdown from "../RoomDropdown";
 import "./index.css";
 
 const Header = () => {
@@ -19,6 +19,7 @@ const Header = () => {
   const [width, setWidth] = useState("180");
   const [height, setHeight] = useState("80");
   const [bg, setbg] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false)
   const changeNavbarLogo = () => {
     if (window.scrollY >= 80) {
       setLogo(logo2);
@@ -60,12 +61,12 @@ const Header = () => {
           <hr className="d-block d-md-none" />
           <Offcanvas.Body className="justify-content-end">
             <Nav className="nav-items mx-3">
-              <Nav.Link as={Link} className="nav-links" to="/">
+              <Nav.Link as={Link} className="nav-links mr-2" to="/">
                 Home
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                className="nav-links"
+                className="nav-links mr-2"
                 eventKey={2}
                 to="/about"
               >
@@ -76,6 +77,7 @@ const Header = () => {
                 title="rooms"
                 id="navbarScrollingDropdown"
                 renderMenuOnMount={true}
+                onClick={() =>setShowDropdown(true)}
               >
                 <div className="nav-dropdown">
                   <NavDropdown.Item as={Link} to="/rooms/standard-room">
@@ -98,7 +100,7 @@ const Header = () => {
 
               <Nav.Link
                 as={Link}
-                className="nav-links"
+                className="nav-links mr-2"
                 eventKey={2}
                 to="/contact"
               >
@@ -111,8 +113,10 @@ const Header = () => {
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>
+      <RoomDropdown show={showDropdown} />
     </Navbar>
   );
 };
 
 export default Header;
+

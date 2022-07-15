@@ -31,10 +31,18 @@ function Footer() {
             {/* Footer social icons */}
 
             <div className=" d-flex justify-content-center mt-3">
-              <FaFacebookF size={24} className="m-3 icons fb-icon" />
-              <BsInstagram size={24} className="m-3 icons instagram-icon" />
-              <SiGmail size={24} className="m-3 icons gmail-icon" />
-              <SiGooglemaps size={24} className="m-3 icons map-icon" />
+              <a href="https://www.facebook.com/hotelbhabha/" target="_blank">
+                <FaFacebookF size={24} className="m-3 icons fb-icon" />
+              </a>
+              <a href="https://www.instagram.com/bhabha_hotel/" target="_blank">
+                <BsInstagram size={24} className="m-3 icons instagram-icon" />
+              </a>
+              <a href="mailto:info@hotelbhabha.com" target="_blank">
+                <SiGmail size={24} className="m-3 icons gmail-icon" />
+                </a>
+              <a href="" target="_blank">
+                <SiGooglemaps size={24} className="m-3 icons map-icon" />
+              </a>
             </div>
           </Col>
           <Col sm={12} md={5} lg={4} className="footer-col my-4 px-4">

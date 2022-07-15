@@ -35,7 +35,7 @@ const RoomOverview = (props) => {
               
             </div>
             <div className="">
-              <img src={about2} className="img-thumbnail" width="90%" />
+              <img src={about2} className="img-thumbnail" width="70%" />
             </div>
           </Col>
         </Row>
