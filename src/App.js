@@ -8,7 +8,9 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Room from "./Pages/Room";
 import Booking from "./Pages/Booking";
-import ScrollToTop from './Components/ScrollToTop'
+import ScrollToTop from "./Components/ScrollToTop";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <ScrollToTop>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/login" element={<Login />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/rooms" element={<Room />}>
             <Route exact path=":id" element={<Room />} />
