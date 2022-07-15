@@ -4,12 +4,15 @@ import React from "react";
 import Header from "../Components/Header/index";
 import Footer from "../Components/Footer";
 import BookingDetails from "../Components/Booking/BookingDetails";
+import GuestDetailsForm from "../Components/GuestDetails/GuestDetailsForm";
 
 function Booking() {
   return (
     <>
       <Header />
+    
       <BookingDetails />
+      <GuestDetailsForm />
       <Footer />
     </>
   );

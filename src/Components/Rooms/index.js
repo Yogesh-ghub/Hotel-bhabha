@@ -40,12 +40,7 @@ const RoomOverview = (props) => {
               </p>
             </div>
             <div className="">
-              <img
-                src={about2}
-                className="img-thumbnail"
-                alt="img"
-                width="90%"
-              />
+              <img src={about2} className="img-thumbnail" width="70%" />
             </div>
           </Col>
         </Row>

@@ -39,22 +39,22 @@ const ContactForm = (props) => {
             <div>
               <ul className="social-icons list-unstyled d-flex justify-content-center">
                 <li>
-                  <Link to="#" className="contact-icons contact-fb-icon">
+                  <a href="https://www.facebook.com/hotelbhabha/" target="_blank" className="contact-icons contact-fb-icon">
                     <FaFacebookF size={24} className="" />
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link to="#" className="contact-icons contact-ig-icon">
+                  <a href="https://www.instagram.com/bhabha_hotel/" target="_blank" className="contact-icons contact-ig-icon">
                     <BsInstagram size={24} className="" />
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link to="#" className="contact-icons contact-mail-icon">
+                  <a href="mailto:info@hotelbhabha.com" target="_blank" className="contact-icons contact-mail-icon">
                     <SiGmail size={24} className="" />
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link to="#" className="contact-icons contact-map-icon">
+                  <Link to="#" target="_blank" className="contact-icons contact-map-icon">
                     <SiGooglemaps size={24} className="" />
                   </Link>
                 </li>

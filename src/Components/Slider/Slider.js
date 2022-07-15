@@ -5,7 +5,7 @@ const Slider = (props) => {
   return (
     <div>
       {props.children}
-      <Carousel fade indicators={false} controls={false}>
+      <Carousel fade indicators={false} data-interval="1000">
         <Carousel.Item>
           <img
             className="slide-img d-block w-100"
