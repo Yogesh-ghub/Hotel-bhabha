@@ -1,30 +1,38 @@
 import React from "react";
+import { useCart } from "react-use-cart";
 
 import "./index.css";
-
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import about2 from "../../Assets/images/about-grid-small.jpg";
 
 function RoomBookingCard({ room }) {
+  const { addItem } = useCart();
+
+  console.log(room);
+
   return (
     <>
-      <Card className="room-card">
-        <div className="d-lg-flex  d-md-flex gap-3 justify-content-around">
-          <div>
-            <Card.Img src={room.images[0]} />
+      <div class="container m-3">
+        <div class="row">
+          <div class="col-lg-3 col-md-4 ">
+            <img src={about2} alt="img" className="img-fluid" />
           </div>
-          <div className="">
-            <Card.Body>
-              <Card.Title>{room.name}</Card.Title>
-              <Card.Subtitle> Sleeps 3 | 1 King | 398 ft²</Card.Subtitle>
-              <Card.Text className="mt-2">{room.desc}</Card.Text>
-              <Button variant="primary" className="flex float-end">
-                Book Now
-              </Button>
-            </Card.Body>
+          <div class="col-lg-5 col-md-7  p-3 ">
+            <h3>{room.name}</h3>
+            <span>1 king | {room.guestCapacity} adult |</span>
+            <p>
+              Variable width contentVariable width contentVariable width
+              Variable width contentVariable width contentVariable width
+            </p>
+            <span>₹{room.pricePerNight}</span>
+            <button
+              className="d-flex float-end book-now-btn btn-book "
+              onClick={() => addItem()}
+            >
+              Book Now
+            </button>
           </div>
         </div>
-      </Card>
+      </div>
     </>
   );
 }

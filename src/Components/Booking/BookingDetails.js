@@ -5,11 +5,10 @@ import DatePicker from "./DatePicker";
 import RoomBookingCard from "./RoomBookingCard";
 
 import useFetch from "../../hooks/useFetch";
+import Basket from "./Basket";
 
-function BookingDetails(props) {
-  const { data, loading, error } = useFetch("http://localhost:4000/api/room/");
-
-  console.log(data);
+function BookingDetails() {
+  const { data, loading } = useFetch("http://localhost:4000/api/room/");
 
   return (
     <div>
@@ -23,16 +22,17 @@ function BookingDetails(props) {
           <DatePicker />
           <h1 className="mt-5 mb-4"> Select a Room</h1>
         </div>
-        <div className="">
+        <div className="row">
           {loading ? (
             "loading"
           ) : (
             <>
               {data.map((room) => (
-                <RoomBookingCard key={room._id} room={room} />
+                <RoomBookingCard key={room._id} room={room} id={room._id} />
               ))}
             </>
           )}
+          <Basket />
         </div>
       </div>
     </div>

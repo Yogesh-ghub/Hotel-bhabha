@@ -1,6 +1,6 @@
 import React from "react";
 import logo1 from "../../Assets/images/logo-1.png";
-import Map from "../Map";
+
 import { Container, Col, Row } from "react-bootstrap";
 import "./index.css";
 import { Link } from "react-router-dom";
