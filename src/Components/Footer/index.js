@@ -79,7 +79,7 @@ function Footer() {
             <h3>Our Location</h3>
             <div>
               <address>
-                Panchnath Rd, Lohana Para, Rajkot, Gujarat-360001
+                Panchnath road, near Gandhi Museum, Rajkot - 360001
               </address>
 
               {/* Map */}

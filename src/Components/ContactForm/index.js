@@ -25,10 +25,14 @@ const ContactForm = (props) => {
                 <FaHotel /> Hotel address
               </h2>
               <p className="text-center text-wrap">
-                Panchnath Rd, Lohana Para, Rajkot, Gujarat-360001
+                Panchnath road, near Gandhi Museum, Rajkot - 360001
               </p>
               <p>
-                <FaPhoneAlt /> +91-281-2220861
+                <a className="link" href="tel:++91-281-2220861"><FaPhoneAlt /> +91-281-2220861</a>
+              </p>
+
+              <p>
+                <a className="link" href="tel:+91-9898789898"><FaPhoneAlt />+91-9898789898 </a>
               </p>
               <p>
                 <a className="link" href="mailto:info@hotelbhabha.com">

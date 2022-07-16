@@ -77,7 +77,7 @@ const Header = () => {
                 title="rooms"
                 id="navbarScrollingDropdown"
                 renderMenuOnMount={true}
-                onClick={() =>setShowDropdown(true)}
+                // onClick={() =>setShowDropdown(true)}
               >
                 <div className="nav-dropdown">
                   <NavDropdown.Item as={Link} to="/rooms/standard-room">
