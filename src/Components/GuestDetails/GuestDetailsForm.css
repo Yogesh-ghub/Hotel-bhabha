@@ -1,0 +1,33 @@
+.guest-details{
+    border: 1px solid #D7D7D7;
+    margin: 4px 4px;
+    padding: 20px 24px;
+}
+
+.guest-details-row{
+    padding: 4px 4px;
+}
+
+.row-heading{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.input-box{
+    border-radius: 0;
+    color: black;
+    border: 1px solid #EBEBEB;
+    outline: 0;
+}
+
+.pay-icons{
+    margin-bottom: 20px;
+}
+.pay-icons-item{
+    margin-right: 10px;
+}
+
+#card-icon{
+    background-color: inherit;
+}
