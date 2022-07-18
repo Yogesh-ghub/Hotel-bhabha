@@ -1,0 +1,2 @@
+export const GET_HOTEL="GET_HOTEL";
+export const GET_SPECIFIC_ROOM="GET_SPECIFIC_ROOM";

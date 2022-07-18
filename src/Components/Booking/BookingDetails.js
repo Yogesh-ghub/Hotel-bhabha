@@ -1,37 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
 
 import DatePicker from "./DatePicker";
 import RoomBookingCard from "./RoomBookingCard";
-import Banner from '../Banner'
-import useFetch from "../../hooks/useFetch";
 import Basket from "./Basket";
-import bannerImg from '../../Assets/images/contact.jpeg'
+
+import { getHotel } from "../../redux/reducer/Hotel/hotel.action";
+import { useDispatch, useSelector } from "react-redux";
+import { getCart } from "../../redux/reducer/Cart/cart.action";
 
 function BookingDetails() {
-  const { data, loading } = useFetch("http://localhost:4000/api/room/");
+  const [hotel, setHotel] = useState([]);
+  const [items, setItems] = useState([]);
+  const reduxState = useSelector((globalState) => globalState.cartReducer.cart)
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getHotel()).then((data) => {
+      console.log(data.payload);
+      setHotel(data.payload);
+    });
+
+
+  }, []);
+
+
+  // useEffect(() => {
+  //   dispatch(getCart()).then((data) => {
+  //     setItems(data.payload);
+  //   })
+  // }, [])
+  console.log(reduxState);
+
+
 
   return (
     <div>
-      
-      <Banner title="Book Your Room" img={bannerImg} />
-
+      <div className="booking-banner">
+        <div className="animated animatedFadeInUp fadeInUp">
+          <h1>Book Your Room</h1>
+        </div>
+      </div>
       <div className="mt-5 card-container">
         <div className="d-flex flex-column ">
           <DatePicker />
           <h1 className="mt-5 mb-4"> Select a Room</h1>
         </div>
         <div className="row">
-          {loading ? (
-            "loading"
-          ) : (
-            <>
-              {data.map((room) => (
-                <RoomBookingCard key={room._id} room={room} id={room._id} />
-              ))}
-            </>
-          )}
-          <Basket />
+
+          <>
+            {hotel.map((room, index) => (
+              <RoomBookingCard {...room} key={index} />
+            ))}
+          </>
+          {reduxState.map((data) =>(
+            <Basket key={data._id} {...data} />
+          )) }
+
         </div>
       </div>
     </div>
