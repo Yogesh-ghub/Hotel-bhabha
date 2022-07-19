@@ -1,0 +1,26 @@
+.img-large {
+    width: 500px;
+    z-index: 1;
+  }
+  
+  .img-small {
+    width: 100%;
+    height: auto;
+    border: 8px white solid;
+  
+    z-index: 2;
+  }
+  
+  .parent {
+    position: relative;
+    width: 70vw;
+  }
+  
+  .child {
+    width: 300px;
+    position: absolute;
+  
+    bottom: 0;
+    right: -20%;
+  }
+  

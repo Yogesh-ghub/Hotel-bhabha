@@ -11,6 +11,7 @@ import Booking from "./Pages/Booking";
 import ScrollToTop from "./Components/ScrollToTop";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import DiningHall from './Pages/DiningHall'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route exact path=":id" element={<Room />} />
             <Route exact path=":id" element={<Room />} />
           </Route>
+          <Route exact path="/dining-hall" element={<DiningHall />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/booking" element={<Booking />} />
         </Routes>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import './index.css'
 import { Container, Row, Col, Button } from "react-bootstrap";
 
@@ -12,6 +13,12 @@ import restaurant2 from "../../Assets/images/restaurant2.jpg";
 // import food2 from "../../Assets/images/food2.jpg";
 
 function HallAndDiningHome() {
+
+  let navigate = useNavigate();
+
+  function handleClick(path) {
+    navigate(path, { replace: true });
+  }
   return (
     <>
       <Container id="halls-home">
@@ -60,7 +67,7 @@ function HallAndDiningHome() {
                         Far Far away, behind the word mountains, far from
                         countries vokalia
                       </p>
-                      <Button className="book-now-btn">Explore</Button>
+                      <Button className="book-now-btn" onClick={()=> handleClick("./dining-hall")}>Explore</Button>
                     </div>
                   </Col>
                 </Row>
@@ -74,7 +81,12 @@ function HallAndDiningHome() {
                         Far Far away, behind the word mountains, far from
                         countries vokalia
                       </p>
-                      <Button className="book-now-btn">Explore</Button>
+                      <Button
+                       className="book-now-btn"
+                       onClick={() => handleClick("./dining-hall")}
+                       >
+                        Explore
+                      </Button>
                     </div>
                   </Col>
                 </Row>

@@ -102,6 +102,16 @@ const Header = () => {
                 as={Link}
                 className="nav-links mr-2"
                 eventKey={2}
+                to="/dining-hall"
+              >
+                Dining Hall
+              </Nav.Link>
+
+
+              <Nav.Link
+                as={Link}
+                className="nav-links mr-2"
+                eventKey={2}
                 to="/contact"
               >
                 Contact us
