@@ -55,7 +55,7 @@ function RoomSlider() {
     prevArrow: <HiArrowCircleLeft />,
     infinite: false,
     speed: 700,
-    slidesToShow: 1.7,
+    slidesToShow: 1.6,
     centerMode: true,
     slidesToScroll: 1,
     autoplay: true,
@@ -80,6 +80,7 @@ function RoomSlider() {
       },
     ],
   };
+
   return (
     <>
       <div className="room-slider-container p-5">

@@ -1,5 +1,4 @@
 import React from "react";
-import { DatePicker } from "react-datepicker"
 import { Container, Row, Col, Form, Button, InputGroup, FloatingLabel } from "react-bootstrap";
 import './GuestDetailsForm.css'
 import { AiFillCreditCard } from 'react-icons/ai'
@@ -7,9 +6,11 @@ import visa from '../../Assets/images/Visa.png'
 import mastercard from '../../Assets/images/MasterCard.png'
 import amex from '../../Assets/images/Amex.png'
 import dinerclub from '../../Assets/images/DinersClub.png'
+import DatePicker from 'react-datepicker'
 import jcb from '../../Assets/images/JCB.png'
 const now = new Date;
 const until = new Date(now.getFullYear() + 10, now.getMonth());
+
 
 const GuestDetailsForm = () => {
 
@@ -22,19 +23,6 @@ const GuestDetailsForm = () => {
               <h4 className="row-heading">Guest Details</h4>
               <Col md={6}>
                 <InputGroup className="mb-3">
-                  {/* <Form.Select aria-label="Default select example" className="input-box shadow-none">
-                    <option disabled hidden>
-                      Prefix *
-                    </option>
-                    <option value="1">Dr.</option>
-                    <option value="2">Miss.</option>
-                    <option value="3">Mr.</option>
-                    <option value="3">Mrs.</option>
-                    <option value="3">Ms.</option>
-                    <option value="3">Pr.</option>
-                    <option value="3">Prof.</option>
-                    <option value="3">Rev.</option>
-                  </Form.Select> */}
                   <FloatingLabel controlId="floatingSelect" label="Prefix">
                     <Form.Select aria-label="Floating label select example" className="input-box shadow-none" required>
                       <option value="1">Dr.</option>
@@ -47,7 +35,6 @@ const GuestDetailsForm = () => {
                       <option value="3">Rev.</option>
                     </Form.Select>
                   </FloatingLabel>
-                  {/* <Form.Control type="text" placeholder="FirstName" className="input-box shadow-none" /> */}
                   <FloatingLabel
                   controlId="firstname"
                   label="First Name"
@@ -80,12 +67,6 @@ const GuestDetailsForm = () => {
                 </Col>
 
                 <Col>
-                    {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Control type="email" placeholder="Email address" className="input-box shadow-none"  />
-                        <Form.Text className="text-muted">                         
-                            This is the email we will send your confirmation to.
-                        </Form.Text>
-                    </Form.Group> */}
                     <FloatingLabel
                         controlId="email"
                         label="Email Address"
@@ -110,23 +91,14 @@ const GuestDetailsForm = () => {
                 <img class="pay-icons-item" src={jcb}  width="45px" />
               </div>
               <Col md={6}>
-                {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control type="number" placeholder="Card Number" className="input-box" />
-                </Form.Group> */}
                 <InputGroup className="mb-3">
                   <FloatingLabel
                    controlId="card-number"
                    label=""
                    className="mb-3"
                    >
-                    <InputGroup.Text id="card-icon"><AiFillCreditCard size={24} /></InputGroup.Text>
+                    <InputGroup.Text id="card-icon" className='py-3'><AiFillCreditCard size={24} /></InputGroup.Text>
                   </FloatingLabel>
-                  {/* <Form.Control
-                    placeholder="Card number"
-                    aria-label="card number"
-                    aria-describedby="card number"
-                    className="input-box shadow-none"
-                /> */}
                 <FloatingLabel
                         controlId="card-number"
                         label="Card number"
@@ -138,10 +110,10 @@ const GuestDetailsForm = () => {
 
                 <FloatingLabel
                       controlId="card expire"
-                      label="Card Expiration "
+                      label="Card Expiration"
                       className="mb-3"
                     >
-                    <Form.Control type="date" placeholder="Card expiration date" className="input-box shadow-none" required />
+                    <Form.Control type="date" date-format="MM-YYYY" placeholder="Card expiration date" className="input-box shadow-none" required />
                   </FloatingLabel>
                   <FloatingLabel
                       controlId="name-card"

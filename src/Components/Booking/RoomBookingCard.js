@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useCart } from "react-use-cart";
 
 import "./index.css";
 import about2 from "../../Assets/images/about-grid-small.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { getSpecificROOM } from "../../redux/reducer/Hotel/hotel.action"
+import { addToCart } from "../../redux/reducer/Cart/cart.action";
+function RoomBookingCard(room) {
+  const dispatch = useDispatch();
+  const [roominfo, setroominfo] = useState({});
+ 
+  const reduxState = useSelector((globalState) => globalState.cartReducer.cart);
+  
+  useEffect(() => {
+    room._id && dispatch(getSpecificROOM(room._id)).then((data) => {
+      setroominfo(data.payload);
+      return data.payload
 
-function RoomBookingCard({ room }) {
-  const { addItem } = useCart();
+    })
+    
+  }, [reduxState]);
+  
+  const addFoodToCart=()=>
+  {
+    dispatch(addToCart({...roominfo,quantity:1,totalPrice: roominfo.price}))
 
-  console.log(room);
-
+  }
+  
+  
+  
   return (
     <>
       <div class="container m-3">
@@ -24,12 +44,14 @@ function RoomBookingCard({ room }) {
               Variable width contentVariable width contentVariable width
             </p>
             <span>₹{room.pricePerNight}</span>
+
             <button
               className="d-flex float-end book-now-btn btn-book "
-              onClick={() => addItem()}
+              onClick={addFoodToCart}
             >
               Book Now
             </button>
+
           </div>
         </div>
       </div>

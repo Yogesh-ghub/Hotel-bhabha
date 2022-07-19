@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom'
 import img1 from "../../Assets/images/DSC00754.jpg";
 import food2 from '../../Assets/images/food2.jpg'
 
@@ -9,6 +10,13 @@ import { IoBed, IoRestaurant } from 'react-icons/io5'
 
 import "./index.css";
 const AboutUs = () => {
+
+  let navigate = useNavigate();
+
+  function handleClick(path) {
+    navigate(path, { replace: true });
+  }
+
   return (
     <Container className="p-4 about-us-container">
       <Row className="d-flex justify-content-between">
@@ -85,7 +93,7 @@ const AboutUs = () => {
               to the pride of Rajkot Maintaining the manner and comfort of times
               past...
             </p>
-            <Button href="./about" className="book-now-btn">
+            <Button className="book-now-btn" onClick={() => handleClick('./about')}>
               Read more...
             </Button>
           </div>
