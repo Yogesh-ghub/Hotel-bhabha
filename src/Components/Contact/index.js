@@ -1,17 +1,16 @@
 import React from "react";
 import "./index.css";
 import {Container, Row, Col } from 'react-bootstrap'
+import Banner from '../Banner'
+import bannerImg from '../../Assets/images/gallery2.jpg' 
 
 function ContactUs(props) {
   return (
     <div id="contact-container">
       <div className="block">
-        <div className="contact-banner">
-          <div className=" animated animatedFadeInUp fadeInUp">
-            <h1>Contact Us</h1>
-          </div>
-          
-        </div>
+        
+        <Banner title="Contact Us" img={bannerImg} />
+
         <Container>
           <Row>
             <Col md={12} className="contact-desc">

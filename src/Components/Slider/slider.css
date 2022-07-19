@@ -1,15 +1,5 @@
 .slide-img{
-    height: 100vh;
-}
-
-@media screen and (max-width: 768px) {
-    .slide-img{
-        height: 50vh;
-    }
-}
-
-@media screen and (max-width: 992px){
-    .slide-img{
-        height: 75vh;
-    }
+    /* height: 100vh; */
+    overflow: hidden;
+    max-height: 100vh;
 }

@@ -5,22 +5,15 @@ import Slider from "../Slider/Slider";
 import slideimg1 from "../../Assets/images/sliderimg-1.jpeg";
 import slideimg2 from "../../Assets/images/sliderimg-2.jpeg";
 import slideimg3 from "../../Assets/images/sliderimg-3.jpeg";
-
+import bannerImg from "../../Assets/images/executive-room.jpeg"
+import Banner from '../Banner'
 import "./index.css";
 
 const RoomOverview = (props) => {
   return (
     <div>
-      <div className="room-banner">
-        <div className="animated animatedFadeInUp fadeInUp">
-          <h1>{props.roomTitle}</h1>
+      <Banner title={props.roomTitle} img={bannerImg} />
 
-          <blockquote className="quote">
-            "You kind of owe it to yourself to do all the things you've dreamed
-            of."
-          </blockquote>
-        </div>
-      </div>
       <Container className="room-overview-container">
         <Row className="d-flex justify-content-around">
           <Col md={7} lg={6}>

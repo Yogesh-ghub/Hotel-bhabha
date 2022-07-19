@@ -3,20 +3,19 @@ import "./index.css";
 
 import DatePicker from "./DatePicker";
 import RoomBookingCard from "./RoomBookingCard";
-
+import Banner from '../Banner'
 import useFetch from "../../hooks/useFetch";
 import Basket from "./Basket";
+import bannerImg from '../../Assets/images/contact.jpeg'
 
 function BookingDetails() {
   const { data, loading } = useFetch("http://localhost:4000/api/room/");
 
   return (
     <div>
-      <div className="booking-banner">
-        <div className="animated animatedFadeInUp fadeInUp">
-          <h1>Book Your Room</h1>
-        </div>
-      </div>
+      
+      <Banner title="Book Your Room" img={bannerImg} />
+
       <div className="mt-5 card-container">
         <div className="d-flex flex-column ">
           <DatePicker />
