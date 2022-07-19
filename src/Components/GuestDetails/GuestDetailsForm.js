@@ -9,22 +9,26 @@ import dinerclub from '../../Assets/images/DinersClub.png'
 import DatePicker from 'react-datepicker'
 import jcb from '../../Assets/images/JCB.png'
 const now = new Date;
+
 const until = new Date(now.getFullYear() + 10, now.getMonth());
 
 
 const GuestDetailsForm = () => {
-
   return (
     <Container className="guest-details-container">
-      <Row className="guest-details-row" >
-        <Col md={7} className="guest-details" >
+      <Row className="guest-details-row">
+        <Col md={7} className="guest-details">
           <Form>
             <Row>
               <h4 className="row-heading">Guest Details</h4>
               <Col md={6}>
                 <InputGroup className="mb-3">
                   <FloatingLabel controlId="floatingSelect" label="Prefix">
-                    <Form.Select aria-label="Floating label select example" className="input-box shadow-none" required>
+                    <Form.Select
+                      aria-label="Floating label select example"
+                      className="input-box shadow-none"
+                      required
+                    >
                       <option value="1">Dr.</option>
                       <option value="2">Miss.</option>
                       <option value="3">Mr.</option>
@@ -36,12 +40,17 @@ const GuestDetailsForm = () => {
                     </Form.Select>
                   </FloatingLabel>
                   <FloatingLabel
-                  controlId="firstname"
-                  label="First Name"
-                  className="mb-3"
-                >
-                  <Form.Control type="text" placeholder="First Name" className="input-box shadow-none" required />
-                </FloatingLabel>
+                    controlId="firstname"
+                    label="First Name"
+                    className="mb-3"
+                  >
+                    <Form.Control
+                      type="text"
+                      placeholder="First Name"
+                      className="input-box shadow-none"
+                      required
+                    />
+                  </FloatingLabel>
                 </InputGroup>
               </Col>
               <Col md={6}>
@@ -50,22 +59,31 @@ const GuestDetailsForm = () => {
                   label="Last Name"
                   className="mb-3"
                 >
-                  <Form.Control type="text" placeholder="Last Name" className="input-box shadow-none" required />
+                  <Form.Control
+                    type="text"
+                    placeholder="Last Name"
+                    className="input-box shadow-none"
+                    required
+                  />
                 </FloatingLabel>
               </Col>
             </Row>
 
             <Row>
-                <Col>
-                    <FloatingLabel
-                      controlId="mobno"
-                      label="Mobile Number"
-                      className="mb-3"
-                    >
-                    <Form.Control type="number" placeholder="Mobile no." className="input-box shadow-none" required />
-                  </FloatingLabel>
-                </Col>
-
+              <Col>
+                <FloatingLabel
+                  controlId="mobno"
+                  label="Mobile Number"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="number"
+                    placeholder="Mobile no."
+                    className="input-box shadow-none"
+                    required
+                  />
+                </FloatingLabel>
+              </Col>
                 <Col>
                     <FloatingLabel
                         controlId="email"
@@ -78,17 +96,18 @@ const GuestDetailsForm = () => {
                         </Form.Text>
                     </FloatingLabel>
                 </Col>
-              
             </Row>
             <hr />
             <Row>
-              < h4 className="row-heading">Card Details (to guarantee reservation)</h4>
+              <h4 className="row-heading">
+                Card Details (to guarantee reservation)
+              </h4>
               <div className="pay-icons">
                 <img class="pay-icons-item" src={visa} width="45px" />
-                <img class="pay-icons-item" src={mastercard}  width="45px" />
-                <img class="pay-icons-item" src={amex}  width="45px" />
-                <img class="pay-icons-item" src={dinerclub}  width="45px" />
-                <img class="pay-icons-item" src={jcb}  width="45px" />
+                <img class="pay-icons-item" src={mastercard} width="45px" />
+                <img class="pay-icons-item" src={amex} width="45px" />
+                <img class="pay-icons-item" src={dinerclub} width="45px" />
+                <img class="pay-icons-item" src={jcb} width="45px" />
               </div>
               <Col md={6}>
                 <InputGroup className="mb-3">
@@ -132,15 +151,30 @@ const GuestDetailsForm = () => {
         <Col md={7} className="guest-details">
           <h4 className="row-heading">Reservation and Cancellation Policy:</h4>
           <div className="">
-            <p>Early check-in or late check-out is subject to availability and may be chargeable by the hotel directly.</p>
+            <p>
+              Early check-in or late check-out is subject to availability and
+              may be chargeable by the hotel directly.
+            </p>
             <p>Check-in time is 12:00 PM, Check-out time is 12:00 PM.</p>
-            
+
             <div>
               <ul className="list-unstyled">
-                <li>If cancelled, advance payment made online will not be refundable.</li>
-                <li>It is mandatory for guests to present valid photo identification upon check in.</li>
+                <li>
+                  If cancelled, advance payment made online will not be
+                  refundable.
+                </li>
+                <li>
+                  It is mandatory for guests to present valid photo
+                  identification upon check in.
+                </li>
                 <li>The Credit Card Holder must be one of the travelers.</li>
-                <li>We reserve the right to cancel or modify reservations where it appears that a customer has engaged in fraudulent or inappropriate activity or under other circumstances where it appears that the reservations contain or resulted from a mistake or error.</li>
+                <li>
+                  We reserve the right to cancel or modify reservations where it
+                  appears that a customer has engaged in fraudulent or
+                  inappropriate activity or under other circumstances where it
+                  appears that the reservations contain or resulted from a
+                  mistake or error.
+                </li>
               </ul>
             </div>
           </div>
