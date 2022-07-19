@@ -27,11 +27,19 @@ function BookingDetails() {
             "loading"
           ) : (
             <>
-              {data.map((room) => (
-                <RoomBookingCard key={room._id} room={room} id={room._id} />
-              ))}
+              {data.map((item, index) => {
+                return (
+                  <RoomBookingCard
+                    {...item}
+                    key={index}
+                    id={item._id}
+                    item={item}
+                  />
+                );
+              })}
             </>
           )}
+
           <Basket />
         </div>
       </div>

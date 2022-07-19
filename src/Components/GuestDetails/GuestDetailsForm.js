@@ -1,12 +1,11 @@
 import React from "react";
-import { DatePicker } from "react-datepicker"
+// import { DatePicker } from "react-datepicker"
 import { Container, Row, Col, Form, Button, InputGroup } from "react-bootstrap";
 
-const now = new Date;
+const now = new Date();
 const until = new Date(now.getFullYear() + 10, now.getMonth());
 
 const GuestDetailsForm = () => {
-
   return (
     <Container>
       <Row>
@@ -42,35 +41,39 @@ const GuestDetailsForm = () => {
               </Col>
             </Row>
             <Row>
-                <Col>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Control type="number" placeholder="Mobile number" />
-                    </Form.Group>
-                </Col>
+              <Col>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Control type="number" placeholder="Mobile number" />
+                </Form.Group>
+              </Col>
 
-                <Col>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Control type="email" placeholder="Email address" />
-                        <Form.Text className="text-muted">                         
-                            This is the email we will send your confirmation to.
-                        </Form.Text>
-                    </Form.Group>
-                </Col>
-              
+              <Col>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput1"
+                >
+                  <Form.Control type="email" placeholder="Email address" />
+                  <Form.Text className="text-muted">
+                    This is the email we will send your confirmation to.
+                  </Form.Text>
+                </Form.Group>
+              </Col>
             </Row>
             <Row>
               <h4>Card Details (to guarantee reservation)</h4>
               <Col md={6}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control type="number" placeholder="Card Number" />
+                  <Form.Control type="number" placeholder="Card Number" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    {/* <Form.Control type="Date" placeholder="Expiration Date (MM/YY)" /> */}
-                    
+                  {/* <Form.Control type="Date" placeholder="Expiration Date (MM/YY)" /> */}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="text" placeholder="Name on Card" />
+                  <Form.Control type="text" placeholder="Name on Card" />
                 </Form.Group>
               </Col>
             </Row>
