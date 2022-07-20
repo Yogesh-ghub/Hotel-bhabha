@@ -6,29 +6,39 @@ import about2 from "../../Assets/images/about-grid-small.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { getSpecificROOM } from "../../redux/reducer/Hotel/hotel.action"
 import { addToCart } from "../../redux/reducer/Cart/cart.action";
+import SelectRoomModal from "./SelectRoomModal";
 function RoomBookingCard(room) {
   const dispatch = useDispatch();
   const [roominfo, setroominfo] = useState({});
- 
+
   const reduxState = useSelector((globalState) => globalState.cartReducer.cart);
-  
+  const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     room._id && dispatch(getSpecificROOM(room._id)).then((data) => {
       setroominfo(data.payload);
       return data.payload
 
+    }).then((data) => {
+      reduxState.forEach((each) => {
+        if (each._id === data._id) {
+          setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
+        }
+      });
     })
-    
+
   }, [reduxState]);
-  
-  const addFoodToCart=()=>
-  {
-    dispatch(addToCart({...roominfo,quantity:1,totalPrice: roominfo.price}))
+
+  const addFoodToCart = () => {
+    dispatch(addToCart({ ...roominfo, quantity: 1, totalPrice: roominfo.price }))
+    setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
 
   }
-  
-  
-  
+
+  const handleClick = () => {
+    setOpenModal(true);
+  };
+
+
   return (
     <>
       <div class="container m-3">
@@ -47,11 +57,13 @@ function RoomBookingCard(room) {
 
             <button
               className="d-flex float-end book-now-btn btn-book "
-              onClick={addFoodToCart}
+              onClick={handleClick}
             >
               Book Now
             </button>
-
+            {openModal && (
+              <SelectRoomModal setOpen={setOpenModal} roomId={room._id} />
+            )}
           </div>
         </div>
       </div>

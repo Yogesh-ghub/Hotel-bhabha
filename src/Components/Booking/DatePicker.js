@@ -13,20 +13,20 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 
 const DateRangePickerComp = () => {
   // date state
-  const [range, setRange] = useState([
+  const [dates, setDates] = useState([
     {
       startDate: new Date(),
       endDate: addDays(new Date(), 7),
       key: "selection",
     },
   ]);
-
+  
   // open close
   const [open, setOpen] = useState(false);
 
   // get the target element to toggle
   const refOne = useRef(null);
-
+  console.log(dates[0]);
   useEffect(() => {
     // event listeners
     document.addEventListener("keydown", hideOnEscape, true);
@@ -58,7 +58,7 @@ const DateRangePickerComp = () => {
           <span>
             <h6>Check in</h6>
             <input
-              value={`${format(range[0].startDate, "MM/dd/yyyy")} `}
+              value={`${format(dates[0].startDate, "dd/MM/yyyy")} `}
               readOnly
               className="inputBox"
             />
@@ -72,7 +72,7 @@ const DateRangePickerComp = () => {
           <span className="d-flex flex-column">
             <h6>Check out</h6>
             <input
-              value={` ${format(range[0].endDate, "MM/dd/yyyy")}`}
+              value={` ${format(dates[0].endDate, "dd/MM/yyyy")}`}
               readOnly
               className="inputBox input-box"
             />
@@ -83,10 +83,10 @@ const DateRangePickerComp = () => {
       <div ref={refOne}>
         {open && (
           <DateRange
-            onChange={(item) => setRange([item.selection])}
+            onChange={(item) => setDates([item.selection])}
             editableDateInputs={true}
             moveRangeOnFirstSelection={false}
-            ranges={range}
+            ranges={dates}
             months={1}
             direction="horizontal"
             className="calendarElement"
