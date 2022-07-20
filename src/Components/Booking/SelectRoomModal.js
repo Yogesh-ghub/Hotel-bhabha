@@ -22,7 +22,7 @@ function SelectRoomModal({ setOpen, roomId, dates }) {
       })
   },[])
 
-    console.log(`dates: ${dates}`);
+    
   
   //   console.log(` room :${roomId}`);
 
