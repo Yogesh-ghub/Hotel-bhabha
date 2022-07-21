@@ -1,36 +1,33 @@
 import Card from "react-bootstrap/Card";
 
-import img1 from "../../Assets/images/slideimg3.jpg";
-
-function SliderCard() {
+function SliderCard(props) {
   return (
     <div className=" d-flex justify-content-center">
-      <Card style={{ width: "19.5rem" }} className="mt-5 border-0">
+      <Card style={{ width: "20rem" }} className="mt-5 mx-3 border-0">
         <Card.Img
           variant="top"
           alt="Card image"
-          src={img1}
+          src={props.image}
           className="rounded-0"
         />
         <Card.Body className="p-0">
           <Card.Title
-            className=" fw-bold mt-2 card-title"
+            className=" division-heading mt-2 card-title text-center"
             style={{ fontSize: "18px" }}
           >
-            Lorem ipsum dolor sit amet
+            {props.title}
           </Card.Title>
           <Card.Subtitle
             className="mt-2 fw-semibold"
             style={{ fontSize: "14px" }}
           >
-            Dec 20th By Admin
+            {props.subTitle}
           </Card.Subtitle>
           <Card.Text
             className="text-wrap mt-3 card-description"
             style={{ fontSize: "14px" }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque euismod, nisi eu consectetur euismod, nisl nisl
+            { props.description}
           </Card.Text>
         </Card.Body>
       </Card>

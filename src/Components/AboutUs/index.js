@@ -33,7 +33,7 @@ const AboutUs = () => {
                       <IoRestaurant size={48} className="" />
                     </div>
 
-                    <h4 className="text-center my-3">Best Food</h4>
+                    <h4 className="text-center my-2">Best Food</h4>
                     <p className="text-center">
                       Far Far away, behind the word mountains, far from
                       countries vokalia
@@ -69,7 +69,7 @@ const AboutUs = () => {
                     <div className="d-flex justify-content-center my-2">
                       <IoBed size={48} className="" />
                     </div>
-                    <h4 className="text-center my-3">Cozy Bed</h4>
+                    <h4 className="text-center my-2">Cozy Bed</h4>
                     <p className="text-center">
                       Far Far away, behind the word mountains, far from
                       countries vokalia

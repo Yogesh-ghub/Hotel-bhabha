@@ -74,7 +74,7 @@ function HallSlider(props) {
 
   return (
     <>
-      <div className="room-slider-container p-5">
+      <div className="p-5">
         <h2 className="division-heading">Stay & Live</h2>
             <Slider {...settings}>
                 {
