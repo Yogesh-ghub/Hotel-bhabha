@@ -12,7 +12,7 @@ import ScrollToTop from "./Components/ScrollToTop";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import DiningHall from './Pages/DiningHall'
-
+import Checkout  from "./Pages/Checkout";
 function App() {
   return (
     <div className="App">
@@ -29,6 +29,7 @@ function App() {
           <Route exact path="/dining-hall" element={<DiningHall />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/booking" element={<Booking />} />
+          <Route exact path="/checkout" element={<Checkout />} />
         </Routes>
       </ScrollToTop>
     </div>

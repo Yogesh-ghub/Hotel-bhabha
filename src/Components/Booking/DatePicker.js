@@ -8,9 +8,9 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 
 import "./DatePicker.css";
-
+import { useDispatch } from "react-redux";
 import { FaRegCalendarAlt } from "react-icons/fa";
-
+import { putDate } from "../../redux/reducer/date/date.action";
 const DateRangePickerComp = () => {
   // date state
   const [dates, setDates] = useState([
@@ -23,7 +23,7 @@ const DateRangePickerComp = () => {
   
   // open close
   const [open, setOpen] = useState(false);
-
+  const dispatch=useDispatch();
   // get the target element to toggle
   const refOne = useRef(null);
   console.log(dates[0]);
@@ -33,6 +33,10 @@ const DateRangePickerComp = () => {
     document.addEventListener("click", hideOnClickOutside, true);
   }, []);
 
+  useEffect(()=>
+  {
+    dispatch(putDate(dates[0]));
+  },[dates]);
   // hide dropdown on ESC press
   const hideOnEscape = (e) => {
     // console.log(e.key)
