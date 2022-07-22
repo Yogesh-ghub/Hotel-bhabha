@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "react-use-cart";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "./index.css";
 import about2 from "../../Assets/images/about-grid-small.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { getSpecificROOM } from "../../redux/reducer/Hotel/hotel.action";
 import { addToCart } from "../../redux/reducer/Cart/cart.action";
 function RoomBookingCard(room) {
+  const [roomNo, setRoomNo] = useState("0");
 
-  const [roomNo, setRoomNo] = useState("0")
+  const [adult, setAdult] = useState("1");
+  const [child, setChild] = useState("0");
+  const [belowChild, setBelowChild] = useState("0");
+
+  const [price, setPrice] = useState("price");
+
+  // console.log(parseInt(adult) + parseInt(child) + parseInt(belowChild));
+
+  const price=
 
   const dispatch = useDispatch();
   const [roominfo, setroominfo] = useState({});
@@ -31,7 +40,7 @@ function RoomBookingCard(room) {
 
   const handleRoomnoChange = (e) => {
     setRoomNo(e.target.value);
-  }
+  };
 
   return (
     <>
@@ -51,28 +60,27 @@ function RoomBookingCard(room) {
             <span>₹{room.pricePerNight}</span>
 
             <div className="d-flex">
-                <span className="mx-2">Number of Rooms:</span>
-                <select
-                  className="form-select form-select-sm"
-                  aria-label=".form-select-sm example"
-                  style={{ width: "20%" }}
-                  value={roomNo}
-                  onChange={handleRoomnoChange}
-                >
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+              <span className="mx-2">Number of Rooms:</span>
+              <select
+                className="form-select form-select-sm"
+                aria-label=".form-select-sm example"
+                style={{ width: "20%" }}
+                value={roomNo}
+                onChange={handleRoomnoChange}
+              >
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
 
-              <Link className="mx-4" to="">Room Details</Link>
+              <Link className="mx-4" to="">
+                Room Details
+              </Link>
             </div>
-            <div className='d-flex'>
-              
-
-            </div>
+            <div className="d-flex"></div>
 
             {/* <button
               className="d-flex float-end book-now-btn btn-book "
@@ -80,58 +88,76 @@ function RoomBookingCard(room) {
             >
               Book Now
             </button> */}
-            {(roomNo !== '0' && <table className="table">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Adult <br /></th>
-                  <th scope="col">Child <br /> <small className="text-muted">(Age 5-12 yrs)</small> </th>
-                  <th scope="col">Child <br /> <small className="text-muted">(Below 5yrs)</small> </th>
-                  <th scope="col">Room Price <br /> <small className="text-muted">for 1 night(s)</small> </th>
-                </tr>
-              </thead>
-              <tbody>
-                  {
-                    [...Array(parseInt(roomNo))].map((room, key) => {
-                      return (<tr>
-                      <th scope="row">Room 1</th>
-                      <td>
-                        <select
-                          className="form-select form-select-sm"
-                          aria-label=".form-select-sm example"
-                        >
-                          <option value="1">1 Adult</option>
-                          <option value="2">2 Adult</option>
-                          <option value="3">3 Adult</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select
-                          className="form-select form-select-sm"
-                          aria-label=".form-select-sm example"
-                        >
-                          <option value="0">0 Child</option>
-                          <option value="1">1 Child</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select
-                          className="form-select form-select-sm"
-                          aria-label=".form-select-sm example"
-                        >
-                          <option value="0">0 Child</option>
-                          <option value="1">1 Child</option>
-                        </select>
-                      </td>
-                      <td>
-                        <span>INR 1000</span>
-                      </td>
+            {roomNo !== "0" && (
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">
+                      Adult <br />
+                    </th>
+                    <th scope="col">
+                      Child <br />{" "}
+                      <small className="text-muted">(Age 5-12 yrs)</small>{" "}
+                    </th>
+                    <th scope="col">
+                      Child <br />{" "}
+                      <small className="text-muted">(Below 5yrs)</small>{" "}
+                    </th>
+                    <th scope="col">
+                      Room Price <br />{" "}
+                      <small className="text-muted">for 1 night(s)</small>{" "}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...Array(parseInt(roomNo))].map((room, key) => {
+                    return (
+                      <tr>
+                        <th scope="row">Room 1</th>
+                        <td>
+                          <select
+                            className="form-select form-select-sm"
+                            aria-label=".form-select-sm example"
+                            value={adult}
+                            onChange={(e) => setAdult(e.target.value)}
+                          >
+                            <option value="1">1 Adult</option>
+                            <option value="2">2 Adult</option>
+                            <option value="3">3 Adult</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select
+                            className="form-select form-select-sm"
+                            aria-label=".form-select-sm example"
+                            value={child}
+                            onChange={(e) => setChild(e.target.value)}
+                          >
+                            <option value="0">0 Child</option>
+                            <option value="1">1 Child</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select
+                            className="form-select form-select-sm"
+                            aria-label=".form-select-sm example"
+                            value={belowChild}
+                            onChange={(e) => setBelowChild(e.target.value)}
+                          >
+                            <option value="0">0 Child</option>
+                            <option value="1">1 Child</option>
+                          </select>
+                        </td>
+                        <td>
+                          <span>INR 1000</span>
+                        </td>
                       </tr>
-                      )
-                    })
-                  }
-              </tbody>
-            </table>)}
+                    );
+                  })}
+                </tbody>
+              </table>
+            )}
           </div>
         </div>
       </div>
