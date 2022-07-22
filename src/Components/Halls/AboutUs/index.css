@@ -1,4 +1,4 @@
-.parent {
+.hall-about-parent {
     position: relative;
     width: 90%;
     max-width: 1000px;
@@ -40,7 +40,7 @@
   }
 
   @media only screen and (max-width: 768px) {
-    .parent {
+    .hall-about-parent {
       flex-direction: column;
       width: 100%;
       margin: 0 20px;

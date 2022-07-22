@@ -9,7 +9,7 @@ const AboutHall = () => {
     <Container>
         <Row>
             <Col md={6}>
-                <div className="parent">
+                <div className="hall-about-parent">
                     <div className="left"></div>
                     <div className="right">
                         <h1>This is a heading</h1>
