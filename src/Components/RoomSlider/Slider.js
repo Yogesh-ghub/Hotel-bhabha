@@ -12,7 +12,7 @@ const SliderElement = (props) => {
             <div className="img-container">
               <img
                 src={props.img}
-                alt="slider image"
+                alt="sliderimage"
                 width="380rem"
                 className=""
               />

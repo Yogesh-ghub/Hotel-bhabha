@@ -5,8 +5,8 @@ import Slider from "../Slider/Slider";
 import slideimg1 from "../../Assets/images/sliderimg-1.jpeg";
 import slideimg2 from "../../Assets/images/sliderimg-2.jpeg";
 import slideimg3 from "../../Assets/images/sliderimg-3.jpeg";
-import bannerImg from "../../Assets/images/executive-room.jpeg"
-import Banner from '../Banner'
+import bannerImg from "../../Assets/images/executive-room.jpeg";
+import Banner from "../Banner";
 import "./index.css";
 
 const RoomOverview = (props) => {
@@ -33,7 +33,12 @@ const RoomOverview = (props) => {
               </p>
             </div>
             <div className="">
-              <img src={about2} className="img-thumbnail" width="70%" />
+              <img
+                src={about2}
+                className="img-thumbnail"
+                alt="img"
+                width="70%"
+              />
             </div>
           </Col>
         </Row>

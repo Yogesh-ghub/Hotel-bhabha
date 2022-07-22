@@ -10,7 +10,6 @@ import "./index.css";
 import SliderCard from "./SliderCard";
 
 function CardSlider(props) {
-
   const propArray = props.array;
 
   var settings = {
@@ -46,15 +45,11 @@ function CardSlider(props) {
     <>
       <div className="card-slider-container p-5">
         <h2 className="division-heading">Special Offers</h2>
-          <Slider {...settings}>
-
-          {
-            propArray.map((item) => {
-              return  <SliderCard image={item.image} title={item.title}  /> 
-            })
-          }
-          </Slider>
-        
+        <Slider {...settings}>
+          {propArray.map((item) => {
+            return <SliderCard image={item.image} title={item.title} />;
+          })}
+        </Slider>
       </div>
     </>
   );
