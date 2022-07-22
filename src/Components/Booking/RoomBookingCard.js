@@ -33,6 +33,10 @@ function RoomBookingCard(room) {
     setRoomNo(e.target.value);
   }
 
+  const removeRow = () =>{
+    
+  }
+
   return (
     <>
       <div className="container m-3">
@@ -94,7 +98,7 @@ function RoomBookingCard(room) {
                   {
                     [...Array(parseInt(roomNo))].map((room, key) => {
                       return (<tr>
-                      <th scope="row">Room 1</th>
+                      <th scope="row">Room 1 <span className="mx-2 cross-sign" onClick={removeRow} >&#10005;</span></th>
                       <td>
                         <select
                           className="form-select form-select-sm"

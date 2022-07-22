@@ -7,46 +7,40 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import SliderElement from './Slider'
-const HallImages = [
+const HallDetails = [
     {
         id: '1',
-        image: sliderimg1
+        image: sliderimg1,
+        title: "Dining Hall",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
     },
     {
         id: '2',
-        image: sliderimg1
+        image: sliderimg1,
+        title: "Banquet Hall",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
     },
     {
         id: '3',
-        image: sliderimg1
+        image: sliderimg1,
+        title: "Conference Hall",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
     },
-    {
-        id: '4',
-        image: sliderimg1
-    },
-    {
-        id: '5',
-        image: sliderimg1
-    },
-    {
-        id: '6',
-        image: sliderimg1
-    },
-    
+        
 ]
 
 
 function HallSlider(props) {
   var settings = {
-    dots: false,
+    dots: true,
     arrow: true,
     centerPadding: 10,
     centerMode:true,
     nextArrow: <HiArrowCircleRight />,
     prevArrow: <HiArrowCircleLeft />,
-    infinite: false,
+    infinite: true,
     speed: 700,
-    slidesToShow: 3.9,
+    slidesToShow: 1,
     centerMode: true,
     slidesToScroll: 1,
     autoplay: true,
@@ -56,7 +50,7 @@ function HallSlider(props) {
       {
         breakpoint: 968,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
         },
@@ -74,12 +68,12 @@ function HallSlider(props) {
 
   return (
     <>
-      <div className="p-5">
-        <h2 className="division-heading">Stay & Live</h2>
+      <div className="p-5 bg-grey">
+        <h2 className="division-heading">Dine & Shine</h2>
             <Slider {...settings}>
                 {
-                  HallImages.map((room) =>{
-                    return <SliderElement id={room.id} img={room.image} />
+                  HallDetails.map((room) =>{
+                    return <SliderElement id={room.id} img={room.image} title={room.title} description={room.description} />
                   })
                 }
             </Slider>

@@ -1,16 +1,14 @@
 import React from "react";
-import { Container, Row, Col, Form, Button, InputGroup, FloatingLabel } from "react-bootstrap";
+import { Container, Row, Col, Form, InputGroup, FloatingLabel } from "react-bootstrap";
 import './GuestDetailsForm.css'
 import { AiFillCreditCard } from 'react-icons/ai'
 import visa from '../../Assets/images/Visa.png'
 import mastercard from '../../Assets/images/MasterCard.png'
 import amex from '../../Assets/images/Amex.png'
 import dinerclub from '../../Assets/images/DinersClub.png'
-import DatePicker from 'react-datepicker'
 import jcb from '../../Assets/images/JCB.png'
-const now = new Date;
+const now = new Date();
 
-const until = new Date(now.getFullYear() + 10, now.getMonth());
 
 
 const GuestDetailsForm = () => {
@@ -103,11 +101,11 @@ const GuestDetailsForm = () => {
                 Card Details (to guarantee reservation)
               </h4>
               <div className="pay-icons">
-                <img class="pay-icons-item" src={visa} width="45px" />
-                <img class="pay-icons-item" src={mastercard} width="45px" />
-                <img class="pay-icons-item" src={amex} width="45px" />
-                <img class="pay-icons-item" src={dinerclub} width="45px" />
-                <img class="pay-icons-item" src={jcb} width="45px" />
+                <img className="pay-icons-item" src={visa} alt="" width="45px" />
+                <img className="pay-icons-item" src={mastercard} alt="" width="45px" />
+                <img className="pay-icons-item" src={amex} alt="" width="45px" />
+                <img className="pay-icons-item" src={dinerclub} alt="" width="45px" />
+                <img className="pay-icons-item" src={jcb} alt="" width="45px" />
               </div>
               <Col md={6}>
                 <InputGroup className="mb-3">

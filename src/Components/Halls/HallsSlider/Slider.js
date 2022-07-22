@@ -7,14 +7,22 @@ const SliderElement = (props) => {
     <div className="slider-column mt-4">
       <Container fluid>
         <Row>
-          <Col className="mx-3">
-            <div className="img-container">
+          <Col sm={12} lg className="mx-3">
+            <div className="img-container justify-content-center">
               <img
                 src={props.img}
                 alt="slider image"
                 width="400rem"
                 className=""
               />
+            </div>
+          </Col>
+          <Col sm={12} lg className="d-flex align-items-center mx-3">
+            <div className="px-3">
+              <div>
+                <h3 className="division-subheading text-center">{props.title}</h3>
+                <p className="">{props.description}</p>
+              </div>
             </div>
           </Col>
         </Row>

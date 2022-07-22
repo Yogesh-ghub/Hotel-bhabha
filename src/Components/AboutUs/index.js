@@ -24,7 +24,7 @@ const AboutUs = () => {
           <Row>
             <Col
               md={6}
-              className="col-area my-4 animated animatedFadeInUp fadeInUp"
+              className="col-area my-4"
             >
               <Row>
                 <Col md={12}>
@@ -52,7 +52,7 @@ const AboutUs = () => {
 
             <Col
               md={6}
-              className="col-area my-4 animated animatedFadeInUp fadeInUp"
+              className="col-area my-4"
             >
               <Row>
                 <Col md={12}>
@@ -82,7 +82,7 @@ const AboutUs = () => {
         </Col>
 
         <Col md={12} lg={5} className="col-area-description my-4">
-          <div className="animated animatedFadeInUp fadeInUp">
+          <div className="">
             <h1 className="division-heading">Pride of Rajkot: Hotel Bhabha</h1>
 
             <p>
