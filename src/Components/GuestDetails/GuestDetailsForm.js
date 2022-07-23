@@ -1,14 +1,20 @@
 import React from "react";
-import { Container, Row, Col, Form, InputGroup, FloatingLabel } from "react-bootstrap";
-import './GuestDetailsForm.css'
-import { AiFillCreditCard } from 'react-icons/ai'
-import visa from '../../Assets/images/Visa.png'
-import mastercard from '../../Assets/images/MasterCard.png'
-import amex from '../../Assets/images/Amex.png'
-import dinerclub from '../../Assets/images/DinersClub.png'
-import jcb from '../../Assets/images/JCB.png'
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  InputGroup,
+  FloatingLabel,
+} from "react-bootstrap";
+import "./GuestDetailsForm.css";
+import { AiFillCreditCard } from "react-icons/ai";
+import visa from "../../Assets/images/Visa.png";
+import mastercard from "../../Assets/images/MasterCard.png";
+import amex from "../../Assets/images/Amex.png";
+import dinerclub from "../../Assets/images/DinersClub.png";
+import jcb from "../../Assets/images/JCB.png";
 const now = new Date();
-
 
 
 const GuestDetailsForm = () => {
@@ -82,18 +88,23 @@ const GuestDetailsForm = () => {
                   />
                 </FloatingLabel>
               </Col>
-                <Col>
-                    <FloatingLabel
-                        controlId="email"
-                        label="Email Address"
-                        className="mb-3"
-                      >
-                      <Form.Control type="email" placeholder="alex@gmail.com" className="input-box shadow-none" required />
-                      <Form.Text className="text-muted">                         
-                            This is the email we will send your confirmation to.
-                        </Form.Text>
-                    </FloatingLabel>
-                </Col>
+              <Col>
+                <FloatingLabel
+                  controlId="email"
+                  label="Email Address"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="email"
+                    placeholder="alex@gmail.com"
+                    className="input-box shadow-none"
+                    required
+                  />
+                  <Form.Text className="text-muted">
+                    This is the email we will send your confirmation to.
+                  </Form.Text>
+                </FloatingLabel>
+              </Col>
             </Row>
             <hr />
             <Row>
@@ -101,44 +112,72 @@ const GuestDetailsForm = () => {
                 Card Details (to guarantee reservation)
               </h4>
               <div className="pay-icons">
-                <img className="pay-icons-item" src={visa} alt="" width="45px" />
-                <img className="pay-icons-item" src={mastercard} alt="" width="45px" />
-                <img className="pay-icons-item" src={amex} alt="" width="45px" />
-                <img className="pay-icons-item" src={dinerclub} alt="" width="45px" />
-                <img className="pay-icons-item" src={jcb} alt="" width="45px" />
+                <img class="pay-icons-item" alt="" src={visa} width="45px" />
+                <img
+                  class="pay-icons-item"
+                  alt=""
+                  src={mastercard}
+                  width="45px"
+                />
+                <img class="pay-icons-item" alt="" src={amex} width="45px" />
+                <img
+                  class="pay-icons-item"
+                  alt=""
+                  src={dinerclub}
+                  width="45px"
+                />
+                <img class="pay-icons-item" alt="" src={jcb} width="45px" />
               </div>
               <Col md={6}>
                 <InputGroup className="mb-3">
                   <FloatingLabel
-                   controlId="card-number"
-                   label=""
-                   className="mb-3"
-                   >
-                    <InputGroup.Text id="card-icon" className='py-3'><AiFillCreditCard size={24} /></InputGroup.Text>
+                    controlId="card-number"
+                    label=""
+                    className="mb-3"
+                  >
+                    <InputGroup.Text id="card-icon" className="py-3">
+                      <AiFillCreditCard size={24} />
+                    </InputGroup.Text>
                   </FloatingLabel>
-                <FloatingLabel
-                        controlId="card-number"
-                        label="Card number"
-                        className="mb-3"
-                      >
-                      <Form.Control type="text" placeholder="Card Number" className="input-box shadow-none" required />
-                    </FloatingLabel>
+                  <FloatingLabel
+                    controlId="card-number"
+                    label="Card number"
+                    className="mb-3"
+                  >
+                    <Form.Control
+                      type="text"
+                      placeholder="Card Number"
+                      className="input-box shadow-none"
+                      required
+                    />
+                  </FloatingLabel>
                 </InputGroup>
 
                 <FloatingLabel
-                      controlId="card expire"
-                      label="Card Expiration"
-                      className="mb-3"
-                    >
-                    <Form.Control type="date" date-format="MM-YYYY" placeholder="Card expiration date" className="input-box shadow-none" required />
-                  </FloatingLabel>
-                  <FloatingLabel
-                      controlId="name-card"
-                      label="Name on Card"
-                      className="mb-3"
-                    >
-                    <Form.Control type="text" placeholder="Name on Card" className="input-box shadow-none" required />
-                  </FloatingLabel>
+                  controlId="card expire"
+                  label="Card Expiration"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="date"
+                    date-format="MM-YYYY"
+                    placeholder="Card expiration date"
+                    className="input-box shadow-none"
+                    required
+                  />
+                </FloatingLabel>
+                <FloatingLabel
+                  controlId="name-card"
+                  label="Name on Card"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    placeholder="Name on Card"
+                    className="input-box shadow-none"
+                    required
+                  />
+                </FloatingLabel>
               </Col>
             </Row>
           </Form>
