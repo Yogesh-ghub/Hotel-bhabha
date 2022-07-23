@@ -9,16 +9,19 @@ import "./index.css";
 
 import SliderCard from "./SliderCard";
 
-function CardSlider() {
+function CardSlider(props) {
+
+  const propArray = props.array;
+
   var settings = {
     dots: false,
     arrow: true,
     centerPadding: 10,
     nextArrow: <GrLinkNext />,
     prevArrow: <GrLinkPrevious />,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 2.7,
     slidesToScroll: 1,
     responsive: [
       {
@@ -43,14 +46,15 @@ function CardSlider() {
     <>
       <div className="card-slider-container p-5">
         <h2 className="division-heading">Special Offers</h2>
-        <Slider {...settings}>
-          <SliderCard />
-          <SliderCard />
-          <SliderCard />
-          <SliderCard />
-          <SliderCard />
-          <SliderCard />
-        </Slider>
+          <Slider {...settings}>
+
+          {
+            propArray && propArray.map((item) => {
+              return  <SliderCard image={item.image} title={item.title}  /> 
+            })
+          }
+          </Slider>
+        
       </div>
     </>
   );

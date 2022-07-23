@@ -1,6 +1,38 @@
 import React from "react";
 
 function CartUI() {
+
+  const payNow=()=>
+  {
+    let options={
+      key:"rzp_test_ylrxtcnQZcSWvV",
+      amount:1000*100,
+      currency:"INR",
+      name:"Hotel BHABHA",
+      description:"Fast Dilevary Service",
+      image:
+       "",
+
+      handler:(data)=>
+      {
+        alert("payment successfull")
+        console.log(data)
+      } ,
+      prefill:
+      {
+        name:"Bankush",
+        email:"banku@gmail.com",
+      },
+      theme: {
+        color: "#e23744",
+      },
+    };
+
+   let razorPay= new window.Razorpay(options)
+   razorPay.open();
+  }
+
+
   return (
     <div>
       <div class="container m-3">
@@ -19,8 +51,10 @@ function CartUI() {
 
             <span> Total price inc gst : </span>
 
-            <button className="d-flex float-end book-now-btn btn-book ">
-              Book Now
+            <button
+              onClick={payNow}
+              className="d-flex float-end book-now-btn btn-book ">
+              pay Now
             </button>
           </div>
         </div>
