@@ -46,19 +46,19 @@ function RoomBookingCard(room) {
     );
   };
 
-  const addRow = () =>{
+  // const addRow = () =>{
 
-    const newRow = [
-      ...selectedRoom,
-      {
-        id: selectedRoom.length + 1,
-        adult: "1",
-        child_5to7: '0',
-        child_below5: '0'
-      }
-    ];
-    setSelectedRoom(newRow)
-  }
+  //   const newRow = [
+  //     // ...selectedRoom,
+  //     {
+  //       id: selectedRoom.length + 1,
+  //       adult: "1",
+  //       child_5to7: '0',
+  //       child_below5: '0'
+  //     }
+  //   ];
+  //   setSelectedRoom([...selectedRoom, newRow])
+  // }
 
   const handleRoomnoChange = (e) => {
     setRoomNo(e.target.value);
@@ -69,15 +69,15 @@ function RoomBookingCard(room) {
     
   }
 
-  function addItem(){
-    for(var i=0; i<parseInt(roomNo); i++){
-      console.log(parseInt(roomNo));
-      addRow()
-    }
+  // function addItem(){
+  //   for(var i=0; i<parseInt(roomNo); i++){
+  //     console.log(parseInt(roomNo));
+  //     addRow()
+  //   }
 
-    return;
+  //   return;
 
-  }
+  // }
 
     const filtered = selectedRoom.find(value => {
       return value.id === 1
@@ -136,9 +136,11 @@ function RoomBookingCard(room) {
       return totalPrice;
     }
 
+
     console.log(selectedRoom)
     console.log(parseInt(roomNo));
 
+    
   return (
     <>
       <div className="container m-3">
@@ -167,10 +169,10 @@ function RoomBookingCard(room) {
               >
                 <option value="0">0</option>
                 <option value="1">1</option>
-                <option value="2">2</option>
+                {/* <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5</option>
+                <option value="5">5</option> */}
               </select>
 
               <Link className="mx-4" to="">
@@ -222,9 +224,12 @@ function RoomBookingCard(room) {
                             value={filtered.adult}
                             onChange={(e) => updateAdult(1, e.target.value)}
                           >
-                            <option value="1">1 Adult</option>
-                            <option value="2">2 Adult</option>
-                            <option value="3">3 Adult</option>
+                            {[...Array(room.guestCapacity)].map((index, value)=>{
+                              console.log("loop")
+                              return (<option value="1">1 Adult</option>)
+                            })}
+                            {/* <option value="2">2 Adult</option>
+                            <option value="3">3 Adult</option> */}
                           </select>
                         </td>
                         <td>
