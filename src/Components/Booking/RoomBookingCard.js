@@ -32,6 +32,17 @@ function RoomBookingCard(room) {
 
   const reduxState = useSelector((globalState) => globalState.cartReducer.cart);
 
+  const [roomDetails,setRoomDetails]=useState(
+    [
+      {
+      roomname:"",
+      noOfRooms:"",
+      noOfAdults:[],
+    }
+  ]
+  )
+
+  console.log(roomDetails);
   useEffect(() => {
     room._id &&
       dispatch(getSpecificROOM(room._id)).then((data) => {
@@ -63,11 +74,17 @@ function RoomBookingCard(room) {
   const handleRoomnoChange = (e) => {
     setRoomNo(e.target.value);
 
-  };
-
-  const removeRow = () =>{
-    
+    setRoomDetails({...roomDetails,noOfRooms:e.target.value})
   }
+  const handleAdultsChange = (e) => {
+   
+    setRoomDetails(roomDetails[0].noOfAdults.push(e.target.value))
+  }
+
+  // const handleClick = () => {
+  //   setOpenModal(true);
+  // };
+
 
   // function addItem(){
   //   for(var i=0; i<parseInt(roomNo); i++){
@@ -183,80 +200,64 @@ function RoomBookingCard(room) {
 
             {/* <button
               className="d-flex float-end book-now-btn btn-book "
-              onClick={addFoodToCart}
+              onClick={handleClick}
             >
               Book Now
+            </button>
+            {openModal && (
+              <SelectRoomModal setOpen={setOpenModal} roomId={room._id} />
+            )}
             </button> */}
 
-            {roomNo !== "0" && (
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col">
-                      Adult <br />
-                    </th>
-                    <th scope="col">
-                      Child <br />{" "}
-                      <small className="text-muted">(Age 5-12 yrs)</small>{" "}
-                    </th>
-                    <th scope="col">
-                      Child <br />{" "}
-                      <small className="text-muted">(Below 5yrs)</small>{" "}
-                    </th>
-                    <th scope="col">
-                      Room Price <br />{" "}
-                      <small className="text-muted">for 1 night(s)</small>{" "}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {selectedRoom.map((room, key) => {
-                    
-                    return (
+            {(roomNo !== '0' && <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Adult <br /></th>
+                  <th scope="col">Child <br /> <small className="text-muted">(Age 5-12 yrs)</small> </th>
+                  <th scope="col">Child <br /> <small className="text-muted">(Below 5yrs)</small> </th>
+                  <th scope="col">Room Price <br /> <small className="text-muted">for 1 night(s)</small> </th>
+                </tr>
+              </thead>
+              <tbody>
+                  {
+                    [...Array(parseInt(roomNo))].map((room, key) => {
+                      return (<tr>
+                      
+                      <th scope="row"></th>
+                      <td>
+                        <select
+                          className="form-select form-select-sm"
+                          aria-label=".form-select-sm example"
+                          onClick={handleAdultsChange}
+                        >
+                          <option value="1">1 Adult</option>
+                          <option value="2">2 Adult</option>
+                          <option value="3">3 Adult</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select
+                          className="form-select form-select-sm"
+                          aria-label=".form-select-sm example"
+                        >
+                          <option value="0">0 Child</option>
+                          <option value="1">1 Child</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select
+                          className="form-select form-select-sm"
+                          aria-label=".form-select-sm example"
+                        >
+                          <option value="0">0 Child</option>
+                          <option value="1">1 Child</option>
+                        </select>
+                      </td>
+                      <td>
+                        <span>INR 1000</span>
+                      </td>
 
-                      <tr>
-                        <th scope="row">Room 1</th>
-                        <td>
-                          <select
-                            className="form-select form-select-sm"
-                            aria-label=".form-select-sm example"
-                            value={filtered.adult}
-                            onChange={(e) => updateAdult(1, e.target.value)}
-                          >
-                            {[...Array(room.guestCapacity)].map((index, value)=>{
-                              console.log("loop")
-                              return (<option value="1">1 Adult</option>)
-                            })}
-                            {/* <option value="2">2 Adult</option>
-                            <option value="3">3 Adult</option> */}
-                          </select>
-                        </td>
-                        <td>
-                          <select
-                            className="form-select form-select-sm"
-                            aria-label=".form-select-sm example"
-                            value={filtered.child_5to7}
-                            onChange={(e) => updateChild_5to7(1, e.target.value)}
-                          >
-                            <option value="0">0 Child</option>
-                            <option value="1">1 Child</option>
-                          </select>
-                        </td>
-                        <td>
-                          <select
-                            className="form-select form-select-sm"
-                            aria-label=".form-select-sm example"
-                            value={filtered.child_below5}
-                            onChange={(e) => updateBelowChild(1, e.target.value)}
-                          >
-                            <option value="0">0 Child</option>
-                            <option value="1">1 Child</option>
-                          </select>
-                        </td>
-                        <td>
-                          <span>INR {roomPrice(1)}</span>
-                        </td>
                       </tr>
                     );
                   })}

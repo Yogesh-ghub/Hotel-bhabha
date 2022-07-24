@@ -14,7 +14,6 @@ const Dining = () => {
   return (
     <div>
         <Slider img1={bigImg} img2={smallImg1} img3={smallImg2} />
-        <RoomBookingCard />
         <HallSlider />
 
     </div>
