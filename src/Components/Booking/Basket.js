@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useCart } from "react-use-cart";
 import { getCart, decreteQuantity, deleteCart, increteQuantity } from "../../redux/reducer/Cart/cart.action";
-
-const Basket = (props) => {
+import { useNavigate } from 'react-router-dom';
+const Basket = (data) => {
 
   const buy = () => {
     alert("abc");
@@ -12,22 +12,30 @@ const Basket = (props) => {
   const totalItems = 1;
   const cartTotal = 2;
 
+  const history = useNavigate();
+  const checkout = () => history("/checkout");
 
   const [items, setItems] = useState([]);
 
   const dispatch = useDispatch();
   const reduxState = useSelector((globalState) => globalState.cartReducer.cart)
 
+  useEffect(()=>
+  {
+    setItems(reduxState)
+  },[reduxState]);
 
-
-  const increaseQty = () => {
-    // dispatch(increteQuantity(props._id))
+  const increaseQty = (_id) => {
+     dispatch(increteQuantity(_id));
   }
-  const decreaseQty = () => {
+  const decreaseQty = (id,quantity) => {
+    if(quantity===1)
+    return;
+    dispatch(decreteQuantity(id));
 
   }
-  const removeCart = () => {
-
+  const removeCart = (id) => {
+    dispatch(deleteCart(id))
   }
   return (
 
@@ -38,45 +46,51 @@ const Basket = (props) => {
             {" "}
             Cart ({totalUniqueItems}) total Item :({reduxState.length})
           </h5>
-          <table className="table table-light m-0">
-            <tbody>
+          {
+            items &&  items.map((props) =>
+            (
+              <table className="table table-light m-0">
+                <tbody>
 
 
-              <tr >
-                <td>{props.name}</td>
+                  <tr >
+                    <td>{props.name}</td>
 
-                <td>{props.pricePerNight}</td>
+                    <td>{props.pricePerNight}</td>
 
-                <td>Quantity({props.quantity})</td>
+                    <td>Quantity({props.quantity})</td>
 
-                <td>
-                  <button
-                    onClick={decreaseQty}
-                    className="btn btn-info ms-2"
-                  >
-                    {" "}
-                    -{" "}
-                  </button>
-                  <button
-                    onClick={increaseQty}
-                    className="btn btn-info ms-2"
-                  >
-                    {" "}
-                    +{" "}
-                  </button>
-                  <button
-                    onClick={removeCart}
-                    className="btn btn-danger ms-2"
-                  >
-                    {" "}
-                    RemoveItem{" "}
-                  </button>
-                </td>
-              </tr>
+                    <td>
+                      <button
+                        onClick={()=>decreaseQty(props._id,props.quantity)}
+                        className="btn btn-info ms-2"
+                      >
+                        {" "}
+                        -{" "}
+                      </button>
+                      <button
+                        onClick={()=>increaseQty(props._id)}
+                        className="btn btn-info ms-2"
+                      >
+                        {" "}
+                        +{" "}
+                      </button>
+                      <button
+                        onClick={()=>removeCart(props._id)}
+                        className="btn btn-danger ms-2"
+                      >
+                        {" "}
+                        RemoveItem{" "}
+                      </button>
+                    </td>
+                  </tr>
 
 
-            </tbody>
-          </table>
+                </tbody>
+              </table>
+            ))
+          }
+
 
           <div className="col-auto ms-auto">
             <h2> total price: {cartTotal} EGP</h2>
@@ -86,7 +100,9 @@ const Basket = (props) => {
           <button className="btn btn-danger ms-2">
             Clear Cart
           </button>
-          <button className="btn btn-primary ms-2">
+          <button className="btn btn-primary ms-2"
+          onClick={checkout}
+          >
             Buy Now{" "}
           </button>
         </div>

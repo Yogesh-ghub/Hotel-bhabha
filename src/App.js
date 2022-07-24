@@ -13,7 +13,21 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import DiningHall from './Pages/DiningHall'
 import Checkout  from "./Pages/Checkout";
+
+import { getCart } from "./redux/reducer/Cart/cart.action";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 function App() {
+
+  const dispatch=useDispatch();
+
+  useEffect(()=>
+  {
+    dispatch(getCart);
+
+  },[])
+
+  dispatch(getCart);
   return (
     <div className="App">
       <ScrollToTop>

@@ -32,14 +32,14 @@ function RoomBookingCard(room) {
 
   const reduxState = useSelector((globalState) => globalState.cartReducer.cart);
 
-  const [roomDetails,setRoomDetails]=useState(
+  const [roomDetails, setRoomDetails] = useState(
     [
       {
-      roomname:"",
-      noOfRooms:"",
-      noOfAdults:[],
-    }
-  ]
+        roomname: "",
+        noOfRooms: "",
+        noOfAdults: [],
+      }
+    ]
   )
 
   console.log(roomDetails);
@@ -48,13 +48,22 @@ function RoomBookingCard(room) {
       dispatch(getSpecificROOM(room._id)).then((data) => {
         setroominfo(data.payload);
         return data.payload;
+      }).then((data) => {
+        console.log(data);
+        reduxState.forEach((each) => {
+          if (each._id === data._id) {
+            setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
+          }
+        });
       });
+
   }, [reduxState]);
 
   const addFoodToCart = () => {
     dispatch(
       addToCart({ ...roominfo, quantity: 1, totalPrice: roominfo.price })
     );
+    setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
   };
 
   // const addRow = () =>{
@@ -74,10 +83,10 @@ function RoomBookingCard(room) {
   const handleRoomnoChange = (e) => {
     setRoomNo(e.target.value);
 
-    setRoomDetails({...roomDetails,noOfRooms:e.target.value})
+    setRoomDetails({ ...roomDetails, noOfRooms: e.target.value })
   }
   const handleAdultsChange = (e) => {
-   
+
     setRoomDetails(roomDetails[0].noOfAdults.push(e.target.value))
   }
 
@@ -96,68 +105,68 @@ function RoomBookingCard(room) {
 
   // }
 
-    const filtered = selectedRoom.find(value => {
-      return value.id === 1
-    });
+  const filtered = selectedRoom.find(value => {
+    return value.id === 1
+  });
 
-    console.log(filtered.adult);
+  console.log(filtered.adult);
 
-    const updateAdult = (id, value) => {
+  const updateAdult = (id, value) => {
 
-        const newArray = selectedRoom.map((obj)=>{
-          if(obj.id === id){
-            return {...obj, adult:value};
-          }
-          
-          return obj;
-        })
-        console.log(newArray);
+    const newArray = selectedRoom.map((obj) => {
+      if (obj.id === id) {
+        return { ...obj, adult: value };
+      }
 
-        setSelectedRoom(newArray)
-        console.log(selectedRoom);
-    }
-    const updateChild_5to7 = (id, value) => {
+      return obj;
+    })
+    console.log(newArray);
 
-        const newArray = selectedRoom.map((obj)=>{
-          if(obj.id === id){
-            return {...obj, child_5to7:value};
-          }
-          
-          return obj;
-        })
-        console.log(newArray);
+    setSelectedRoom(newArray)
+    console.log(selectedRoom);
+  }
+  const updateChild_5to7 = (id, value) => {
 
-        setSelectedRoom(newArray)
-        console.log(selectedRoom);
+    const newArray = selectedRoom.map((obj) => {
+      if (obj.id === id) {
+        return { ...obj, child_5to7: value };
+      }
 
-    }
-    const updateBelowChild = (id, value) => {
+      return obj;
+    })
+    console.log(newArray);
 
-        const newArray = selectedRoom.map((obj)=>{
-          if(obj.id === id){
-            return {...obj, child_below5:value};
-          }
-          
-          return obj;
-        })
-        console.log(newArray);
+    setSelectedRoom(newArray)
+    console.log(selectedRoom);
 
-        setSelectedRoom(newArray)
-        console.log(selectedRoom);
+  }
+  const updateBelowChild = (id, value) => {
 
-    }
+    const newArray = selectedRoom.map((obj) => {
+      if (obj.id === id) {
+        return { ...obj, child_below5: value };
+      }
 
+      return obj;
+    })
+    console.log(newArray);
 
-    function roomPrice(id){
-      const totalPrice = parseInt(filtered.adult) * 1000 + parseInt(filtered.child_5to7)*500 + parseInt(filtered.child_below5)*300;
-      return totalPrice;
-    }
+    setSelectedRoom(newArray)
+    console.log(selectedRoom);
+
+  }
 
 
-    console.log(selectedRoom)
-    console.log(parseInt(roomNo));
+  function roomPrice(id) {
+    const totalPrice = parseInt(filtered.adult) * 1000 + parseInt(filtered.child_5to7) * 500 + parseInt(filtered.child_below5) * 300;
+    return totalPrice;
+  }
 
-    
+
+  console.log(selectedRoom)
+  console.log(parseInt(roomNo));
+
+
   return (
     <>
       <div className="container m-3">
@@ -220,10 +229,10 @@ function RoomBookingCard(room) {
                 </tr>
               </thead>
               <tbody>
-                  {
-                    [...Array(parseInt(roomNo))].map((room, key) => {
-                      return (<tr>
-                      
+                {
+                  [...Array(parseInt(roomNo))].map((room, key) => {
+                    return (<tr>
+
                       <th scope="row"></th>
                       <td>
                         <select
@@ -257,12 +266,16 @@ function RoomBookingCard(room) {
                       <td>
                         <span>INR 1000</span>
                       </td>
+                      <button
+                        onClick={addFoodToCart}
+                        disabled={roominfo?.isAddedToCart}> ADD TO cart
+                      </button>
+                    </tr>
 
-                      </tr>
                     );
                   })}
-                </tbody>
-              </table>
+              </tbody>
+            </table>
             )}
           </div>
         </div>

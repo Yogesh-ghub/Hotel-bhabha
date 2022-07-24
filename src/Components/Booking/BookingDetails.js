@@ -52,9 +52,7 @@ function BookingDetails() {
               <RoomBookingCard {...room} key={index} />
             ))}
           </>
-          {reduxState.map((data) =>(
-            <Basket key={data._id} {...data} />
-          )) }
+          <Basket/>
 
         </div>
       </div>
