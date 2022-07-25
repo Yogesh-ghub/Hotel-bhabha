@@ -13,8 +13,9 @@ function Booking() {
       <Header />
 
       <div className=" mt-5 ">
-        <GuestDetailsForm />
-        <CartUI />
+        <GuestDetailsForm>
+          <CartUI />
+        </GuestDetailsForm>
       </div>
 
       <Footer />

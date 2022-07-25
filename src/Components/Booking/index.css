@@ -26,6 +26,16 @@
   color: #ffffff;
 }
 
+.cart{
+  background-color:  #F3EEE7;
+  display: flex;
+  flex-wrap: no-wrap;
+}
+
+.room-heading{
+  font-family: 'Playfair Display', serif;
+}
+
 @media screen and (min-width: 968px) {
   .card-container {
     display: flex;
