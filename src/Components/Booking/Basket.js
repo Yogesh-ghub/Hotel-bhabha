@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useCart } from "react-use-cart";
-import { getCart, decreteQuantity, deleteCart, increteQuantity } from "../../redux/reducer/Cart/cart.action";
-import { useNavigate } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap'
+import {
+  getCart,
+  decreteQuantity,
+  deleteCart,
+  increteQuantity,
+} from "../../redux/reducer/Cart/cart.action";
+import { useNavigate } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 const Basket = (data) => {
-
   const buy = () => {
     alert("abc");
   };
@@ -19,27 +23,23 @@ const Basket = (data) => {
   const [items, setItems] = useState([]);
 
   const dispatch = useDispatch();
-  const reduxState = useSelector((globalState) => globalState.cartReducer.cart)
+  const reduxState = useSelector((globalState) => globalState.cartReducer.cart);
 
-  useEffect(()=>
-  {
-    setItems(reduxState)
-  },[reduxState]);
+  useEffect(() => {
+    setItems(reduxState);
+  }, [reduxState]);
 
   const increaseQty = (_id) => {
-     dispatch(increteQuantity(_id));
-  }
-  const decreaseQty = (id,quantity) => {
-    if(quantity===1)
-    return;
+    dispatch(increteQuantity(_id));
+  };
+  const decreaseQty = (id, quantity) => {
+    if (quantity === 1) return;
     dispatch(decreteQuantity(id));
-
-  }
+  };
   const removeCart = (id) => {
-    dispatch(deleteCart(id))
-  }
+    dispatch(deleteCart(id));
+  };
   return (
-
     <Container className="d-flex my-4">
       <Row>
         <Col sm={12}>
@@ -47,37 +47,43 @@ const Basket = (data) => {
             {" "}
             Cart ({totalUniqueItems}) total Item :({reduxState.length})
           </h5>
-          {
-            items &&  items.map((props) =>
-            (
-              <table className="table table-light m-0">
-                <tbody>
+          <table className="table table-light m-0">
+            <thead>
+              <tr>
+                <th scope="col">Room Type</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
 
-
-                  <tr >
+            <tbody>
+              {items &&
+                items.map((props) => (
+                  <tr>
                     <td>{props.name}</td>
 
                     <td>{props.pricePerNight}</td>
 
-                    <td>Quantity({props.quantity})</td>
+                    <td>{props.quantity}</td>
 
                     <td>
                       <button
-                        onClick={()=>decreaseQty(props._id,props.quantity)}
+                        onClick={() => decreaseQty(props._id, props.quantity)}
                         className="btn btn-info ms-2"
                       >
                         {" "}
                         -{" "}
                       </button>
                       <button
-                        onClick={()=>increaseQty(props._id)}
+                        onClick={() => increaseQty(props._id)}
                         className="btn btn-info ms-2"
                       >
                         {" "}
                         +{" "}
                       </button>
                       <button
-                        onClick={()=>removeCart(props._id)}
+                        onClick={() => removeCart(props._id)}
                         className="btn btn-danger ms-2"
                       >
                         {" "}
@@ -85,25 +91,17 @@ const Basket = (data) => {
                       </button>
                     </td>
                   </tr>
-
-
-                </tbody>
-              </table>
-            ))
-          }
-
+                ))}
+            </tbody>
+          </table>
 
           <div className="col-auto ms-auto">
             <h2> total price: {cartTotal} EGP</h2>
           </div>
         </Col>
         <div className="col-auto mb-2">
-          <button className="btn btn-danger ms-2">
-            Clear Cart
-          </button>
-          <button className="btn btn-primary ms-2"
-          onClick={checkout}
-          >
+          <button className="btn btn-danger ms-2">Clear Cart</button>
+          <button className="btn btn-primary ms-2" onClick={checkout}>
             Book Now{" "}
           </button>
         </div>
@@ -113,4 +111,3 @@ const Basket = (data) => {
 };
 
 export default Basket;
-

@@ -28,8 +28,7 @@
 
 .cart{
   background-color:  #F3EEE7;
-  display: flex;
-  flex-wrap: no-wrap;
+  font-weight: 500;
 }
 
 .room-heading{

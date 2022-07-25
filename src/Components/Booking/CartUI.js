@@ -38,8 +38,18 @@ function CartUI() {
   return (
     <div class="col-lg-4 col-md-7">
       <div className='w-100 d-flex flex-column cart  p-3 m-3'>
-        <h4>Your Stay</h4>
-        {/* <h1>CART</h1> */}
+        <h4 className="room-heading">Your Stay</h4>
+        <div className="d-flex justify-content-between">
+          <div>
+            <span className="fw-bold">Check-in</span> <br />
+            After 00:00 A.M.
+          </div>
+          <div>
+            <span className="fw-bold">Check-out</span> <br />
+            before 00:00 A.M.
+          </div>
+        </div>
+        <hr />
 
         {cartData &&
           cartData.map((data, key) => (
@@ -59,11 +69,11 @@ function CartUI() {
             </>
           ))}
 
-        <div> Total price inc gst : </div>
+        <div className="fs-5 fw-bold"> Total price inc gst : </div>
 
         <button
           onClick={payNow}
-          className="d-flex justify-content-center book-now-btn btn-book "
+          className="d-flex my-2 justify-content-center book-now-btn btn-book "
         >
           Pay now
         </button>
