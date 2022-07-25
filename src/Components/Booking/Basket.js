@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useCart } from "react-use-cart";
 import { getCart, decreteQuantity, deleteCart, increteQuantity } from "../../redux/reducer/Cart/cart.action";
 import { useNavigate } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap'
 const Basket = (data) => {
 
   const buy = () => {
@@ -39,9 +40,9 @@ const Basket = (data) => {
   }
   return (
 
-    <section className="container">
-      <div className="row jistufy-content-center">
-        <div className="col-12">
+    <Container className="d-flex my-4">
+      <Row>
+        <Col sm={12}>
           <h5>
             {" "}
             Cart ({totalUniqueItems}) total Item :({reduxState.length})
@@ -95,7 +96,7 @@ const Basket = (data) => {
           <div className="col-auto ms-auto">
             <h2> total price: {cartTotal} EGP</h2>
           </div>
-        </div>
+        </Col>
         <div className="col-auto mb-2">
           <button className="btn btn-danger ms-2">
             Clear Cart
@@ -103,11 +104,11 @@ const Basket = (data) => {
           <button className="btn btn-primary ms-2"
           onClick={checkout}
           >
-            Buy Now{" "}
+            Book Now{" "}
           </button>
         </div>
-      </div>
-    </section>
+      </Row>
+    </Container>
   );
 };
 
