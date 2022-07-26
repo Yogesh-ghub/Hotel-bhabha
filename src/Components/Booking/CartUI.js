@@ -1,14 +1,79 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { postDetails, postCartDetails, postUserDetails } from "../../redux/reducer/booking/Booking.action";
 
 function CartUI() {
-  const [cartData,setCartData]=useState([]);
+  const dateReduxState = useSelector((globalState) => globalState.datereducer.date)
+  const [cartData, setCartData] = useState([]);
   const reduxState = useSelector((globalState) => globalState.cartReducer.cart)
 
-  useEffect(()=>
-  {
+  const [details, setDetails] = useState({
+    firstName: "abx",
+    lastName: "Singhlol",
+    email: "bankushxxpws@gmail.com",
+    phone: "971176446642345",
+    totalGuest: 20,
+    totalBill: 400,
+    
+
+
+
+
+  })
+
+
+    
+
+
+  const dispatch = useDispatch();
+
+  const passdata = (data) => {
+    // // reduxState && dispatch(postCartDetails(reduxState)).then((response)=>
+    // // {
+    // //     console.log(response.payload);
+    // //     return response.payload;
+    // // }).then((data)=>
+    // // {   
+    // //   const _id=data._id
+    //   dispatch(postUserDetails(details)).then((userdata)=>
+    //   {
+    //     console.log(userdata.payload);
+    //   })
+    // // })
+
+
+    // dispatch(postDetails({...reduxState,...dateReduxState,razorpay_payment_id:data.razorpay_payment_id})).then((data)=>
+    // {
+    //   console.log(data);
+    // })
+    
+    if(reduxState)
+    {
+      setDetails((prev)=>
+      {
+        console.log(`prev :- ${prev}`);
+        reduxState.map((data)=>
+        (
+          prev.roomType.id=data._id,
+          prev.roomType.quantity=data.quantity
+        ))
+        
+      })
+    }
+
+    dispatch(postDetails({...details,razorpay_payment_id:data.razorpay_payment_id})).then((userdata) => {
+      console.log(userdata.payload);
+    })
+
+  }
+
+  useEffect(() => {
     reduxState && setCartData(reduxState);
-  },[reduxState])
+
+  }, [reduxState])
+
+  
   const payNow = () => {
     let options = {
       key: "rzp_test_ylrxtcnQZcSWvV",
@@ -20,8 +85,10 @@ function CartUI() {
 
       handler: (data) => {
         alert("payment successfull")
+        if (data) {
+          passdata(data);
+        }
 
-        console.log(data)
       },
       prefill:
       {
