@@ -47,6 +47,8 @@ function CartUI() {
     // {
     //   console.log(data);
     // })
+
+    
     
     if(reduxState)
     {

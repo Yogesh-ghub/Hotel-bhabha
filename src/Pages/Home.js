@@ -1,6 +1,7 @@
 import React from "react";
 
 //components
+import AlertTop from '../Components/Alert'
 import Header from "../Components/Header/index";
 import Slider from "../Components/Slider/Slider";
 import Footer from "../Components/Footer";
@@ -39,11 +40,12 @@ const array = [
 function Home() {
   return (
     <div>
+      {/* <AlertTop /> */}
       <Header />
       <Slider img1={slideimg1} img2={slideimg2} img3={slideimg3} />
       <AboutUs />
       <RoomSlider />
-      <CardSlider array={array} />
+      <CardSlider array={array} divHeading="Special Offers" />
       <HallAndDiningHome />
       <Amneties />
       <ContactForm />

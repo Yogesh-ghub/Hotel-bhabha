@@ -48,14 +48,25 @@ function RoomBookingCard(room) {
       dispatch(getSpecificROOM(room._id)).then((data) => {
         setroominfo(data.payload);
         return data.payload;
+      }).then((data) => {
+        console.log(data);
+        reduxState.forEach((each) => {
+          if (each._id === data._id) {
+            setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
+          }
+        });
       });
+
   }, [reduxState]);
+
 
   const addFoodToCart = () => {
     dispatch(
       addToCart({ ...roominfo, quantity: 1, totalPrice: roominfo.price })
     );
+    setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
   };
+
 
   // const addRow = () =>{
 

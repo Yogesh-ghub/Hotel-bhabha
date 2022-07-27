@@ -35,15 +35,15 @@ function BookingDetails() {
 
   return (
     <div>
-      <div className="booking-banner">
+      {/* <div className="booking-banner">
         <div className="animated animatedFadeInUp fadeInUp">
           <h1>Book Your Room</h1>
         </div>
-      </div>
-      <div className="mt-5 card-container">
+      </div> */}
+      <div className="card-container">
         <div className="d-flex flex-column ">
           <DatePicker />
-          <h1 className="mt-5 mb-4"> Select a Room</h1>
+          <h1 className="mt-3 mb-4 division-heading"> Select a Room</h1>
         </div>
         <div className="row">
 

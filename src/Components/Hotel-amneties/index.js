@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { FaWifi } from "react-icons/fa";
 import { GiMeditation } from 'react-icons/gi'
 import { MdEmojiTransportation, MdRestaurantMenu, MdLocalLaundryService } from "react-icons/md";
+import { IoMdClock } from 'react-icons/io'
 import './index.css'
 const Amneties = () => {
   return (
@@ -41,8 +42,8 @@ const Amneties = () => {
             </Col>
             <Col md={4} lg={2}>
                 <div className="amneties-item">
-                   <span className="amneties-icon"><FaWifi size={56} /></span>
-                   <div className="icon-text">Free Wifi</div>
+                   <span className="amneties-icon"><IoMdClock size={48} /></span>
+                   <div className="icon-text">24 Hrs<br />Check-out</div>
                 </div>
             </Col>
         </Row>
