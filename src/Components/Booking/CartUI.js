@@ -75,6 +75,8 @@ function CartUI() {
 
   }, [reduxState])
 
+  console.log(cartData)
+
   const payNow = () => {
     let options = {
       key: "rzp_test_ylrxtcnQZcSWvV",

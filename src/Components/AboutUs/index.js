@@ -35,8 +35,7 @@ const AboutUs = () => {
 
                     <h4 className="text-center my-2">Best Food</h4>
                     <p className="text-center">
-                      Far Far away, behind the word mountains, far from
-                      countries vokalia
+                      A Premier Gujrati Thali with Delicious Varieties
                     </p>
                   </div>
                 </Col>

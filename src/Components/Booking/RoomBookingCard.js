@@ -13,7 +13,7 @@ function RoomBookingCard(room) {
   const [child, setChild] = useState("0");
   const [belowChild, setBelowChild] = useState("0");
 
-  // const [price, setPrice] = useState("price");
+  const [price, setPrice] = useState();
 
   // console.log(parseInt(adult) + parseInt(child) + parseInt(belowChild));
 
@@ -37,7 +37,7 @@ function RoomBookingCard(room) {
       {
       roomname:"",
       noOfRooms:"",
-      noOfAdults:[],
+      noOfAdults: 1,
     }
   ]
   )
@@ -87,25 +87,15 @@ function RoomBookingCard(room) {
 
     setRoomDetails({...roomDetails,noOfRooms:e.target.value})
   }
-  const handleAdultsChange = (e) => {
-   
-    setRoomDetails(roomDetails[0].noOfAdults.push(e.target.value))
-  }
 
-  // const handleClick = () => {
-  //   setOpenModal(true);
-  // };
+    // useEffect(()=>{
+    //   setRoomDetails(current =>{
+    //     current.map(value =>{
+    //       return {...value, noOfAdults: parseInt(adult) + parseInt(child) + parseInt(belowChild)}
+    //     })
+    //   })
+    // }, [adult])
 
-
-  // function addItem(){
-  //   for(var i=0; i<parseInt(roomNo); i++){
-  //     console.log(parseInt(roomNo));
-  //     addRow()
-  //   }
-
-  //   return;
-
-  // }
 
     const filtered = selectedRoom.find(value => {
       return value.id === 1
@@ -115,54 +105,44 @@ function RoomBookingCard(room) {
 
     const updateAdult = (id, value) => {
 
-        const newArray = selectedRoom.map((obj)=>{
-          if(obj.id === id){
-            return {...obj, adult:value};
-          }
-          
-          return obj;
-        })
-        console.log(newArray);
-
-        setSelectedRoom(newArray)
-        console.log(selectedRoom);
+        setAdult(value)
     }
     const updateChild_5to7 = (id, value) => {
 
-        const newArray = selectedRoom.map((obj)=>{
-          if(obj.id === id){
-            return {...obj, child_5to7:value};
-          }
-          
-          return obj;
-        })
-        console.log(newArray);
-
-        setSelectedRoom(newArray)
-        console.log(selectedRoom);
+        setChild(value)
 
     }
     const updateBelowChild = (id, value) => {
 
-        const newArray = selectedRoom.map((obj)=>{
-          if(obj.id === id){
-            return {...obj, child_below5:value};
-          }
-          
-          return obj;
-        })
-        console.log(newArray);
-
-        setSelectedRoom(newArray)
-        console.log(selectedRoom);
+        setBelowChild(value)
 
     }
 
+    useEffect(()=>{
+      // function roomPrice(){
 
-    function roomPrice(id){
-      const totalPrice = parseInt(filtered.adult) * 1000 + parseInt(filtered.child_5to7)*500 + parseInt(filtered.child_below5)*300;
-      return totalPrice;
-    }
+        console.log("inside price")
+        const totalGuest = parseInt(adult) + parseInt(child) + parseInt(belowChild);
+        if(totalGuest == 1)
+        {
+          const totalPrice = room.pricePerNight;
+          setPrice(totalPrice)
+        }
+        else if(totalGuest == 2)
+        {
+          const totalPrice = room.pricePerNight + 100;
+          setPrice(totalPrice)
+        }
+        else{
+          const totalPrice = room.pricePerNight + 100 + (totalGuest - 2)*300;
+          setPrice(totalPrice)
+        }
+
+        
+      // }
+  
+
+    }, [adult, child, belowChild])
 
 
     console.log(selectedRoom)
@@ -240,7 +220,8 @@ function RoomBookingCard(room) {
                         <select
                           className="form-select form-select-sm"
                           aria-label=".form-select-sm example"
-                          onClick={handleAdultsChange}
+                          value={adult}
+                          onChange={(e)=> updateAdult(0, e.target.value)}
                         >
                           <option value="1">1 Adult</option>
                           <option value="2">2 Adult</option>
@@ -251,6 +232,8 @@ function RoomBookingCard(room) {
                         <select
                           className="form-select form-select-sm"
                           aria-label=".form-select-sm example"
+                          value={child}
+                          onChange={(e)=>updateChild_5to7(0, e.target.value)}
                         >
                           <option value="0">0 Child</option>
                           <option value="1">1 Child</option>
@@ -260,13 +243,15 @@ function RoomBookingCard(room) {
                         <select
                           className="form-select form-select-sm"
                           aria-label=".form-select-sm example"
+                          value={belowChild}
+                          onChange={(e)=>updateBelowChild(0, e.target.value)}
                         >
                           <option value="0">0 Child</option>
                           <option value="1">1 Child</option>
                         </select>
                       </td>
                       <td>
-                        <span>INR 1000</span>
+                        <span>INR {price}</span>
                       </td>
                       <button
                       className="btn add-cart-btn"

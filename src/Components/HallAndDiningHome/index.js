@@ -78,8 +78,7 @@ function HallAndDiningHome() {
                     <div className="p-4 mt-4 bg-grey">
                       <h2 className="division-subheading my-3">Explore the traditional taste..</h2>
                       <p className="">
-                        Far Far away, behind the word mountains, far from
-                        countries vokalia
+                        The state of art restaurant, serving the classic gujarati cuisine is the elated specialty of the hotel.
                       </p>
                       <Button
                        className="book-now-btn"

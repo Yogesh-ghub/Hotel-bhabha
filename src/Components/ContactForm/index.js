@@ -21,7 +21,7 @@ const ContactForm = (props) => {
         <Col lg={5}>
           <div className=" ">
             <div className="address-card ">
-              <h2>
+              <h2 className="division-subheading">
                 <FaHotel /> Hotel address
               </h2>
               <p className="text-center text-wrap">
@@ -71,8 +71,8 @@ const ContactForm = (props) => {
         </Col>
 
         <Col lg={5} className="d-none d-lg-block">
-          <h2 className="mb-4 mt-4 ">
-            <FaHotel /> Hotel address
+          <h2 className="mb-4 mt-4 division-subheading">
+             Reach Out To Us
           </h2>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicName">
