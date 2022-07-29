@@ -9,6 +9,11 @@
   font-weight: 700;
 }
 
+.dropdown-title{
+  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+}
+
 @media (max-width: 991px) {
   .nav-items {
     align-items: start;

@@ -3,12 +3,11 @@ import { Container, Row, Col } from 'react-bootstrap'
 import executiveRoom from '../../Assets/images/executive-room.jpeg'
 import './index.css'
 const RoomDropdown = (props) => {
-const [showDropdown, setShowDropdown] = useState(false)
   return (
     <div >
-        <Container fluid   onMouseOver={()=> {setShowDropdown(true); props.setbg("bg-grey")}} onMouseOut={()=> {setShowDropdown(false); props.setbg("")}} id="room-dropdown" style={{display: props.show || showDropdown ? "block" : "none", transition: "display 1s ease-in-out"}}>
+        {/* <Container> */}
             
-            <Row className="justify-content-center">
+            {/* <Row className="justify-content-center"> */}
                 <Col lg={2}>
                     <div>
                         <img className="img img-fluid" src={executiveRoom} alt="executive room" /> 
@@ -40,8 +39,8 @@ const [showDropdown, setShowDropdown] = useState(false)
                         <h5 className="text-center">Standard room</h5>
                     </div>
                 </Col>
-            </Row>
-        </Container>
+            {/* </Row> */}
+         {/* </Container> */}
     </div>
   )
 }

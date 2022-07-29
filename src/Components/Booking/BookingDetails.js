@@ -52,7 +52,7 @@ function BookingDetails() {
               <RoomBookingCard {...room} key={index} />
             ))}
           </>
-          <Basket/>
+          {/* <Basket/> */}
 
         </div>
       </div>

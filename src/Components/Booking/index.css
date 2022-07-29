@@ -14,6 +14,27 @@
   cursor: pointer;
 }
 
+.add-cart-btn{
+  color: #35090b;
+  border-color: #35090b;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.add-cart-btn:hover{
+  background-color: #35090b;
+  color: #ffffff;
+}
+
+.cart{
+  background-color:  #F3EEE7;
+  font-weight: 500;
+}
+
+.room-heading{
+  font-family: 'Playfair Display', serif;
+}
+
 @media screen and (min-width: 968px) {
   .card-container {
     display: flex;

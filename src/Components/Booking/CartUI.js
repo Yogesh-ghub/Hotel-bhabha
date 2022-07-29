@@ -7,73 +7,64 @@ function CartUI() {
   const dateReduxState = useSelector((globalState) => globalState.datereducer.date)
   const [cartData, setCartData] = useState([]);
   const reduxState = useSelector((globalState) => globalState.cartReducer.cart)
-
-  const [details, setDetails] = useState({
-    firstName: "abx",
-    lastName: "Singhlol",
-    email: "bankushxxpws@gmail.com",
-    phone: "971176446642345",
-    totalGuest: 20,
-    totalBill: 400,
-    
+  const userReduxState = useSelector((globalState) => globalState.datereducer.user)
 
 
+  
 
+  const [cartId, setCartId] = useState("")
 
-  })
-
-
-    
+  const [userId, setUserId] = useState("")
 
 
   const dispatch = useDispatch();
 
   const passdata = (data) => {
-    // // reduxState && dispatch(postCartDetails(reduxState)).then((response)=>
-    // // {
-    // //     console.log(response.payload);
-    // //     return response.payload;
-    // // }).then((data)=>
-    // // {   
-    // //   const _id=data._id
-    //   dispatch(postUserDetails(details)).then((userdata)=>
-    //   {
-    //     console.log(userdata.payload);
-    //   })
-    // // })
 
+    console.log(data.razorpay_payment_id);
 
-    // dispatch(postDetails({...reduxState,...dateReduxState,razorpay_payment_id:data.razorpay_payment_id})).then((data)=>
-    // {
-    //   console.log(data);
-    // })
-    
-    if(reduxState)
-    {
-      setDetails((prev)=>
-      {
-        console.log(`prev :- ${prev}`);
-        reduxState.map((data)=>
-        (
-          prev.roomType.id=data._id,
-          prev.roomType.quantity=data.quantity
-        ))
+      if (reduxState && userReduxState) {
+        // dispatch(postCartDetails({ cart: cartData })).then((response) => {
+        //   console.log(response.payload);
+        //   setCartId(response.payload._id)
+        //   return response.payload;
+        // })
         
-      })
-    }
+        // dispatch(postUserDetails({ guest:userReduxState })).then((response) => {
+        //   console.log(response.payload);
+        //   setUserId(response.payload._id)
+        // })
 
-    dispatch(postDetails({...details,razorpay_payment_id:data.razorpay_payment_id})).then((userdata) => {
-      console.log(userdata.payload);
-    })
+
+        dispatch(postDetails({guest:userReduxState,cart:cartData,razorpay_payment_id:data.razorpay_payment_id})).then((response) => {
+             console.log(response.payload);
+          //   setUserId(response.payload._id)
+           })
+      }
+      
+
+      
+
+    // if (userReduxState) {
+    //   console.log(`details:- ${details}`);
+    //   dispatch(postUserDetails({ userReduxState })).then((response) => {
+    //     console.log(response.payload);
+    //   })
+    // }
+
+
 
   }
 
+  
+
   useEffect(() => {
     reduxState && setCartData(reduxState);
+    
 
-  }, [reduxState])
+  }, [reduxState, userReduxState])
 
-  
+
   const payNow = () => {
     let options = {
       key: "rzp_test_ylrxtcnQZcSWvV",
@@ -90,8 +81,7 @@ function CartUI() {
         }
 
       },
-      prefill:
-      {
+      prefill: {
         name: "Bankush",
         email: "banku@gmail.com",
       },
@@ -100,44 +90,52 @@ function CartUI() {
       },
     };
 
-    let razorPay = new window.Razorpay(options)
+    let razorPay = new window.Razorpay(options);
     razorPay.open();
-  }
+  };
 
   return (
-    <div>
-      <div class="container m-3">
-        <div class="row">
-          <div class="col-lg-5 col-md-7  p-3 d-flex flex-column ">
-            <h1>CART</h1>
-
-            {cartData && cartData.map((data) =>
-            (
-              <>
-                <h3>ROOM NAME:-{data.name}</h3>
-                <span>guestCapacity :-{data.guestCapacity} </span>
-                <p>DESC OF ROOM :-{data.desc}</p>
-                <span>ROom PRice :{data.price}</span>
-
-                <span>TOtal guest : </span>
-                <span> + 100 for 2 person </span>
-
-                <span> + 350 for extra person </span>
-              </>
-            )
-
-
-            )}
-
-            <span> Total price inc gst : </span>
-
-            <button
-              onClick={payNow}
-              className="d-flex float-end book-now-btn btn-book ">
-              pay Now
-            </button>
+    <div class="col-lg-4 col-md-7">
+      <div className='w-100 d-flex flex-column cart  p-3 m-3'>
+        <h4 className="room-heading">Your Stay</h4>
+        <div className="d-flex justify-content-between">
+          <div>
+            <span className="fw-bold">Check-in</span> <br />
+            After 00:00 A.M.
+          </div>
+          <div>
+            <span className="fw-bold">Check-out</span> <br />
+            before 00:00 A.M.
           </div>
         </div>
+        <hr />
+
+        {cartData &&
+          cartData.map((data, key) => (
+            <>
+              <span>Room {key + 1}</span>
+              <div className="d-flex justify-content-between">
+                <h4 className="room-heading">{data.roomName}</h4>
+                <strong>&#8377; {data.price}</strong>
+              </div>
+              <div>Guest Capacity :-{data.guestCapacity} </div>
+
+              <div>Total Guest : </div>
+              <span> + 100 for 2 person </span>
+
+              <span> + 350 for extra person </span>
+              <hr />
+            </>
+          ))}
+
+        <div className="fs-5 fw-bold"> Total price inc gst : </div>
+
+        <button
+          onClick={payNow}
+          className="d-flex my-2 justify-content-center book-now-btn btn-book "
+        >
+          Pay now
+        </button>
       </div>
     </div>
   );
