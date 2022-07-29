@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useCart } from "react-use-cart";
 import { Link } from "react-router-dom";
 import "./index.css";
+import { Modal, Button } from "react-bootstrap";
 import about2 from "../../Assets/images/about-grid-small.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { getSpecificROOM } from "../../redux/reducer/Hotel/hotel.action";
@@ -14,6 +15,8 @@ function RoomBookingCard(room) {
   const [belowChild, setBelowChild] = useState("0");
 
   const [price, setPrice] = useState();
+  const [totalGuest, setTotalGuest] = useState();
+  const [showAlert, setShowAlert] = useState(false);
 
   // console.log(parseInt(adult) + parseInt(child) + parseInt(belowChild));
 
@@ -99,13 +102,34 @@ function RoomBookingCard(room) {
   console.log(filtered.adult);
 
   const updateAdult = (id, value) => {
-    setAdult(value);
+    if (
+      parseInt(value) + parseInt(child) + parseInt(belowChild) <=
+      room.guestCapacity
+    ) {
+      setAdult(value);
+    } else {
+      setShowAlert(true);
+    }
   };
   const updateChild_5to7 = (id, value) => {
-    setChild(value);
+    if (
+      parseInt(adult) + parseInt(value) + parseInt(belowChild) <=
+      room.guestCapacity
+    ) {
+      setChild(value);
+    } else {
+      setShowAlert(true);
+    }
   };
   const updateBelowChild = (id, value) => {
-    setBelowChild(value);
+    if (
+      parseInt(adult) + parseInt(child) + parseInt(value) <=
+      room.guestCapacity
+    ) {
+      setBelowChild(value);
+    } else {
+      setShowAlert(true);
+    }
   };
 
   useEffect(() => {
@@ -123,6 +147,8 @@ function RoomBookingCard(room) {
       const totalPrice = room.pricePerNight + 100 + (totalGuest - 2) * 300;
       setPrice(totalPrice);
     }
+
+    setTotalGuest(totalGuest);
 
     // }
   }, [adult, child, belowChild]);
@@ -176,6 +202,20 @@ function RoomBookingCard(room) {
               <SelectRoomModal setOpen={setOpenModal} roomId={room._id} />
             )}
             </button> */}
+
+            <Modal show={showAlert} onHide={() => setShowAlert(false)}>
+              <Modal.Header closeButton>
+                <Modal.Title>{room.name}</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                This room can only accomodate only {room.guestCapacity} persons
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={() => setShowAlert(false)}>
+                  OK
+                </Button>
+              </Modal.Footer>
+            </Modal>
 
             {roomNo !== "0" && (
               <table className="table">
