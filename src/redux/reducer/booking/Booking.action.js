@@ -14,6 +14,19 @@ export const postDetails = (details) => async (dispatch) => {
         return dispatch({ type: "ERROR", payload: error })
     }
 }
+export const postDateDetails = (details) => async (dispatch) => {
+
+    try {
+
+        const datarecieve = await axios.post('http://localhost:4000/api/booking/date', details)
+
+
+        return dispatch({ type: "POST_DATE", payload: datarecieve.data })
+    }
+    catch (error) {
+        return dispatch({ type: "ERROR", payload: error })
+    }
+}
 export const postCartDetails = (details) => async (dispatch) => {
     try {
         const datarecieve = await axios.post('http://localhost:4000/api/booking/cart', details)

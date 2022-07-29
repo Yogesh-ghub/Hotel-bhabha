@@ -24,7 +24,7 @@ export const  putUser=(user)=>async(dispatch)=>
             user:{}
         }
         userData.user=user;
-        localStorage.setItem("userDetails", JSON.stringify({ date: userData.user }));
+        localStorage.setItem("userDetails", JSON.stringify({ user: userData.user }));
         return dispatch({type:PUT_USER,payload:userData.user})
     }
     catch(error)

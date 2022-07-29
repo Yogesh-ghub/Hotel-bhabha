@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { postDetails, postCartDetails, postUserDetails } from "../../redux/reducer/booking/Booking.action";
+import { postDetails, postDateDetails, postUserDetails } from "../../redux/reducer/booking/Booking.action";
 
 function CartUI() {
   const dateReduxState = useSelector((globalState) => globalState.datereducer.date)
@@ -12,31 +12,29 @@ function CartUI() {
 
   
 
-  const [cartId, setCartId] = useState("")
-
-  const [userId, setUserId] = useState("")
+  
 
 
   const dispatch = useDispatch();
+ 
 
   const passdata = (data) => {
 
-    console.log(data.razorpay_payment_id);
 
-      if (reduxState && userReduxState) {
+      if (reduxState && userReduxState && dateReduxState) {
         // dispatch(postCartDetails({ cart: cartData })).then((response) => {
         //   console.log(response.payload);
         //   setCartId(response.payload._id)
         //   return response.payload;
         // })
         
-        // dispatch(postUserDetails({ guest:userReduxState })).then((response) => {
+        // dispatch(postDateDetails({ dates:dateReduxState })).then((response) => {
         //   console.log(response.payload);
         //   setUserId(response.payload._id)
         // })
+          
 
-
-        dispatch(postDetails({guest:userReduxState,cart:cartData,razorpay_payment_id:data.razorpay_payment_id})).then((response) => {
+        dispatch(postDetails({guest:userReduxState,cart:cartData,dates:dateReduxState, razorpay_payment_id:data.razorpay_payment_id})).then((response) => {
              console.log(response.payload);
           //   setUserId(response.payload._id)
            })
@@ -62,7 +60,7 @@ function CartUI() {
     reduxState && setCartData(reduxState);
     
 
-  }, [reduxState, userReduxState])
+  }, [reduxState, userReduxState,dateReduxState])
 
 
   const payNow = () => {

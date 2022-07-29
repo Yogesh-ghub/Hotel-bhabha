@@ -16,7 +16,7 @@ const DateRangePickerComp = () => {
   const [dates, setDates] = useState([
     {
       startDate: new Date(),
-      endDate: addDays(new Date(), 7),
+      endDate: new Date(),
       key: "selection",
     },
   ]);
@@ -26,7 +26,7 @@ const DateRangePickerComp = () => {
   const dispatch=useDispatch();
   // get the target element to toggle
   const refOne = useRef(null);
-  console.log(dates[0]);
+  console.log(dates[0].startDate);
   useEffect(() => {
     // event listeners
     document.addEventListener("keydown", hideOnEscape, true);
@@ -34,8 +34,23 @@ const DateRangePickerComp = () => {
   }, []);
 
   useEffect(()=>
-  {
-    dispatch(putDate(dates[0]));
+  { 
+    const dateDetails={
+      startDate:{
+        date:dates[0].startDate.getDate(),
+        month:dates[0].startDate.getMonth()+1,
+        year:dates[0].startDate.getFullYear(),
+      },
+      endDate:{
+        date:dates[0].endDate.getDate(),
+        month:dates[0].endDate.getMonth()+1,
+        year:dates[0].endDate.getFullYear(),
+      }
+
+    }
+
+    console.log(dateDetails);
+    dispatch(putDate(dateDetails));
   },[dates]);
   // hide dropdown on ESC press
   const hideOnEscape = (e) => {
