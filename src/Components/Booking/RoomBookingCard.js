@@ -17,7 +17,6 @@ function RoomBookingCard(room) {
 
   // console.log(parseInt(adult) + parseInt(child) + parseInt(belowChild));
 
-
   const dispatch = useDispatch();
   const [roominfo, setroominfo] = useState({});
 
@@ -25,48 +24,45 @@ function RoomBookingCard(room) {
     {
       id: 1,
       adult: "1",
-      child_5to7: '0',
-      child_below5: '0',
-    }
+      child_5to7: "0",
+      child_below5: "0",
+    },
   ]);
 
   const reduxState = useSelector((globalState) => globalState.cartReducer.cart);
 
-  const [roomDetails,setRoomDetails]=useState(
-    [
-      {
-      roomname:"",
-      noOfRooms:"",
+  const [roomDetails, setRoomDetails] = useState([
+    {
+      roomname: "",
+      noOfRooms: "",
       noOfAdults: 1,
-    }
-  ]
-  )
+    },
+  ]);
 
   console.log(roomDetails);
   useEffect(() => {
     room._id &&
-      dispatch(getSpecificROOM(room._id)).then((data) => {
-        setroominfo(data.payload);
-        return data.payload;
-      }).then((data) => {
-        console.log(data);
-        reduxState.forEach((each) => {
-          if (each._id === data._id) {
-            setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
-          }
+      dispatch(getSpecificROOM(room._id))
+        .then((data) => {
+          setroominfo(data.payload);
+          return data.payload;
+        })
+        .then((data) => {
+          console.log(data);
+          reduxState.forEach((each) => {
+            if (each._id === data._id) {
+              setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
+            }
+          });
         });
-      });
-;
   }, [reduxState]);
-
 
   const addFoodToCart = () => {
     dispatch(
-      addToCart({roomid:roominfo._id,roomName:roominfo.name, quantity: 1 })
-      );
-      setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
+      addToCart({ roomid: roominfo._id, roomName: roominfo.name, quantity: 1 })
+    );
+    setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
   };
-
 
   // const addRow = () =>{
 
@@ -85,70 +81,55 @@ function RoomBookingCard(room) {
   const handleRoomnoChange = (e) => {
     setRoomNo(e.target.value);
 
-    setRoomDetails({...roomDetails,noOfRooms:e.target.value})
-  }
+    setRoomDetails({ ...roomDetails, noOfRooms: e.target.value });
+  };
 
-    // useEffect(()=>{
-    //   setRoomDetails(current =>{
-    //     current.map(value =>{
-    //       return {...value, noOfAdults: parseInt(adult) + parseInt(child) + parseInt(belowChild)}
-    //     })
-    //   })
-    // }, [adult])
+  // useEffect(()=>{
+  //   setRoomDetails(current =>{
+  //     current.map(value =>{
+  //       return {...value, noOfAdults: parseInt(adult) + parseInt(child) + parseInt(belowChild)}
+  //     })
+  //   })
+  // }, [adult])
 
+  const filtered = selectedRoom.find((value) => {
+    return value.id === 1;
+  });
 
-    const filtered = selectedRoom.find(value => {
-      return value.id === 1
-    });
+  console.log(filtered.adult);
 
-    console.log(filtered.adult);
+  const updateAdult = (id, value) => {
+    setAdult(value);
+  };
+  const updateChild_5to7 = (id, value) => {
+    setChild(value);
+  };
+  const updateBelowChild = (id, value) => {
+    setBelowChild(value);
+  };
 
-    const updateAdult = (id, value) => {
+  useEffect(() => {
+    // function roomPrice(){
 
-        setAdult(value)
+    console.log("inside price");
+    const totalGuest = parseInt(adult) + parseInt(child) + parseInt(belowChild);
+    if (totalGuest == 1) {
+      const totalPrice = room.pricePerNight;
+      setPrice(totalPrice);
+    } else if (totalGuest == 2) {
+      const totalPrice = room.pricePerNight + 100;
+      setPrice(totalPrice);
+    } else {
+      const totalPrice = room.pricePerNight + 100 + (totalGuest - 2) * 300;
+      setPrice(totalPrice);
     }
-    const updateChild_5to7 = (id, value) => {
 
-        setChild(value)
+    // }
+  }, [adult, child, belowChild]);
 
-    }
-    const updateBelowChild = (id, value) => {
+  console.log(selectedRoom);
+  console.log(parseInt(roomNo));
 
-        setBelowChild(value)
-
-    }
-
-    useEffect(()=>{
-      // function roomPrice(){
-
-        console.log("inside price")
-        const totalGuest = parseInt(adult) + parseInt(child) + parseInt(belowChild);
-        if(totalGuest == 1)
-        {
-          const totalPrice = room.pricePerNight;
-          setPrice(totalPrice)
-        }
-        else if(totalGuest == 2)
-        {
-          const totalPrice = room.pricePerNight + 100;
-          setPrice(totalPrice)
-        }
-        else{
-          const totalPrice = room.pricePerNight + 100 + (totalGuest - 2)*300;
-          setPrice(totalPrice)
-        }
-
-        
-      // }
-  
-
-    }, [adult, child, belowChild])
-
-
-    console.log(selectedRoom)
-    console.log(parseInt(roomNo));
-
-    
   return (
     <>
       <div className="container m-3">
@@ -157,13 +138,9 @@ function RoomBookingCard(room) {
             <img src={about2} alt="img" className="img-fluid" />
           </div>
           <div className="col-md-8 col-lg-6  p-3 ">
-            <h4>Double Bed Deluxe Non AC Room</h4>
+            <h4>{room.name}</h4>
             <span>1 king | {room.guestCapacity} adult |</span>
-            <p>
-              Double Bed Deluxe Non AC Room is comfortable with a nice
-              environment. Enjoy your stay full value of money. Clean and
-              hygienic stay.
-            </p>
+            <p>{room.desc}</p>
             <span>₹{room.pricePerNight}</span>
 
             <div className="d-flex">
@@ -200,66 +177,82 @@ function RoomBookingCard(room) {
             )}
             </button> */}
 
-            {(roomNo !== '0' && <table className="table">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Adult <br /></th>
-                  <th scope="col">Child <br /> <small className="text-muted">(Age 5-12 yrs)</small> </th>
-                  <th scope="col">Child <br /> <small className="text-muted">(Below 5yrs)</small> </th>
-                  <th scope="col">Room Price <br /> <small className="text-muted">for 1 night(s)</small> </th>
-                </tr>
-              </thead>
-              <tbody>
-                  {
-                    [...Array(parseInt(roomNo))].map((room, key) => {
-                      return (<tr>
-                      
-                      <th scope="row"></th>
-                      <td>
-                        <select
-                          className="form-select form-select-sm"
-                          aria-label=".form-select-sm example"
-                          value={adult}
-                          onChange={(e)=> updateAdult(0, e.target.value)}
+            {roomNo !== "0" && (
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">
+                      Adult <br />
+                    </th>
+                    <th scope="col">
+                      Child <br />{" "}
+                      <small className="text-muted">(Age 5-12 yrs)</small>{" "}
+                    </th>
+                    <th scope="col">
+                      Child <br />{" "}
+                      <small className="text-muted">(Below 5yrs)</small>{" "}
+                    </th>
+                    <th scope="col">
+                      Room Price <br />{" "}
+                      <small className="text-muted">for 1 night(s)</small>{" "}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...Array(parseInt(roomNo))].map((room, key) => {
+                    return (
+                      <tr>
+                        <th scope="row"></th>
+                        <td>
+                          <select
+                            className="form-select form-select-sm"
+                            aria-label=".form-select-sm example"
+                            value={adult}
+                            onChange={(e) => updateAdult(0, e.target.value)}
+                          >
+                            <option value="1">1 Adult</option>
+                            <option value="2">2 Adult</option>
+                            <option value="3">3 Adult</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select
+                            className="form-select form-select-sm"
+                            aria-label=".form-select-sm example"
+                            value={child}
+                            onChange={(e) =>
+                              updateChild_5to7(0, e.target.value)
+                            }
+                          >
+                            <option value="0">0 Child</option>
+                            <option value="1">1 Child</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select
+                            className="form-select form-select-sm"
+                            aria-label=".form-select-sm example"
+                            value={belowChild}
+                            onChange={(e) =>
+                              updateBelowChild(0, e.target.value)
+                            }
+                          >
+                            <option value="0">0 Child</option>
+                            <option value="1">1 Child</option>
+                          </select>
+                        </td>
+                        <td>
+                          <span>INR {price}</span>
+                        </td>
+                        <button
+                          className="btn add-cart-btn"
+                          onClick={addFoodToCart}
+                          disabled={roominfo?.isAddedToCart}
                         >
-                          <option value="1">1 Adult</option>
-                          <option value="2">2 Adult</option>
-                          <option value="3">3 Adult</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select
-                          className="form-select form-select-sm"
-                          aria-label=".form-select-sm example"
-                          value={child}
-                          onChange={(e)=>updateChild_5to7(0, e.target.value)}
-                        >
-                          <option value="0">0 Child</option>
-                          <option value="1">1 Child</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select
-                          className="form-select form-select-sm"
-                          aria-label=".form-select-sm example"
-                          value={belowChild}
-                          onChange={(e)=>updateBelowChild(0, e.target.value)}
-                        >
-                          <option value="0">0 Child</option>
-                          <option value="1">1 Child</option>
-                        </select>
-                      </td>
-                      <td>
-                        <span>INR {price}</span>
-                      </td>
-                      <button
-                      className="btn add-cart-btn"
-                        onClick={addFoodToCart}
-                        disabled={roominfo?.isAddedToCart}> Add to Cart
-                      </button>
-
-
+                          {" "}
+                          Add to Cart
+                        </button>
                       </tr>
                     );
                   })}
