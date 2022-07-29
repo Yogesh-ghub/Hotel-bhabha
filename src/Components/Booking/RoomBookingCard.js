@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useCart } from "react-use-cart";
 import { Link } from "react-router-dom";
 import "./index.css";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, Container, Row, Col } from "react-bootstrap";
 import about2 from "../../Assets/images/about-grid-small.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { getSpecificROOM } from "../../redux/reducer/Hotel/hotel.action";
@@ -19,7 +19,7 @@ function RoomBookingCard(room) {
   const [showAlert, setShowAlert] = useState(false);
 
   // console.log(parseInt(adult) + parseInt(child) + parseInt(belowChild));
-
+  const n = room.guestCapacity;
   const dispatch = useDispatch();
   const [roominfo, setroominfo] = useState({});
 
@@ -158,8 +158,8 @@ function RoomBookingCard(room) {
 
   return (
     <>
-      <div className="container m-3">
-        <div className="row">
+      <Container className="my-3">
+        <Row>
           <div className="col-lg-3 col-md-4 ">
             <img src={about2} alt="img" className="img-fluid" />
           </div>
@@ -190,28 +190,20 @@ function RoomBookingCard(room) {
                 Room Details
               </Link>
             </div>
-            <div className="d-flex"></div>
-
-            {/* <button
-              className="d-flex float-end book-now-btn btn-book "
-              onClick={handleClick}
-            >
-              Book Now
-            </button>
-            {openModal && (
-              <SelectRoomModal setOpen={setOpenModal} roomId={room._id} />
-            )}
-            </button> */}
 
             <Modal show={showAlert} onHide={() => setShowAlert(false)}>
-              <Modal.Header closeButton>
-                <Modal.Title>{room.name}</Modal.Title>
+              <Modal.Header className="bg-grey" closeButton>
+                <Modal.Title className="division-subheading">{room.name}</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                This room can only accomodate only {room.guestCapacity} persons
+                <div>
+                  <span className="fw-bold">Guest capacity: {room.guestCapacity} |</span>
+                  <span className="fw-bold"> Price: {room.pricePerNight} &#8377;</span>
+                </div>
+                <p>This room can accomodate only {room.guestCapacity} persons</p>
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="secondary" onClick={() => setShowAlert(false)}>
+                <Button className="book-now-btn px-3" onClick={() => setShowAlert(false)}>
                   OK
                 </Button>
               </Modal.Footer>
@@ -251,9 +243,11 @@ function RoomBookingCard(room) {
                             value={adult}
                             onChange={(e) => updateAdult(0, e.target.value)}
                           >
-                            <option value="1">1 Adult</option>
-                            <option value="2">2 Adult</option>
-                            <option value="3">3 Adult</option>
+                            { 
+                              [...Array(parseInt(n))].map((e, i)=>{
+                                return (<option value={i+1}>{i+1} Adult</option>) 
+                              })
+                            }
                           </select>
                         </td>
                         <td>
@@ -300,8 +294,8 @@ function RoomBookingCard(room) {
               </table>
             )}
           </div>
-        </div>
-      </div>
+        </Row>
+      </Container>
     </>
   );
 }
