@@ -36,6 +36,14 @@
   font-family: 'Playfair Display', serif;
 }
 
+.room-alert{
+  background-color: #ffffff;
+  border: 0px;
+  color: red;
+  padding: 10px 10px;
+  margin: 2px 0px;
+}
+
 @media screen and (min-width: 968px) {
   .card-container {
     margin-top: 150px;
