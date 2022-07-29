@@ -56,15 +56,15 @@ function RoomBookingCard(room) {
           }
         });
       });
-
+;
   }, [reduxState]);
 
 
   const addFoodToCart = () => {
     dispatch(
-      addToCart({ ...roominfo, quantity: 1, totalPrice: roominfo.price })
-    );
-    setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
+      addToCart({roomid:roominfo._id,roomName:roominfo.name, quantity: 1 })
+      );
+      setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
   };
 
 

@@ -7,75 +7,62 @@ function CartUI() {
   const dateReduxState = useSelector((globalState) => globalState.datereducer.date)
   const [cartData, setCartData] = useState([]);
   const reduxState = useSelector((globalState) => globalState.cartReducer.cart)
-
-  const [details, setDetails] = useState({
-    firstName: "abx",
-    lastName: "Singhlol",
-    email: "bankushxxpws@gmail.com",
-    phone: "971176446642345",
-    totalGuest: 20,
-    totalBill: 400,
-    
+  const userReduxState = useSelector((globalState) => globalState.datereducer.user)
 
 
+  
 
+  const [cartId, setCartId] = useState("")
 
-  })
-
-
-    
+  const [userId, setUserId] = useState("")
 
 
   const dispatch = useDispatch();
 
   const passdata = (data) => {
-    // // reduxState && dispatch(postCartDetails(reduxState)).then((response)=>
-    // // {
-    // //     console.log(response.payload);
-    // //     return response.payload;
-    // // }).then((data)=>
-    // // {   
-    // //   const _id=data._id
-    //   dispatch(postUserDetails(details)).then((userdata)=>
-    //   {
-    //     console.log(userdata.payload);
-    //   })
-    // // })
 
+    console.log(data.razorpay_payment_id);
 
-    // dispatch(postDetails({...reduxState,...dateReduxState,razorpay_payment_id:data.razorpay_payment_id})).then((data)=>
-    // {
-    //   console.log(data);
-    // })
-
-    
-    
-    if(reduxState)
-    {
-      setDetails((prev)=>
-      {
-        console.log(`prev :- ${prev}`);
-        reduxState.map((data)=>
-        (
-          prev.roomType.id=data._id,
-          prev.roomType.quantity=data.quantity
-        ))
+      if (reduxState && userReduxState) {
+        // dispatch(postCartDetails({ cart: cartData })).then((response) => {
+        //   console.log(response.payload);
+        //   setCartId(response.payload._id)
+        //   return response.payload;
+        // })
         
-      })
-    }
+        // dispatch(postUserDetails({ guest:userReduxState })).then((response) => {
+        //   console.log(response.payload);
+        //   setUserId(response.payload._id)
+        // })
 
-    dispatch(postDetails({...details,razorpay_payment_id:data.razorpay_payment_id})).then((userdata) => {
-      console.log(userdata.payload);
-    })
+
+        dispatch(postDetails({guest:userReduxState,cart:cartData,razorpay_payment_id:data.razorpay_payment_id})).then((response) => {
+             console.log(response.payload);
+          //   setUserId(response.payload._id)
+           })
+      }
+      
+
+      
+
+    // if (userReduxState) {
+    //   console.log(`details:- ${details}`);
+    //   dispatch(postUserDetails({ userReduxState })).then((response) => {
+    //     console.log(response.payload);
+    //   })
+    // }
+
+
 
   }
 
+  
+
   useEffect(() => {
     reduxState && setCartData(reduxState);
+    
 
-  }, [reduxState])
-
-  console.log(cartData)
+  }, [reduxState, userReduxState])
 
   const payNow = () => {
     let options = {
@@ -87,7 +74,6 @@ function CartUI() {
       image: "",
 
       handler: (data) => {
-
         alert("payment successfull")
         if (data) {
           passdata(data);
@@ -128,7 +114,7 @@ function CartUI() {
             <>
               <span>Room {key + 1}</span>
               <div className="d-flex justify-content-between">
-                <h4 className="room-heading">{data.name}</h4>
+                <h4 className="room-heading">{data.roomName}</h4>
                 <strong>&#8377; {data.price}</strong>
               </div>
               <div>Guest Capacity :-{data.guestCapacity} </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Row,
@@ -7,6 +7,7 @@ import {
   InputGroup,
   FloatingLabel,
 } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import "./GuestDetailsForm.css";
 import { AiFillCreditCard } from "react-icons/ai";
 import visa from "../../Assets/images/Visa.png";
@@ -14,9 +15,39 @@ import mastercard from "../../Assets/images/MasterCard.png";
 import amex from "../../Assets/images/Amex.png";
 import dinerclub from "../../Assets/images/DinersClub.png";
 import jcb from "../../Assets/images/JCB.png";
+import { postUserDetails } from "../../redux/reducer/booking/Booking.action";
+import { useDispatch } from "react-redux";
+import { putUser } from "../../redux/reducer/date/date.action";
 const now = new Date();
 
+
+
 const GuestDetailsForm = (props) => {
+  const [firstName, SetFirstName] = useState("");
+  const [lastName, SetLastName] = useState("");
+  const [phone, setphoneNo] = useState("");
+  const [email, setEmail] = useState("");
+
+  const dispatch=useDispatch();
+
+  const submit= ()=>
+  { 
+      
+     const userDetails = {
+      firstName: firstName,
+      email: email,
+      lastName:lastName,
+      phone:phone
+    };
+    
+    console.log(userDetails);
+
+    if(userDetails.firstName
+       &&   userDetails.email)
+    {
+      dispatch(putUser(userDetails))
+    }
+  }
   return (
     <Container className="guest-details-container">
       <Row>
@@ -48,11 +79,13 @@ const GuestDetailsForm = (props) => {
                         controlId="firstname"
                         label="First Name"
                         className="mb-3"
+
                       >
                         <Form.Control
                           type="text"
                           placeholder="First Name"
                           className="input-box shadow-none"
+                          onChange={(e) => SetFirstName(e.target.value)}
                           required
                         />
                       </FloatingLabel>
@@ -68,6 +101,7 @@ const GuestDetailsForm = (props) => {
                         type="text"
                         placeholder="Last Name"
                         className="input-box shadow-none"
+                        onChange={(e) => SetLastName(e.target.value)}
                         required
                       />
                     </FloatingLabel>
@@ -85,6 +119,7 @@ const GuestDetailsForm = (props) => {
                         type="number"
                         placeholder="Mobile no."
                         className="input-box shadow-none"
+                        onChange={(e) => setphoneNo(e.target.value)}
                         required
                       />
                     </FloatingLabel>
@@ -99,6 +134,7 @@ const GuestDetailsForm = (props) => {
                         type="email"
                         placeholder="alex@gmail.com"
                         className="input-box shadow-none"
+                        onChange={(e) => setEmail(e.target.value)}
                         required
                       />
                       <Form.Text className="text-muted">
@@ -107,8 +143,11 @@ const GuestDetailsForm = (props) => {
                     </FloatingLabel>
                   </Col>
                 </Row>
+                <Button variant="primary" onClick={submit} >
+                  Submit
+                </Button>
                 <hr />
-                <Row>
+                {/* <Row>
                   <h4 className="row-heading">
                     Card Details (to guarantee reservation)
                   </h4>
@@ -190,7 +229,7 @@ const GuestDetailsForm = (props) => {
                       />
                     </FloatingLabel>
                   </Col>
-                </Row>
+                </Row> */}
               </Form>
             </Col>
           </Row>

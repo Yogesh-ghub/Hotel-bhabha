@@ -1,7 +1,8 @@
-import { PUT_DATE } from "./date.type";
+import { PUT_DATE,PUT_USER } from "./date.type";
 
 const initialState = {
-    date: {}
+    date: {},
+    user:{}
 }
 
 const datereducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const datereducer = (state = initialState, action) => {
             return {
                 ...state,
                 date: action.payload
+            };
+        case PUT_USER:
+            return {
+                ...state,
+                user: action.payload
             };
 
 

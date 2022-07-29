@@ -61,7 +61,7 @@ const Basket = (data) => {
               {items &&
                 items.map((props) => (
                   <tr>
-                    <td>{props.name}</td>
+                    <td>{props.roomName}</td>
 
                     <td>{props.pricePerNight}</td>
 
