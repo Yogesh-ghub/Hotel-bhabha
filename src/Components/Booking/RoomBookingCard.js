@@ -291,7 +291,7 @@ function RoomBookingCard(room) {
                           disabled={roominfo?.isAddedToCart}
                         >
                           {" "}
-                          Add to Cart
+                          Add Room
                         </button>
                       </tr>
                     );
