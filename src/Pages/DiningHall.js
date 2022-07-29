@@ -27,7 +27,7 @@ const DiningHall = () => {
     <div>
       <Header />
       <Dining />
-      <CardSlider array={array} />
+      <CardSlider array={array} divHeading="Meetings & Celebrations" />
       <Footer />
     </div>
   );

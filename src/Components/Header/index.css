@@ -14,6 +14,19 @@
   font-family: 'Playfair Display', serif;
 }
 
+figure .room-dropdown-img{
+  max-height: 200px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+figure .room-dropdown-img:hover{
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
 @media (max-width: 991px) {
   .nav-items {
     align-items: start;

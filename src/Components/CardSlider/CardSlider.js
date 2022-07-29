@@ -44,7 +44,7 @@ function CardSlider(props) {
   return (
     <>
       <div className="card-slider-container p-5">
-        <h2 className="division-heading">Special Offers</h2>
+        <h2 className="division-heading">{props.divHeading}</h2>
         <Slider {...settings}>
           {propArray.map((item) => {
             return <SliderCard image={item.image} title={item.title} />;

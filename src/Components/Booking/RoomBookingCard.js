@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useCart } from "react-use-cart";
 import { Link } from "react-router-dom";
 import "./index.css";
+import { Modal, Button, Container, Row, Col } from "react-bootstrap";
 import about2 from "../../Assets/images/about-grid-small.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { getSpecificROOM } from "../../redux/reducer/Hotel/hotel.action";
@@ -13,11 +14,12 @@ function RoomBookingCard(room) {
   const [child, setChild] = useState("0");
   const [belowChild, setBelowChild] = useState("0");
 
-  // const [price, setPrice] = useState("price");
+  const [price, setPrice] = useState();
+  const [totalGuest, setTotalGuest] = useState();
+  const [showAlert, setShowAlert] = useState(false);
 
   // console.log(parseInt(adult) + parseInt(child) + parseInt(belowChild));
-
-
+  const n = room.guestCapacity;
   const dispatch = useDispatch();
   const [roominfo, setroominfo] = useState({});
 
@@ -25,45 +27,44 @@ function RoomBookingCard(room) {
     {
       id: 1,
       adult: "1",
-      child_5to7: '0',
-      child_below5: '0',
-    }
+      child_5to7: "0",
+      child_below5: "0",
+    },
   ]);
 
   const reduxState = useSelector((globalState) => globalState.cartReducer.cart);
 
-  const [roomDetails,setRoomDetails]=useState(
-    [
-      {
-      roomname:"",
-      noOfRooms:"",
-      noOfAdults:[],
-    }
-  ]
-  )
+  const [roomDetails, setRoomDetails] = useState([
+    {
+      roomname: "",
+      noOfRooms: "",
+      noOfAdults: 1,
+    },
+  ]);
 
   console.log(roomDetails);
   useEffect(() => {
     room._id &&
-      dispatch(getSpecificROOM(room._id)).then((data) => {
-        setroominfo(data.payload);
-        return data.payload;
-      }).then((data) => {
-        console.log(data);
-        reduxState.forEach((each) => {
-          if (each._id === data._id) {
-            setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
-          }
+      dispatch(getSpecificROOM(room._id))
+        .then((data) => {
+          setroominfo(data.payload);
+          return data.payload;
+        })
+        .then((data) => {
+          console.log(data);
+          reduxState.forEach((each) => {
+            if (each._id === data._id) {
+              setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
+            }
+          });
         });
-      });
-;
   }, [reduxState]);
 
   const addFoodToCart = () => {
     dispatch(
-      addToCart({roomid:roominfo._id,roomName:roominfo.name, quantity: 1 })
-      );
-      setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
+      addToCart({ roomid: roominfo._id, roomName: roominfo.name, quantity: 1 })
+    );
+    setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
   };
 
   // const addRow = () =>{
@@ -83,105 +84,89 @@ function RoomBookingCard(room) {
   const handleRoomnoChange = (e) => {
     setRoomNo(e.target.value);
 
-    setRoomDetails({...roomDetails,noOfRooms:e.target.value})
-  }
-  const handleAdultsChange = (e) => {
-   
-    setRoomDetails(roomDetails[0].noOfAdults.push(e.target.value))
-  }
+    setRoomDetails({ ...roomDetails, noOfRooms: e.target.value });
+  };
 
-  // const handleClick = () => {
-  //   setOpenModal(true);
-  // };
+  // useEffect(()=>{
+  //   setRoomDetails(current =>{
+  //     current.map(value =>{
+  //       return {...value, noOfAdults: parseInt(adult) + parseInt(child) + parseInt(belowChild)}
+  //     })
+  //   })
+  // }, [adult])
 
+  const filtered = selectedRoom.find((value) => {
+    return value.id === 1;
+  });
 
-  // function addItem(){
-  //   for(var i=0; i<parseInt(roomNo); i++){
-  //     console.log(parseInt(roomNo));
-  //     addRow()
-  //   }
+  console.log(filtered.adult);
 
-  //   return;
-
-  // }
-
-    const filtered = selectedRoom.find(value => {
-      return value.id === 1
-    });
-
-    console.log(filtered.adult);
-
-    const updateAdult = (id, value) => {
-
-        const newArray = selectedRoom.map((obj)=>{
-          if(obj.id === id){
-            return {...obj, adult:value};
-          }
-          
-          return obj;
-        })
-        console.log(newArray);
-
-        setSelectedRoom(newArray)
-        console.log(selectedRoom);
+  const updateAdult = (id, value) => {
+    if (
+      parseInt(value) + parseInt(child) + parseInt(belowChild) <=
+      room.guestCapacity
+    ) {
+      setAdult(value);
+    } else {
+      setShowAlert(true);
     }
-    const updateChild_5to7 = (id, value) => {
-
-        const newArray = selectedRoom.map((obj)=>{
-          if(obj.id === id){
-            return {...obj, child_5to7:value};
-          }
-          
-          return obj;
-        })
-        console.log(newArray);
-
-        setSelectedRoom(newArray)
-        console.log(selectedRoom);
-
+  };
+  const updateChild_5to7 = (id, value) => {
+    if (
+      parseInt(adult) + parseInt(value) + parseInt(belowChild) <=
+      room.guestCapacity
+    ) {
+      setChild(value);
+    } else {
+      setShowAlert(true);
     }
-    const updateBelowChild = (id, value) => {
+  };
+  const updateBelowChild = (id, value) => {
+    if (
+      parseInt(adult) + parseInt(child) + parseInt(value) <=
+      room.guestCapacity
+    ) {
+      setBelowChild(value);
+    } else {
+      setShowAlert(true);
+    }
+  };
 
-        const newArray = selectedRoom.map((obj)=>{
-          if(obj.id === id){
-            return {...obj, child_below5:value};
-          }
-          
-          return obj;
-        })
-        console.log(newArray);
+  useEffect(() => {
+    // function roomPrice(){
 
-        setSelectedRoom(newArray)
-        console.log(selectedRoom);
-
+    console.log("inside price");
+    const totalGuest = parseInt(adult) + parseInt(child) + parseInt(belowChild);
+    if (totalGuest == 1) {
+      const totalPrice = room.pricePerNight;
+      setPrice(totalPrice);
+    } else if (totalGuest == 2) {
+      const totalPrice = room.pricePerNight + 100;
+      setPrice(totalPrice);
+    } else {
+      const totalPrice = room.pricePerNight + 100 + (totalGuest - 2) * 350;
+      setPrice(totalPrice);
     }
 
+    setTotalGuest(totalGuest);
 
-    function roomPrice(id){
-      const totalPrice = parseInt(filtered.adult) * 1000 + parseInt(filtered.child_5to7)*500 + parseInt(filtered.child_below5)*300;
-      return totalPrice;
-    }
+    // }
+  }, [adult, child, belowChild]);
 
+  console.log(selectedRoom);
+  console.log(parseInt(roomNo));
 
-    console.log(selectedRoom)
-    console.log(parseInt(roomNo));
-
-    
   return (
     <>
-      <div className="container m-3">
-        <div className="row">
+      <Container className="my-3">
+        <Row>
           <div className="col-lg-3 col-md-4 ">
             <img src={about2} alt="img" className="img-fluid" />
           </div>
           <div className="col-md-8 col-lg-6  p-3 ">
-            <h4>Double Bed Deluxe Non AC Room</h4>
+            <h4>{room.name}</h4>
             <span>1 king | {room.guestCapacity} adult |</span>
-            <p>
-              Double Bed Deluxe Non AC Room is comfortable with a nice
-              environment. Enjoy your stay full value of money. Clean and
-              hygienic stay.
-            </p>
+            <p>{room.desc}</p>
             <span>₹{room.pricePerNight}</span>
 
             <div className="d-flex">
@@ -205,74 +190,103 @@ function RoomBookingCard(room) {
                 Room Details
               </Link>
             </div>
-            <div className="d-flex"></div>
 
-            {/* <button
-              className="d-flex float-end book-now-btn btn-book "
-              onClick={handleClick}
-            >
-              Book Now
-            </button>
-            {openModal && (
-              <SelectRoomModal setOpen={setOpenModal} roomId={room._id} />
-            )}
-            </button> */}
+            <Modal show={showAlert} onHide={() => setShowAlert(false)}>
+              <Modal.Header className="bg-grey" closeButton>
+                <Modal.Title className="division-subheading">{room.name}</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <div>
+                  <span className="fw-bold">Guest capacity: {room.guestCapacity} |</span>
+                  <span className="fw-bold"> Price: {room.pricePerNight} &#8377;</span>
+                </div>
+                <p>This room can accomodate only {room.guestCapacity} persons</p>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button className="book-now-btn px-3" onClick={() => setShowAlert(false)}>
+                  OK
+                </Button>
+              </Modal.Footer>
+            </Modal>
 
-            {(roomNo !== '0' && <table className="table">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Adult <br /></th>
-                  <th scope="col">Child <br /> <small className="text-muted">(Age 5-12 yrs)</small> </th>
-                  <th scope="col">Child <br /> <small className="text-muted">(Below 5yrs)</small> </th>
-                  <th scope="col">Room Price <br /> <small className="text-muted">for 1 night(s)</small> </th>
-                </tr>
-              </thead>
-              <tbody>
-                  {
-                    [...Array(parseInt(roomNo))].map((room, key) => {
-                      return (<tr>
-                      
-                      <th scope="row"></th>
-                      <td>
-                        <select
-                          className="form-select form-select-sm"
-                          aria-label=".form-select-sm example"
-                          onClick={handleAdultsChange}
+            {roomNo !== "0" && (
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">
+                      Adult <br />
+                    </th>
+                    <th scope="col">
+                      Child <br />{" "}
+                      <small className="text-muted">(Age 5-12 yrs)</small>{" "}
+                    </th>
+                    <th scope="col">
+                      Child <br />{" "}
+                      <small className="text-muted">(Below 5yrs)</small>{" "}
+                    </th>
+                    <th scope="col">
+                      Room Price <br />{" "}
+                      <small className="text-muted">for 1 night(s)</small>{" "}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...Array(parseInt(roomNo))].map((room, key) => {
+                    return (
+                      <tr>
+                        <th scope="row"></th>
+                        <td>
+                          <select
+                            className="form-select form-select-sm"
+                            aria-label=".form-select-sm example"
+                            value={adult}
+                            onChange={(e) => updateAdult(0, e.target.value)}
+                          >
+                            { 
+                              [...Array(parseInt(n))].map((e, i)=>{
+                                return (<option value={i+1}>{i+1} Adult</option>) 
+                              })
+                            }
+                          </select>
+                        </td>
+                        <td>
+                          <select
+                            className="form-select form-select-sm"
+                            aria-label=".form-select-sm example"
+                            value={child}
+                            onChange={(e) =>
+                              updateChild_5to7(0, e.target.value)
+                            }
+                          >
+                            <option value="0">0 Child</option>
+                            <option value="1">1 Child</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select
+                            className="form-select form-select-sm"
+                            aria-label=".form-select-sm example"
+                            value={belowChild}
+                            onChange={(e) =>
+                              updateBelowChild(0, e.target.value)
+                            }
+                          >
+                            <option value="0">0 Child</option>
+                            <option value="1">1 Child</option>
+                          </select>
+                        </td>
+                        <td>
+                          <span>INR {price}</span>
+                        </td>
+                        <button
+                          className="btn add-cart-btn"
+                          onClick={addFoodToCart}
+                          disabled={roominfo?.isAddedToCart}
                         >
-                          <option value="1">1 Adult</option>
-                          <option value="2">2 Adult</option>
-                          <option value="3">3 Adult</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select
-                          className="form-select form-select-sm"
-                          aria-label=".form-select-sm example"
-                        >
-                          <option value="0">0 Child</option>
-                          <option value="1">1 Child</option>
-                        </select>
-                      </td>
-                      <td>
-                        <select
-                          className="form-select form-select-sm"
-                          aria-label=".form-select-sm example"
-                        >
-                          <option value="0">0 Child</option>
-                          <option value="1">1 Child</option>
-                        </select>
-                      </td>
-                      <td>
-                        <span>INR 1000</span>
-                      </td>
-                      <button
-                      className="btn add-cart-btn"
-                        onClick={addFoodToCart}
-                        disabled={roominfo?.isAddedToCart}> Add to Cart
-                      </button>
-
-
+                          {" "}
+                          Add Room
+                        </button>
                       </tr>
                     );
                   })}
@@ -280,8 +294,8 @@ function RoomBookingCard(room) {
               </table>
             )}
           </div>
-        </div>
-      </div>
+        </Row>
+      </Container>
     </>
   );
 }

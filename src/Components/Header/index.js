@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import {
   Navbar,
   Container,
@@ -7,7 +7,7 @@ import {
   Offcanvas,
   NavDropdown,
 } from "react-bootstrap";
-
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import logo1 from "../../Assets/images/logo-1.png";
 import logo2 from "../../Assets/images/logo-2.png";
 import { Link } from "react-router-dom";
@@ -22,9 +22,10 @@ const Header = () => {
   const [width, setWidth] = useState("180");
   const [height, setHeight] = useState("80");
   const [bg, setbg] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [isToggle, setIsToggle] = useState(false);
+  const ref = useRef(null)
   const changeNavbarLogo = () => {
-    if (window.scrollY >= 80) {
+    if (window.scrollY >= 60) {
       setLogo(logo2);
       setWidth("160");
       setHeight("50");
@@ -36,6 +37,43 @@ const Header = () => {
       setbg("");
     }
   };
+  
+  useEffect(()=>{
+    
+    if(isToggle){
+      setbg("bg-grey")
+    }else{
+      setbg("")
+    }
+  }, [isToggle])
+  
+  // useEffect(() => {
+    //   const handleClickOutside = (event) => {
+      //     if (ref.current && !ref.current.contains(event.target)) {
+        //       setbg("bg-grey")
+        
+        //     }
+        //   };
+        //   document.addEventListener('click', handleClickOutside, true);
+        //   return () => {
+          //     document.removeEventListener('click', handleClickOutside, true);
+          //   };
+          // }, [ onClickOutside ]);
+          useEffect(() => {
+            
+    // Function for click event
+    function handleOutsideClick(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsToggle(false)
+      }
+    }
+    
+    // Adding click event listener
+    document.addEventListener("click", handleOutsideClick);
+    return () => document.removeEventListener("click", handleOutsideClick);
+  }, [ref]);
+
+  isToggle ? disableBodyScroll(document) : enableBodyScroll(document)
   window.addEventListener("scroll", changeNavbarLogo);
 
   return (
@@ -101,12 +139,13 @@ const Header = () => {
               </NavDropdown>
 
               <div>
-                <li class="nav-item dropdown-mega position-static d-none d-lg-block">
+                <li ref={ref} class="nav-item dropdown-mega position-static d-none d-lg-block">
                   <a
                     class="nav-link dropdown-toggle nav-links mr-2"
                     href="#"
                     data-bs-toggle="dropdown"
                     data-bs-auto-close="outside"
+                    onClick={()=> setIsToggle(!isToggle)}
                   >
                     Rooms
                   </a>
@@ -116,32 +155,33 @@ const Header = () => {
                         <div class="row justify-content-between">
                           <div className="col py-4">
                             <div>
-                              <img className="img img-fluid" src={executiveRoom} alt="executive room" /> 
-                              <h5 className="text-center dropdown-title my-2">Executive room</h5>
+                              <Link to="/rooms/executive-room"><figure><img className="img img-fluid room-dropdown-img" src={executiveRoom} alt="executive room" /></figure></Link>
+                              <Link className='link' to="/rooms/executive-room"><h5 className="text-center dropdown-title my-2">Executive room</h5></Link>
+                            </div>
+
+                          </div>
+                          <div className="col py-4">
+                            <div>
+                              <Link to="/rooms/superior-room"><figure><img className="img img-fluid room-dropdown-img" src={superiorRoom} alt="executive room" /></figure> </Link>
+                              <Link className="link" to="/rooms/superior-room"><h5 className="text-center dropdown-title my-2">Superior room</h5></Link>
                             </div>
                           </div>
                           <div className="col py-4">
                             <div>
-                              <img className="img img-fluid" src={superiorRoom} alt="executive room" /> 
-                              <h5 className="text-center dropdown-title my-2">Superior room</h5>
+                              <Link to="/rooms/deluxe-room"><figure><img className="img img-fluid room-dropdown-img" src={deluxeRoom} alt="executive room" /></figure> </Link>
+                              <Link className="link" to="/rooms/deluxe-room"><h5 className="text-center dropdown-title my-2">Deluxe room</h5></Link>
                             </div>
                           </div>
                           <div className="col py-4">
                             <div>
-                              <img className="img img-fluid" src={deluxeRoom} alt="executive room" /> 
-                              <h5 className="text-center dropdown-title my-2">Deluxe room</h5>
+                              <Link to="/rooms/family-room"><figure><img className="img img-fluid room-dropdown-img" src={executiveRoom} alt="executive room" /> </figure></Link>
+                              <Link className="link" to="/rooms/family-room"><h5 className="text-center dropdown-title my-2">Executive room</h5></Link>
                             </div>
                           </div>
                           <div className="col py-4">
                             <div>
-                              <img className="img img-fluid" src={executiveRoom} alt="executive room" /> 
-                              <h5 className="text-center dropdown-title my-2">Executive room</h5>
-                            </div>
-                          </div>
-                          <div className="col py-4">
-                            <div>
-                              <img className="img img-fluid" src={executiveRoom} alt="executive room" /> 
-                              <h5 className="text-center dropdown-title my-2">Executive room</h5>
+                              <Link to="/rooms/standard-room"><figure><img className="img img-fluid room-dropdown-img" src={executiveRoom} alt="executive room" /></figure></Link> 
+                              <Link className="link" to="/rooms/standard-room"><h5 className="text-center dropdown-title my-2">Executive room</h5></Link>
                             </div>
                           </div>
                         </div>

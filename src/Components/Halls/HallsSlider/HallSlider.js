@@ -12,7 +12,11 @@ const HallDetails = [
         id: '1',
         image: sliderimg1,
         title: "Dining Hall",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+        timing: {
+          Lunch: "11:00 A.M. to 3:00 P.M.",
+          Dinner: "7:30 P.M. to 10:30 P.M."
+        }
     },
     {
         id: '2',
@@ -73,7 +77,7 @@ function HallSlider(props) {
             <Slider {...settings}>
                 {
                   HallDetails.map((room) =>{
-                    return <SliderElement id={room.id} img={room.image} title={room.title} description={room.description} />
+                    return <SliderElement id={room.id} img={room.image} title={room.title} description={room.description} timing={room.timing} />
                   })
                 }
             </Slider>
