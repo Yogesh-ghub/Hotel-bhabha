@@ -144,7 +144,7 @@ function RoomBookingCard(room) {
       const totalPrice = room.pricePerNight + 100;
       setPrice(totalPrice);
     } else {
-      const totalPrice = room.pricePerNight + 100 + (totalGuest - 2) * 300;
+      const totalPrice = room.pricePerNight + 100 + (totalGuest - 2) * 350;
       setPrice(totalPrice);
     }
 
