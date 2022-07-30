@@ -62,7 +62,7 @@ function RoomBookingCard(room) {
 
   const addFoodToCart = () => {
     dispatch(
-      addToCart({ roomid: roominfo._id, roomName: roominfo.name, quantity: 1 })
+      addToCart({ roomid: roominfo._id, roomName: roominfo.name, quantity: 1,price:price })
     );
     setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
   };
@@ -167,7 +167,7 @@ function RoomBookingCard(room) {
             <h4>{room.name}</h4>
             <span>1 king | {room.guestCapacity} adult |</span>
             <p>{room.desc}</p>
-            <span>₹{room.pricePerNight}</span>
+            <span>₹{price}</span>
 
             <div className="d-flex">
               <span className="mx-2">Number of Rooms:</span>

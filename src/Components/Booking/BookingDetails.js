@@ -29,7 +29,7 @@ function BookingDetails() {
   //     setItems(data.payload);
   //   })
   // }, [])
-  console.log(reduxState);
+  
 
 
 

@@ -10,38 +10,38 @@ function CartUI() {
   const userReduxState = useSelector((globalState) => globalState.datereducer.user)
 
 
-  
 
-  
+
+
 
 
   const dispatch = useDispatch();
- 
+
 
   const passdata = (data) => {
 
 
-      if (reduxState && userReduxState && dateReduxState) {
-        // dispatch(postCartDetails({ cart: cartData })).then((response) => {
-        //   console.log(response.payload);
-        //   setCartId(response.payload._id)
-        //   return response.payload;
-        // })
-        
-        // dispatch(postDateDetails({ dates:dateReduxState })).then((response) => {
-        //   console.log(response.payload);
+    if (reduxState && userReduxState && dateReduxState) {
+      // dispatch(postCartDetails({ cart: cartData })).then((response) => {
+      //   console.log(response.payload);
+      //   setCartId(response.payload._id)
+      //   return response.payload;
+      // })
+
+      // dispatch(postDateDetails({ dates:dateReduxState })).then((response) => {
+      //   console.log(response.payload);
+      //   setUserId(response.payload._id)
+      // })
+
+
+      dispatch(postDetails({ guest: userReduxState, cart: cartData, dates: dateReduxState, razorpay_payment_id: data.razorpay_payment_id })).then((response) => {
+        console.log(response.payload);
         //   setUserId(response.payload._id)
-        // })
-          
+      })
+    }
 
-        dispatch(postDetails({guest:userReduxState,cart:cartData,dates:dateReduxState, razorpay_payment_id:data.razorpay_payment_id})).then((response) => {
-             console.log(response.payload);
-          //   setUserId(response.payload._id)
-           })
-      }
-      
 
-      
+
 
     // if (userReduxState) {
     //   console.log(`details:- ${details}`);
@@ -54,18 +54,18 @@ function CartUI() {
 
   }
 
-  
+
 
   useEffect(() => {
     reduxState && setCartData(reduxState);
-    
 
-  }, [reduxState, userReduxState,dateReduxState])
+
+  }, [reduxState, userReduxState, dateReduxState])
 
   const payNow = () => {
     let options = {
       key: "rzp_test_ylrxtcnQZcSWvV",
-      amount: 1000 * 100,
+      amount: reduxState.reduce((total, current) => total + current.price, 0) * 100,
       currency: "INR",
       name: "Hotel BHABHA",
       description: "Fast Dilevary Service",
@@ -125,7 +125,7 @@ function CartUI() {
             </>
           ))}
 
-        <div className="fs-5 fw-bold"> Total price inc gst : </div>
+        <div className="fs-5 fw-bold"> Total price inc gst : {reduxState.reduce((total, current) => total + current.price, 0) }</div>
 
         <button
           onClick={payNow}

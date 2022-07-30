@@ -50,7 +50,7 @@ export const deleteCart = (roomID) => async (dispatch) => {
             return dispatch({ type: "ERROR", payload: "Cart is empty" });
         }
 
-        cartData.cart=cartData.cart.filter(({ _id }) => _id !== roomID)
+        cartData.cart=cartData.cart.filter(({ roomid }) => roomid !== roomID)
 
         localStorage.setItem("hotelCart", JSON.stringify({ cart: cartData.cart }));
         return dispatch({ type: DELETE_CART, payload: cartData.cart });
@@ -71,7 +71,7 @@ export const decreteQuantity = (roomId) => async (dispatch) => {
         }
 
         cartData.cart = cartData.cart.map((room) =>
-            room._id === roomId
+            room.roomid === roomId
                 ? {
                     ...room,
                     quantity: room.quantity - 1,
@@ -89,7 +89,7 @@ export const decreteQuantity = (roomId) => async (dispatch) => {
 }
 export const increteQuantity = (roomId) => async (dispatch) => {
     try {
-
+        console.log(`roomID:-${roomId}`)
         let cartData = { cart: [] };
 
         if (localStorage.hotelCart) {
@@ -98,7 +98,7 @@ export const increteQuantity = (roomId) => async (dispatch) => {
         }
 
         cartData.cart = cartData.cart.map((room) =>
-            room._id === roomId
+            room.roomid === roomId
                 ? {
                     ...room,
                     quantity: room.quantity +1,
