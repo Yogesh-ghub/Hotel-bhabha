@@ -45,7 +45,7 @@ function BookingDetails() {
           <DatePicker />
           <h1 className="mt-3 mb-4 division-heading"> Select a Room</h1>
         </div>
-        <div className="row">
+        {/* <div className="row"> */}
 
           <>
             {hotel.map((room, index) => (
@@ -54,7 +54,7 @@ function BookingDetails() {
           </>
           {/* <Basket/> */}
 
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );
