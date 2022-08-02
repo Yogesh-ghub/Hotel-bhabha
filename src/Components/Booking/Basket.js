@@ -44,11 +44,11 @@ const Basket = (data) => {
 
     <>
       {reduxState.length && 
-      (<Container className="d-flex my-4">
+      (<Container className="d-flex my-4 ">
         <Row>
           <Col sm={12}>
             <h5>
-              {" "}
+              {""}
               Cart ({totalUniqueItems}) total Item :({reduxState.length})
             </h5>
             <table className="table table-light m-0">
