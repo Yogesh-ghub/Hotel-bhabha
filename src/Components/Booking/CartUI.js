@@ -125,7 +125,10 @@ function CartUI() {
             </>
           ))}
 
-        <div className="fs-5 fw-bold"> Total price inc gst : {reduxState.reduce((total, current) => total + current.price, 0) }</div>
+        <div className="d-flex justify-content-between fw-bold fs-5">
+          <span>Total price inc gst : </span>
+          <span>&#8377; {reduxState.reduce((total, current) => total + current.price, 0) }</span>
+        </div>
 
         <button
           onClick={payNow}

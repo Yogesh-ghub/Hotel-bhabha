@@ -3,11 +3,10 @@ import "./index.css";
 
 import DatePicker from "./DatePicker";
 import RoomBookingCard from "./RoomBookingCard";
-import Basket from "./Basket";
 
 import { getHotel } from "../../redux/reducer/Hotel/hotel.action";
 import { useDispatch, useSelector } from "react-redux";
-import { getCart } from "../../redux/reducer/Cart/cart.action";
+
 
 function BookingDetails() {
   const [hotel, setHotel] = useState([]);
@@ -24,37 +23,20 @@ function BookingDetails() {
   }, []);
 
 
-  // useEffect(() => {
-  //   dispatch(getCart()).then((data) => {
-  //     setItems(data.payload);
-  //   })
-  // }, [])
-  
-
-
-
   return (
     <div>
-      {/* <div className="booking-banner">
-        <div className="animated animatedFadeInUp fadeInUp">
-          <h1>Book Your Room</h1>
-        </div>
-      </div> */}
       <div className="card-container">
         <div className="d-flex flex-column ">
           <DatePicker />
           <h1 className="mt-3 mb-4 division-heading"> Select a Room</h1>
         </div>
-        {/* <div className="row"> */}
 
           <>
             {hotel.map((room, index) => (
               <RoomBookingCard {...room} key={index} />
             ))}
           </>
-          {/* <Basket/> */}
 
-        {/* </div> */}
       </div>
     </div>
   );

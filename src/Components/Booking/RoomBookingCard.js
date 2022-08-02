@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useCart } from "react-use-cart";
 import { Link } from "react-router-dom";
 import "./index.css";
-import { Modal, Button, Container, Row, Col } from "react-bootstrap";
+import { Modal, Button, Container, Row } from "react-bootstrap";
 import about2 from "../../Assets/images/about-grid-small.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { getSpecificROOM } from "../../redux/reducer/Hotel/hotel.action";
@@ -18,7 +17,7 @@ function RoomBookingCard(room) {
   const [totalGuest, setTotalGuest] = useState();
   const [showAlert, setShowAlert] = useState(false);
 
-  // console.log(parseInt(adult) + parseInt(child) + parseInt(belowChild));
+  
   const n = room.guestCapacity;
   const dispatch = useDispatch();
   const [roominfo, setroominfo] = useState({});
@@ -137,10 +136,10 @@ function RoomBookingCard(room) {
 
     console.log("inside price");
     const totalGuest = parseInt(adult) + parseInt(child) + parseInt(belowChild);
-    if (totalGuest == 1) {
+    if (totalGuest === 1) {
       const totalPrice = room.pricePerNight;
       setPrice(totalPrice);
-    } else if (totalGuest == 2) {
+    } else if (totalGuest === 2) {
       const totalPrice = room.pricePerNight + 100;
       setPrice(totalPrice);
     } else {
