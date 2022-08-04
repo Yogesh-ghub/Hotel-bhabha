@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postDetails, postDateDetails, postUserDetails } from "../../redux/reducer/booking/Booking.action";
 
 function CartUI() {
+  const months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
   const dateReduxState = useSelector((globalState) => globalState.datereducer.date)
   const [cartData, setCartData] = useState([]);
   const reduxState = useSelector((globalState) => globalState.cartReducer.cart)
@@ -104,6 +105,10 @@ function CartUI() {
             <span className="fw-bold">Check-out</span> <br />
             before 00:00 A.M.
           </div>
+        </div>
+        <div>
+          <span>{months[dateReduxState.startDate.month - 1]} {dateReduxState.startDate.date}, {dateReduxState.startDate.year}</span> - 
+          <span> {months[dateReduxState.endDate.month - 1]} {dateReduxState.endDate.date}, {dateReduxState.endDate.year}</span>
         </div>
         <hr />
 

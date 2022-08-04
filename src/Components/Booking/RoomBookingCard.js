@@ -6,6 +6,7 @@ import about2 from "../../Assets/images/about-grid-small.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { getSpecificROOM } from "../../redux/reducer/Hotel/hotel.action";
 import { addToCart } from "../../redux/reducer/Cart/cart.action";
+import { differenceInDays } from 'date-fns'
 function RoomBookingCard(room) {
   const [roomNo, setRoomNo] = useState("0");
 
@@ -32,6 +33,14 @@ function RoomBookingCard(room) {
   ]);
 
   const reduxState = useSelector((globalState) => globalState.cartReducer.cart);
+  const dateReduxState = useSelector((globalState) => globalState.datereducer.date)
+  console.log("room booking",dateReduxState.startDate)
+
+  const count = differenceInDays(new Date(dateReduxState.endDate.year, dateReduxState.endDate.month, dateReduxState.endDate.date), new Date(dateReduxState.startDate.year, dateReduxState.startDate.month, dateReduxState.startDate.date))
+
+  console.log("room booking",count)
+
+ 
 
   const [roomDetails, setRoomDetails] = useState([
     {
@@ -137,20 +146,20 @@ function RoomBookingCard(room) {
     console.log("inside price");
     const totalGuest = parseInt(adult) + parseInt(child) + parseInt(belowChild);
     if (totalGuest === 1) {
-      const totalPrice = room.pricePerNight;
+      const totalPrice = room.pricePerNight * (count+1);
       setPrice(totalPrice);
     } else if (totalGuest === 2) {
-      const totalPrice = room.pricePerNight + 100;
+      const totalPrice = (room.pricePerNight + 100)*(count+1);
       setPrice(totalPrice);
     } else {
-      const totalPrice = room.pricePerNight + 100 + (totalGuest - 2) * 350;
+      const totalPrice = (room.pricePerNight + 100 + (totalGuest - 2) * 350)*(count+1);
       setPrice(totalPrice);
     }
 
     setTotalGuest(totalGuest);
 
     // }
-  }, [adult, child, belowChild]);
+  }, [adult, child, belowChild, dateReduxState.startDate, dateReduxState.endDate]);
 
   console.log(selectedRoom);
   console.log(parseInt(roomNo));
@@ -166,7 +175,7 @@ function RoomBookingCard(room) {
             <h4>{room.name}</h4>
             <span>1 king | {room.guestCapacity} adult |</span>
             <p>{room.desc}</p>
-            <span>₹{price}</span>
+            <span>₹{room.pricePerNight}</span>
 
             <div className="d-flex">
               <span className="mx-2">Number of Rooms:</span>
@@ -226,7 +235,7 @@ function RoomBookingCard(room) {
                     </th>
                     <th scope="col">
                       Room Price <br />{" "}
-                      <small className="text-muted">for 1 night(s)</small>{" "}
+                      <small className="text-muted">{`for ${count+1} night(s)`}</small>{" "}
                     </th>
                   </tr>
                 </thead>
