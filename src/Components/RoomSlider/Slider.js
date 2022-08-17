@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./index.css";
 const SliderElement = (props) => {
   return (
-    <div className="slider-column mt-4">
+    <div className="slider-column my-4">
       <Container fluid>
         <Row>
           <Col className="mx-2">

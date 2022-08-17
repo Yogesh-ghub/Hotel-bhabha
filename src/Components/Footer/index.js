@@ -34,13 +34,14 @@ function Footer() {
               <a href="https://www.facebook.com/hotelbhabha/" target="_blank">
                 <FaFacebookF size={24} className="m-3 icons fb-icon" />
               </a>
+
               <a href="https://www.instagram.com/bhabha_hotel/" target="_blank">
                 <BsInstagram size={24} className="m-3 icons instagram-icon" />
               </a>
               <a href="mailto:info@hotelbhabha.com" target="_blank">
                 <SiGmail size={24} className="m-3 icons gmail-icon" />
                 </a>
-              <a href="" target="_blank">
+              <a href="https://g.page/hotelbhabha?share" target="_blank">
                 <SiGooglemaps size={24} className="m-3 icons map-icon" />
               </a>
             </div>
@@ -59,10 +60,10 @@ function Footer() {
                   <Link to="#">Rooms</Link>
                 </li>
                 <li className="footer-list-items">
-                  <Link to="#">Contact</Link>
+                  <Link to="/dining-hall">Dining Hall</Link>
                 </li>
                 <li className="footer-list-items">
-                  <Link to="#">Facilities</Link>
+                  <Link to="/contact">Contact</Link>
                 </li>
               </ul>
             </div>
@@ -81,17 +82,12 @@ function Footer() {
               <address>
                 Panchnath road, near Gandhi Museum, Rajkot - 360001
               </address>
-
-              {/* Map */}
-
-              {/* <Map width="200" height="150" /> */}
             </div>
           </Col>
         </Row>
         <hr />
         <Row>
           <div className="d-lg-flex justify-content-between px-5 p-2 align-middle  ">
-            {/* <p className="text-center">info@hotelbhabha.com</p> */}
             <p className="text-center">2010 © Copyright Hotel BhaBha.</p>
           </div>
         </Row>

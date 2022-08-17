@@ -28,7 +28,7 @@ function AboutUsGrid() {
             comfort with delicate touches of lavishness and comfortable stay in
             the hotel. The check out time at Bhabha Hotel is fixed to 24 hours,
             which makes the stay at the hotel more convenient. The state of art
-            restaurant, serving the classic gujarathi cuisine is the elated
+            restaurant, serving the classic gujrati cuisine is the elated
             specialty of the hotel.
           </p>
         </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
 
-import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
+import { GrLinkNext, GrLinkPrevious } from "react-icons/gr";
+
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -50,14 +51,15 @@ const RoomDetails = [
   },
 ];
 
+
 function RoomSlider() {
   var settings = {
-    dots: false,
+    dots: true,
     arrow: true,
     centerPadding: 10,
     centerMode: true,
-    nextArrow: <HiArrowCircleRight />,
-    prevArrow: <HiArrowCircleLeft />,
+    nextArrow: <GrLinkNext />,
+    prevArrow: <GrLinkPrevious />,
     infinite: false,
     speed: 700,
     slidesToShow: 1.6,
