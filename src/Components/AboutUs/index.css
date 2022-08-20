@@ -33,15 +33,20 @@
     margin-bottom: 15px;
 }
 
+.about-us-img{
+    height: 100%;
+}
+
 figure {
     margin: 0;
     padding: 0;
     background: #fff;
     overflow: hidden;
+    height: 100%;
   }
 
 .about-us-img figure img{
-    max-height: 200px;
+    max-height: 252px;
     -webkit-transform: scale(1);
     transform: scale(1);
     -webkit-transition: .3s ease-in-out;
