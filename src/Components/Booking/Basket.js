@@ -91,7 +91,7 @@ const Basket = (data) => {
                           className="btn btn-danger ms-2"
                         >
                           {" "}
-                          RemoveItem{" "}
+                          Remove Item{" "}
                         </button>
                       </td>
                     </tr>

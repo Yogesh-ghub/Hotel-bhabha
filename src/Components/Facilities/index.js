@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { FaWifi, FaBath } from "react-icons/fa";
+import { FaWifi, FaBath, FaAirConditioner } from "react-icons/fa";
 import { IoIosBed } from 'react-icons/io'
 import { MdOutlineDoorSliding } from 'react-icons/md'
 import { CgScreen } from 'react-icons/cg'
@@ -17,7 +17,7 @@ const Facilities = () => {
             <Col sm={12} md>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
-                        <span className="facility-icon"><FaWifi size={48}  /></span>
+                        <span className="facility-icon"><FaWifi size={42}  /></span>
                     </div>
                    
                     <div className="facility-text">
@@ -28,7 +28,7 @@ const Facilities = () => {
             <Col sm={12} md>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
-                        <span className="facility-icon"><IoIosBed size={48}  /></span>
+                        <span className="facility-icon"><IoIosBed size={42}  /></span>
                     </div>
                    
                     <div className="facility-text">
@@ -39,7 +39,7 @@ const Facilities = () => {
             <Col sm={12} md>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
-                        <span className="facility-icon"><MdOutlineDoorSliding size={48}  /></span>
+                        <span className="facility-icon"><MdOutlineDoorSliding size={42}  /></span>
                     </div>
                    
                     <div className="facility-text">
@@ -50,22 +50,33 @@ const Facilities = () => {
             <Col sm={12} md>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
-                        <span className="facility-icon"><CgScreen size={48}  /></span>
+                        <span className="facility-icon"><CgScreen size={42}  /></span>
                     </div>
                    
                     <div className="facility-text">
-                        <h3>plasma TV</h3>
+                        <h3>LCD TV</h3>
                     </div>
                 </div>
             </Col>
             <Col sm={12} md>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
-                        <span className="facility-icon"><FaBath size={48}  /></span>
+                        <span className="facility-icon"><i className="fa-solid fa-air-conditioner"></i></span>
                     </div>
                    
                     <div className="facility-text">
-                        <h3>Bath Tub</h3>
+                        <h3>fully AC</h3>
+                    </div>
+                </div>
+            </Col>
+            <Col sm={12} md>
+                <div className="facility-item">
+                    <div className="d-flex justify-content-center ">
+                        <span className="facility-icon"><i className="fa-solid fa-air-conditioner"></i></span>
+                    </div>
+                   
+                    <div className="facility-text">
+                        <h3>24hrs room service</h3>
                     </div>
                 </div>
             </Col>
