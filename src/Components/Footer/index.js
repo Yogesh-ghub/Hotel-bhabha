@@ -47,7 +47,7 @@ function Footer() {
             </div>
           </Col>
           <Col sm={12} md={5} lg={4} className="footer-col my-4 px-4">
-            <h3>The Hotel</h3>
+            {/* <h3>The Hotel</h3> */}
             <div>
               <ul className="list-unstyled justify-content-center">
                 <li className="footer-list-items">
@@ -88,7 +88,7 @@ function Footer() {
         <hr />
         <Row>
           <div className="d-lg-flex justify-content-between px-5 p-2 align-middle  ">
-            <p className="text-center">2010 © Copyright Hotel BhaBha.</p>
+            <p className="text-center">2022 © Copyright Hotel BhaBha.</p>
           </div>
         </Row>
       </Container>

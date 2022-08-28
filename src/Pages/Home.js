@@ -15,6 +15,8 @@ import img1 from '../Assets/images/gallery8.jpg'
 import slideimg1 from "../Assets/images/sliderimg-1.jpeg";
 import slideimg2 from "../Assets/images/sliderimg-2.jpeg";
 import slideimg3 from "../Assets/images/sliderimg-3.jpeg";
+import Whatsapp from "../Components/ContactIcons/Whatsapp";
+import Phone from "../Components/ContactIcons/Phone";
 
 const array = [
   {
@@ -43,6 +45,8 @@ function Home() {
       {/* <AlertTop /> */}
       <Header />
       <Slider img1={slideimg1} img2={slideimg2} img3={slideimg3} />
+      <Whatsapp />
+      <Phone />
       <AboutUs />
       <RoomSlider />
       <CardSlider array={array} divHeading="Special Offers" />

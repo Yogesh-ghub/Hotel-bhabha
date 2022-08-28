@@ -83,6 +83,8 @@ function RoomSlider() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          arrow: false,
+          infinite: true,
         },
       },
     ],
@@ -90,7 +92,7 @@ function RoomSlider() {
 
   return (
     <>
-      <div className="room-slider-container p-5">
+      <div className="room-slider-container container-fluid p-5">
         <h2 className="division-heading">Stay & Live</h2>
         <Slider {...settings}>
           {RoomDetails.map((room) => {

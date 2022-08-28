@@ -25,7 +25,25 @@ const ContactForm = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // let response = await fetch("https://yogesh-chandra-portfolio.herokuapp.com/send", {
+    try {
+      let response = await fetch("http://localhost:4000/api/contact/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json;charset=utf-8",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    resetForm();
+    setModalShow(true);
+    console.log(response)
+      
+    } catch (error) {
+      alert("not send")
+      
+    }
+
+    // let response = await fetch("http://localhost:4000/api/contact/send", {
     //   method: "POST",
     //   headers: {
     //     "Content-Type": "Application/json;charset=utf-8",
@@ -33,8 +51,8 @@ const ContactForm = (props) => {
     //   body: JSON.stringify(formData),
     // });
 
-    resetForm();
-    setModalShow(true);
+    // resetForm();
+    // setModalShow(true);
   };
 
   const handleChange = (e) => {

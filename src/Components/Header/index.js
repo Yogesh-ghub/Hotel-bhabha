@@ -149,10 +149,10 @@ const Header = () => {
                   >
                     Rooms
                   </a>
-                  <div class="dropdown-menu bg-grey m-0" style={{border: '0px', borderRadius: '0px'}}>
+                  <div class="dropdown-menu bg-grey m-0" style={{border: '0px', borderRadius: '0px', height: "75vh"}}>
                     <div class="mega-content px-4">
                       <div class="container-fluid megamenu">
-                        <div class="row justify-content-between">
+                        <div class="row justify-content-between align-items-center">
                           <div className="col py-4">
                             <div>
                               <Link to="/rooms/executive-room"><figure><img className="img img-fluid room-dropdown-img" src={executiveRoom} alt="executive room" /></figure></Link>

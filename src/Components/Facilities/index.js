@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { FaWifi, FaBath, FaAirConditioner } from "react-icons/fa";
 import { IoIosBed } from 'react-icons/io'
-import { MdOutlineDoorSliding } from 'react-icons/md'
+import { MdOutlineDoorSliding, MdOutlineRoomService } from 'react-icons/md'
 import { CgScreen } from 'react-icons/cg'
 
 import './index.css'
@@ -72,11 +72,11 @@ const Facilities = () => {
             <Col sm={12} md>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
-                        <span className="facility-icon"><i className="fa-solid fa-air-conditioner"></i></span>
+                        <span className="facility-icon"><MdOutlineRoomService size={42} /></span>
                     </div>
                    
                     <div className="facility-text">
-                        <h3>24hrs room service</h3>
+                        <h3>Room service</h3>
                     </div>
                 </div>
             </Col>

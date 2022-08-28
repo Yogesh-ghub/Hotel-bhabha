@@ -14,7 +14,7 @@ const SliderElement = (props) => {
                 src={props.img}
                 alt="sliderimage"
                 width="380rem"
-                className=""
+                // className="img "
               />
             </div>
           </Col>
