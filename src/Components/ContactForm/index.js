@@ -76,7 +76,7 @@ const ContactForm = (props) => {
                 </p>
                 <p>
                   <a className="link" href="tel:++91-281-2220861">
-                    <FaPhoneAlt /> +91-281-2220861-66
+                    <FaPhoneAlt /> +91-281-2220861
                   </a>
                 </p>
 
