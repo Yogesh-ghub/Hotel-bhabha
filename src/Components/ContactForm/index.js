@@ -26,21 +26,22 @@ const ContactForm = (props) => {
     e.preventDefault();
 
     try {
-      let response = await fetch("https://hotel-bhabha-backend.herokuapp.com/api/contact/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "Application/json;charset=utf-8",
-      },
-      body: JSON.stringify(formData),
-    });
+      let response = await fetch(
+        "https://hotel-bhabha-backend.herokuapp.com/api/contact/send",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "Application/json;charset=utf-8",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-    resetForm();
-    setModalShow(true);
-    console.log(response)
-      
+      resetForm();
+      setModalShow(true);
+      console.log(response);
     } catch (error) {
-      alert("Oops! there is an error")
-      
+      alert("Oops! there is an error");
     }
 
     // let response = await fetch("http://localhost:4000/api/contact/send", {
@@ -75,14 +76,14 @@ const ContactForm = (props) => {
                 </p>
                 <p>
                   <a className="link" href="tel:++91-281-2220861">
-                    <FaPhoneAlt /> +91-281-2220861
+                    <FaPhoneAlt /> +91-281-2220861-66
                   </a>
                 </p>
 
                 <p>
                   <a className="link" href="tel:+91-9898789898">
                     <FaPhoneAlt />
-                    +91-9898789898{" "}
+                    +91-9898789898
                   </a>
                 </p>
                 <p>
@@ -175,9 +176,11 @@ const ContactForm = (props) => {
 
               <Form.Group className="mb-3" controlId="Subject">
                 <Form.Control
+                  as="textarea"
+                  rows={3}
                   type="text"
                   className="form-input"
-                  placeholder="Subject"
+                  placeholder="Message"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
