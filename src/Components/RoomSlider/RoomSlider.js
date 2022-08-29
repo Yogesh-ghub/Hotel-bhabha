@@ -18,7 +18,7 @@ const RoomDetails = [
     id: "executive-room",
     title: "Executive Room",
     description:
-      "Executive room are well furnished and equipped with all modern amenities. This room is equipped with a ceiling fan, wardrobe, flat-screen TV, and attached bathroom.",
+      "Executive room are well furnished and equipped with all modern amenities. This room is equipped with a air-conditioner, wardrobe, LCD TV, and attached bathroom.",
     image: executiveRoom,
   },
   {
