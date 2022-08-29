@@ -72,26 +72,12 @@ const Basket = (data) => {
                       <td>{props.quantity}</td>
 
                       <td>
-                        <button
-                          onClick={() => decreaseQty(props.roomid, props.quantity)}
-                          className="btn btn-info ms-2"
-                        >
-                          {" "}
-                          -{" "}
-                        </button>
-                        <button
-                          onClick={() => increaseQty(props.roomid)}
-                          className="btn btn-info ms-2"
-                        >
-                          {" "}
-                          +{" "}
-                        </button>
+                        
                         <button
                           onClick={() => removeCart(props.roomid)}
                           className="btn btn-danger ms-2"
                         >
-                          {" "}
-                          Remove Item{" "}
+                          Remove Item
                         </button>
                       </td>
                     </tr>
@@ -99,11 +85,8 @@ const Basket = (data) => {
               </tbody>
             </table>
 
-            <div className="col-auto ms-auto">
-              <h2> total price: {cartTotal} EGP</h2>
-            </div>
           </Col>
-          <div className="col-auto mb-2">
+          <div className="col-auto my-2">
             <button className="btn btn-danger ms-2">Clear Cart</button>
             <button className="btn btn-primary ms-2" onClick={checkout}>
               Book Now{" "}

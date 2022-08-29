@@ -26,7 +26,7 @@ const ContactForm = (props) => {
     e.preventDefault();
 
     try {
-      let response = await fetch("http://localhost:4000/api/contact/send", {
+      let response = await fetch("https://hotel-bhabha-backend.herokuapp.com/api/contact/send", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json;charset=utf-8",
@@ -39,7 +39,7 @@ const ContactForm = (props) => {
     console.log(response)
       
     } catch (error) {
-      alert("not send")
+      alert("Oops! there is an error")
       
     }
 

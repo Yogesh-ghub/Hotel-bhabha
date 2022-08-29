@@ -249,15 +249,11 @@ const GuestDetailsForm = (props) => {
                 <div>
                   <ul className="list-unstyled">
                     <li>
-                      If cancelled, advance payment made online will not be
-                      refundable.
+                      If reservations are cancelled less than 48 hours before the arrival date, payment will be non-refundable.
                     </li>
                     <li>
                       It is mandatory for guests to present valid photo
                       identification upon check in.
-                    </li>
-                    <li>
-                      The Credit Card Holder must be one of the travelers.
                     </li>
                     <li>
                       We reserve the right to cancel or modify reservations

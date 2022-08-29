@@ -4,7 +4,7 @@ import './index.css'
 const Phone = () => {
   return (
     <div className='phone-icon'>
-        <img src={phone} alt="" width='50px' />
+        <a className='' href='tel:+91-281-2220861'><img src={phone} alt="" width='50px' /></a>
     </div>
   )
 }

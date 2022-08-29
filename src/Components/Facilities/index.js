@@ -61,7 +61,7 @@ const Facilities = () => {
             <Col sm={12} md>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
-                        <span className="facility-icon"><i className="fa-solid fa-air-conditioner"></i></span>
+                        <span className="facility-icon"><i className="fa-solid fa-air-conditioner"></i></span> 
                     </div>
                    
                     <div className="facility-text">
