@@ -4,6 +4,7 @@ import { FaWifi, FaBath, FaAirConditioner } from "react-icons/fa";
 import { IoIosBed } from 'react-icons/io'
 import { MdOutlineDoorSliding, MdOutlineRoomService } from 'react-icons/md'
 import { CgScreen } from 'react-icons/cg'
+import acIcon from '../../Assets/air-conditioner.svg'
 
 import './index.css'
 const Facilities = () => {
@@ -61,7 +62,7 @@ const Facilities = () => {
             <Col sm={12} md>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
-                        <span className="facility-icon"><i className="fa-solid fa-air-conditioner"></i></span> 
+                        <span className="facility-icon"><img src={acIcon} alt="icon" /> </span> 
                     </div>
                    
                     <div className="facility-text">

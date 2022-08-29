@@ -9,7 +9,6 @@ import { BsInstagram } from "react-icons/bs";
 import { SiGmail, SiGooglemaps } from "react-icons/si";
 import { FaHotel, FaPhoneAlt } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
-
 //component
 import Map from "../../Components/Map";
 import AlertTop from "../Alert";
@@ -67,18 +66,53 @@ const ContactForm = (props) => {
       <Container className="form-container">
         <Row className="justify-content-between p-3">
           <h2 className="division-heading text-center">Contact Us</h2>
-          <Col lg={5}>
+          <Col lg={6}>
             <div className=" ">
               <div className="address-card ">
                 <h2 className="division-subheading">Address</h2>
                 <p className="text-center text-wrap">
                   Panchnath road, near Gandhi Museum, Rajkot - 360001
                 </p>
-                <p>
-                  <a className="link" href="tel:++91-281-2220861">
-                    <FaPhoneAlt /> +91-281-2220861
-                  </a>
-                </p>
+                <div className="d-flex gap-4">
+                  <div>
+                    <p>
+                      <a className="link" href="tel:++91-281-2220861">
+                        <FaPhoneAlt /> +91-281-2220861
+                      </a>
+                    </p>
+
+                    <p>
+                      <a className="link" href="tel:++91-281-2220862">
+                        <FaPhoneAlt /> +91-281-2220862
+                      </a>
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <a className="link" href="tel:++91-281-2220863">
+                        <FaPhoneAlt /> +91-281-2220863
+                      </a>
+                    </p>
+                    <p>
+                      <a className="link" href="tel:++91-281-2220864">
+                        <FaPhoneAlt /> +91-281-2220864
+                      </a>
+                    </p>
+                  </div>
+
+                  <div>
+                    <p>
+                      <a className="link" href="tel:++91-281-2220865">
+                        <FaPhoneAlt /> +91-281-2220865
+                      </a>
+                    </p>
+                    <p>
+                      <a className="link" href="tel:++91-281-2220866">
+                        <FaPhoneAlt /> +91-281-2220866
+                      </a>
+                    </p>
+                  </div>
+                </div>
 
                 <p>
                   <a className="link" href="tel:+91-9898789898">
