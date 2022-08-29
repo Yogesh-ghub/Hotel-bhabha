@@ -8,7 +8,7 @@ import { getSpecificROOM } from "../../redux/reducer/Hotel/hotel.action";
 import { addToCart } from "../../redux/reducer/Cart/cart.action";
 import { differenceInDays } from "date-fns";
 function RoomBookingCard(room) {
-  const [roomNo, setRoomNo] = useState("0");
+  const [roomNo, setRoomNo] = useState("1");
 
   const [adult, setAdult] = useState("1");
   const [child, setChild] = useState("0");
@@ -177,7 +177,7 @@ function RoomBookingCard(room) {
               </Link>
             </div>
 
-            <div className="d-flex mt-2">
+            {/* <div className="d-flex mt-2">
               <span className="mx-2">Number of Rooms:</span>
               <select
                 className="form-select form-select-sm"
@@ -188,12 +188,8 @@ function RoomBookingCard(room) {
               >
                 <option value="0">0</option>
                 <option value="1">1</option>
-                {/* <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option> */}
               </select>
-            </div>
+            </div> */}
 
             <Modal show={showAlert} onHide={() => setShowAlert(false)}>
               <Modal.Header className="bg-grey" closeButton>
@@ -225,7 +221,7 @@ function RoomBookingCard(room) {
               </Modal.Footer>
             </Modal>
 
-            {roomNo !== "0" && (
+            {/* {roomNo !== "0" && ( */}
               <>
               <table className="table">
                 <thead>
@@ -317,7 +313,7 @@ function RoomBookingCard(room) {
               Add Room
             </button>
               </>
-            )}
+            {/* )} */}
             
           </div>
         </Row>
