@@ -65,14 +65,14 @@ const GuestDetailsForm = (props) => {
                           className="input-box shadow-none"
                           required
                         >
-                          <option value="1">Dr.</option>
+                          <option value="1">Mr.</option>
                           <option value="2">Miss.</option>
-                          <option value="3">Mr.</option>
-                          <option value="3">Mrs.</option>
-                          <option value="3">Ms.</option>
-                          <option value="3">Pr.</option>
-                          <option value="3">Prof.</option>
-                          <option value="3">Rev.</option>
+                          <option value="3">Dr.</option>
+                          <option value="4">Mrs.</option>
+                          <option value="5">Ms.</option>
+                          <option value="6">Pr.</option>
+                          <option value="7">Prof.</option>
+                          <option value="8">Rev.</option>
                         </Form.Select>
                       </FloatingLabel>
                       <FloatingLabel
@@ -147,89 +147,36 @@ const GuestDetailsForm = (props) => {
                   Submit
                 </Button>
                 <hr />
-                {/* <Row>
-                  <h4 className="row-heading">
-                    Card Details (to guarantee reservation)
-                  </h4>
-                  <div className="pay-icons">
-                    <img
-                      class="pay-icons-item"
-                      alt=""
-                      src={visa}
-                      width="45px"
-                    />
-                    <img
-                      class="pay-icons-item"
-                      alt=""
-                      src={mastercard}
-                      width="45px"
-                    />
-                    <img
-                      class="pay-icons-item"
-                      alt=""
-                      src={amex}
-                      width="45px"
-                    />
-                    <img
-                      class="pay-icons-item"
-                      alt=""
-                      src={dinerclub}
-                      width="45px"
-                    />
-                    <img class="pay-icons-item" alt="" src={jcb} width="45px" />
-                  </div>
-                  <Col md={6}>
-                    <InputGroup className="mb-3">
-                      <FloatingLabel
-                        controlId="card-number"
-                        label=""
-                        className="mb-3"
-                      >
-                        <InputGroup.Text id="card-icon" className="py-3">
-                          <AiFillCreditCard size={24} />
-                        </InputGroup.Text>
-                      </FloatingLabel>
-                      <FloatingLabel
-                        controlId="card-number"
-                        label="Card number"
-                        className="mb-3"
-                      >
-                        <Form.Control
-                          type="text"
-                          placeholder="Card Number"
-                          className="input-box shadow-none"
-                          required
-                        />
-                      </FloatingLabel>
-                    </InputGroup>
-
+                <Row>
+                <Col md={6}>
                     <FloatingLabel
-                      controlId="card expire"
-                      label="Card Expiration"
-                      className="mb-3"
-                    >
-                      <Form.Control
-                        type="date"
-                        date-format="MM-YYYY"
-                        placeholder="Card expiration date"
-                        className="input-box shadow-none"
-                        required
-                      />
-                    </FloatingLabel>
-                    <FloatingLabel
-                      controlId="name-card"
-                      label="Name on Card"
+                      controlId="companyName"
+                      label="Company Name"
                       className="mb-3"
                     >
                       <Form.Control
                         type="text"
-                        placeholder="Name on Card"
+                        placeholder="Company Name"
                         className="input-box shadow-none"
-                        required
+                        onChange={(e) => SetLastName(e.target.value)}
                       />
                     </FloatingLabel>
                   </Col>
-                </Row> */}
+                <Col md={6}>
+                    <FloatingLabel
+                      controlId="gstNumber"
+                      label="GST Number"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="GST Number"
+                        className="input-box shadow-none"
+                        onChange={(e) => SetLastName(e.target.value)}
+                      />
+                    </FloatingLabel>
+                  </Col>
+                </Row>
               </Form>
             </Col>
           </Row>
@@ -257,7 +204,7 @@ const GuestDetailsForm = (props) => {
                     </li>
                     <li><strong>Alcohol</strong> and <strong>Non Veg. food</strong> are strictly not allowed in Hotel.</li>
                     <li>
-                    UNMARRIED COUPLES/UNRELATED COUPLES/LOCAL COUPLES ARE NOT ALLOWED. This is at the full discretion of the hotel management. No refund would be applicable in case the hotel denies check-in under such circumstances.
+                   <strong>UNMARRIED COUPLES/UNRELATED COUPLES/LOCAL COUPLES ARE NOT ALLOWED.</strong> This is at the full discretion of the hotel management. No refund would be applicable in case the hotel denies check-in under such circumstances.
                     </li>
                     <li>Guest has to pay full amount at the time of check in for pay at hotel bookings.</li>
                     <li>Non- registered visitors are not permitted in guest rooms at night after 10 pm.</li>

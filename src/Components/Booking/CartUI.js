@@ -131,7 +131,7 @@ function CartUI() {
           ))}
 
         <div className="d-flex justify-content-between fw-bold fs-5">
-          <span>Total price inc gst : </span>
+          <span>Total price inc GST and all taxes : </span>
           <span>&#8377; {reduxState.reduce((total, current) => total + current.price, 0) }</span>
         </div>
 
