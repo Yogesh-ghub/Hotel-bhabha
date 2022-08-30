@@ -240,28 +240,28 @@ const GuestDetailsForm = (props) => {
                 Reservation and Cancellation Policy:
               </h4>
               <div className="">
-                <p>
+                {/* <p>
                   Early check-in or late check-out is subject to availability
                   and may be chargeable by the hotel directly.
                 </p>
-                <p>Check-in time is 12:00 PM, Check-out time is 12:00 PM.</p>
+                <p>Check-in time is 12:00 PM, Check-out time is 12:00 PM.</p> */}
 
                 <div>
                   <ul className="list-unstyled">
+                    <li>The <strong>standard check-in time is 12:00 PM</strong> and the standard <strong>check-out time is 11:00 AM</strong></li>
                     <li>
-                      If reservations are cancelled less than 48 hours before the arrival date, payment will be non-refundable.
+                    Early check-in or late check-out is strictly subjected to availability and may be chargeable by the hotel, any early check-in or late check-out request must be directed and reconfirmed with hotel directly.
                     </li>
                     <li>
-                      It is mandatory for guests to present valid photo
-                      identification upon check in.
+                    A Valid Photo ID Proof of all guests is mandatory for Check-In procedures. Guests are required to carry a Passport / Aadhar Card / Driving License for Check In procedures.
                     </li>
+                    <li><strong>Alcohol</strong> and <strong>Non Veg. food</strong> are strictly not allowed in Hotel.</li>
                     <li>
-                      We reserve the right to cancel or modify reservations
-                      where it appears that a customer has engaged in fraudulent
-                      or inappropriate activity or under other circumstances
-                      where it appears that the reservations contain or resulted
-                      from a mistake or error.
+                    UNMARRIED COUPLES/UNRELATED COUPLES/LOCAL COUPLES ARE NOT ALLOWED. This is at the full discretion of the hotel management. No refund would be applicable in case the hotel denies check-in under such circumstances.
                     </li>
+                    <li>Guest has to pay full amount at the time of check in for pay at hotel bookings.</li>
+                    <li>Non- registered visitors are not permitted in guest rooms at night after 10 pm.</li>
+                    <li>All disputes are subject to the jurisdiction of the Rajkot (Gujarat) court only.</li>
                   </ul>
                 </div>
               </div>
