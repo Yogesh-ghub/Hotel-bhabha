@@ -21,7 +21,7 @@ const SliderElement = (props) => {
             <div className="px-3">
               <div>
                 <h3 className="division-subheading text-center">{props.title}</h3>
-                <p className="">{props.description}</p>
+                <p className="">{props.description}</p> 
                 { props.timing && (
                   <div>
                     <span className="fw-bold">Timings:</span> <br/>

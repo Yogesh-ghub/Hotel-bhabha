@@ -4,6 +4,7 @@ import { FaWifi } from "react-icons/fa";
 import { GiMeditation } from 'react-icons/gi'
 import { MdEmojiTransportation, MdRestaurantMenu, MdLocalLaundryService } from "react-icons/md";
 import { IoMdClock } from 'react-icons/io'
+import meditation from '../../Assets/meditation-icon.svg'
 import './index.css'
 const Amneties = () => {
   return (
@@ -36,7 +37,7 @@ const Amneties = () => {
             </Col>
             <Col md={4} lg={2}>
                 <div className="amneties-item">
-                   <span className="amneties-icon"><GiMeditation size={56} /></span>
+                   <span className="amneties-icon"><img className='meditation-icon' src={meditation} /> </span>
                    <div className="icon-text">Meditation room</div>
                 </div>
             </Col>

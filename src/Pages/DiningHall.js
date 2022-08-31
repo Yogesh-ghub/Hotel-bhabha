@@ -4,6 +4,8 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import CardSlider from "../Components/CardSlider/CardSlider";
 import img1 from "../Assets/images/gallery8.jpg";
+import Whatsapp from "../Components/ContactIcons/Whatsapp";
+import Phone from "../Components/ContactIcons/Phone";
 
 const array = [
   {
@@ -26,6 +28,8 @@ const DiningHall = () => {
   return (
     <div>
       <Header />
+      <Whatsapp />
+      <Phone />
       <Dining />
       <CardSlider array={array} divHeading="Meetings & Celebrations" />
       <Footer />

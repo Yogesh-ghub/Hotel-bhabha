@@ -5,6 +5,8 @@ import RoomOverview from "../Components/Rooms";
 import Facilities from "../Components/Facilities";
 import RoomSlider from "../Components/RoomSlider/RoomSlider";
 import { useParams } from 'react-router-dom'
+import Whatsapp from "../Components/ContactIcons/Whatsapp";
+import Phone from "../Components/ContactIcons/Phone";
 
 const Room = () =>{
 
@@ -36,6 +38,8 @@ const Room = () =>{
         {
           (renderElement())
         } 
+        <Whatsapp />
+        <Phone />
         <Facilities />
         <RoomSlider />
         <Footer />

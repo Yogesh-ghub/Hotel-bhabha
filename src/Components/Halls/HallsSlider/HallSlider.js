@@ -13,6 +13,7 @@ const HallDetails = [
         image: sliderimg1,
         title: "Dining Hall",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+        smallDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et...",
         timing: {
           Lunch: "11:00 A.M. to 3:00 P.M.",
           Dinner: "7:30 P.M. to 10:30 P.M."
@@ -22,13 +23,15 @@ const HallDetails = [
         id: '2',
         image: sliderimg1,
         title: "Banquet Hall",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
+        description: "It may seem like an extravagant celebration with glamorous clothes, delicious meal and lavishly decorated venue. However, it is most auspicious and traditional event that marks beginning of an intimate companionship together. Therefore, The Hotel Bhabha understands that it is more than a ceremony. It presents more than just the wedding venues. It offers the perfect setting for your dream day. Whether you want a small intimate event or a true wedding bash, we are committed to transform your dream wedding into reality.",
+        smallDescription: "It may seem like an extravagant celebration with glamorous clothes, delicious meal and lavishly..."
     },
     {
         id: '3',
         image: sliderimg1,
         title: "Conference Hall",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
+        description: "With the best of services, state-of-the-art technical capabilities, an experienced team as well as customized menus and innovative decorative themes, you can be sure of a seamless and memorable social event or business meeting. With excellent hospitality services at your fingertips, fast Wi-Fi facilities and ergonomic usage of space and facilities, our conference rooms are the right choice for all your important events!",
+        smallDescription: "With the best of services, state-of-the-art technical capabilities, an experienced..."
     },
         
 ]
@@ -72,12 +75,12 @@ function HallSlider(props) {
 
   return (
     <>
-      <div className="p-5 bg-grey">
+      <div className="p-4 bg-grey">
         <h2 className="division-heading">Dine & Shine</h2>
             <Slider {...settings}>
                 {
                   HallDetails.map((room) =>{
-                    return <SliderElement id={room.id} img={room.image} title={room.title} description={room.description} timing={room.timing} />
+                    return <SliderElement id={room.id} img={room.image} title={room.title} description={room.description} smallDescription={room.smallDescription} timing={room.timing} />
                   })
                 }
             </Slider>

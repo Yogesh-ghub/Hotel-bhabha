@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import img1 from "../../Assets/images/DSC00754.jpg";
-import food2 from "../../Assets/images/food2.jpg";
+import food2 from "../../Assets/images/food2.jpeg";
 
 import { Container, Row, Col, Button } from "react-bootstrap";
 

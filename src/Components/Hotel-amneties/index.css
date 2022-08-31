@@ -26,6 +26,12 @@
 .amneties-item:hover .amneties-icon{
     color: #ffffff;
 }
+.meditation-icon{
+    fill: #C8AC86;
+}
+.meditation-icon:hover{
+    fill: #ffffff;
+}
 
 .amneties-item:hover{
     background-color: #C8AC86;

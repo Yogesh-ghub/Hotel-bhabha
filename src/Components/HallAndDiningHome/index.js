@@ -89,9 +89,37 @@ function HallAndDiningHome() {
                     </div>
                   </Col>
                 </Row>
-                <Row>
-                  <Col md={16}>
+                <Row lg={2}>
+                  {/* <Col md={16}>
                     <div className="">
+                      <figure>
+                        <img src={restaurant2} alt="About us" width="100%" />
+                      </figure>
+                    </div>
+                  </Col> */}
+                  <Col md={12}>
+                    <div className="mt-2 d-lg-block d-none">
+                      <figure>
+                        <img src={weeding} alt="About us" width="100%" />
+                      </figure>
+                    </div>
+                  </Col>{" "}
+                  <Col md={12}>
+                    <div className="mt-2 d-lg-block d-none">
+                      <figure>
+                        <img src={meeting} alt="About us" width="100%" />
+                      </figure>
+                    </div>
+                  </Col>{" "}
+                  <Col md={12}>
+                    <div className="mt-4 d-lg-block d-none">
+                      <figure>
+                        <img src={meeting} alt="About us" width="100%" />
+                      </figure>
+                    </div>
+                  </Col>{" "}
+                  <Col md={12}>
+                    <div className="mt-4">
                       <figure>
                         <img src={restaurant2} alt="About us" width="100%" />
                       </figure>
