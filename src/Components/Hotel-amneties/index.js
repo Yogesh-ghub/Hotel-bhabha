@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { FaWifi } from "react-icons/fa";
 import { GiMeditation } from 'react-icons/gi'
 import { MdEmojiTransportation, MdRestaurantMenu, MdLocalLaundryService } from "react-icons/md";
 import { IoMdClock } from 'react-icons/io'
-import meditation from '../../Assets/meditation-icon.svg'
+import meditation from '../../Assets/meditation.svg'
+import meditationHover from '../../Assets/meditation-hover.svg'
 import './index.css'
 const Amneties = () => {
+    const [medIcon, setMedIcon] = useState(meditation)
   return (
     <Container className="amneties-container">
         <Row>
@@ -36,8 +38,8 @@ const Amneties = () => {
                 </div>
             </Col>
             <Col md={4} lg={2}>
-                <div className="amneties-item">
-                   <span className="amneties-icon"><img className='meditation-icon' src={meditation} /> </span>
+                <div className="amneties-item" onMouseEnter={() => setMedIcon(meditationHover)} onMouseLeave={() => setMedIcon(meditation)}>
+                   <span className="amneties-icon"><img className='meditation-icon' src={medIcon} /> </span>
                    <div className="icon-text">Meditation room</div>
                 </div>
             </Col>
