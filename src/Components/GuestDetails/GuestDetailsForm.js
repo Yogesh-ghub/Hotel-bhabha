@@ -9,12 +9,6 @@ import {
 } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "./GuestDetailsForm.css";
-import { AiFillCreditCard } from "react-icons/ai";
-import visa from "../../Assets/images/Visa.png";
-import mastercard from "../../Assets/images/MasterCard.png";
-import amex from "../../Assets/images/Amex.png";
-import dinerclub from "../../Assets/images/DinersClub.png";
-import jcb from "../../Assets/images/JCB.png";
 import { postUserDetails } from "../../redux/reducer/booking/Booking.action";
 import { useDispatch } from "react-redux";
 import { putUser } from "../../redux/reducer/date/date.action";

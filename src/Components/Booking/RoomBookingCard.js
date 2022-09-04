@@ -159,6 +159,7 @@ function RoomBookingCard(room) {
     // }
   }, [adult, child, dateReduxState.startDate, dateReduxState.endDate]);
 
+
   return (
     <>
       <Container className="my-3">
@@ -172,9 +173,9 @@ function RoomBookingCard(room) {
             <p>{room.desc}</p>
             <div className="d-flex justify-content-between">
               <span>₹{room.pricePerNight}</span>
-              <Link className="mx-4 link" to="">
+              {/* <Link className="mx-4 link" to="">
                 Room Details
-              </Link>
+              </Link> */}
             </div>
 
             {/* <div className="d-flex mt-2">

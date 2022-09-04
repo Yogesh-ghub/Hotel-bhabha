@@ -15,7 +15,7 @@ const Facilities = () => {
                 <h2 className="division-heading">Facilities</h2>
             </div>
             
-            <Col sm={12} md>
+            <Col xs={6} md={4} lg>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
                         <span className="facility-icon"><FaWifi size={42}  /></span>
@@ -26,7 +26,7 @@ const Facilities = () => {
                     </div>
                 </div>
             </Col>
-            <Col sm={12} md>
+            <Col xs={6} md={4} lg>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
                         <span className="facility-icon"><IoIosBed size={42}  /></span>
@@ -37,7 +37,7 @@ const Facilities = () => {
                     </div>
                 </div>
             </Col>
-            <Col sm={12} md>
+            <Col xs={6} md={4} lg>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
                         <span className="facility-icon"><MdOutlineDoorSliding size={42}  /></span>
@@ -48,7 +48,7 @@ const Facilities = () => {
                     </div>
                 </div>
             </Col>
-            <Col sm={12} md>
+            <Col xs={6} md={4} lg>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
                         <span className="facility-icon"><CgScreen size={42}  /></span>
@@ -59,7 +59,7 @@ const Facilities = () => {
                     </div>
                 </div>
             </Col>
-            <Col sm={12} md>
+            <Col xs={6} md={4} lg>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
                         <span className="facility-icon"><img src={acIcon} alt="icon" /> </span>  
@@ -70,7 +70,7 @@ const Facilities = () => {
                     </div>
                 </div>
             </Col>
-            <Col sm={12} md>
+            <Col xs={6} md={4} lg>
                 <div className="facility-item">
                     <div className="d-flex justify-content-center ">
                         <span className="facility-icon"><MdOutlineRoomService size={42} /></span>

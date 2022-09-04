@@ -12,30 +12,26 @@ import "./index.css";
 const RoomOverview = (props) => {
   return (
     <div>
-      <Banner title={props.roomTitle} img={bannerImg} />
+      <Banner title={props.details.title} img={props.details.bannerImg} />
 
       <Container className="room-overview-container">
         <Row className="d-flex justify-content-around">
-          <Col md={7} lg={6}>
+          <Col lg={6}>
             <div className="room-slider">
-              <Slider img1={slideimg1} img2={slideimg2} img3={slideimg3} />
+              <Slider img1={props.details.sliderImg1} img2={props.details.sliderImg2} img3={props.details.sliderImg3} />
             </div>
           </Col>
-          <Col md={5} lg={6} className="right-col d-flex">
+          <Col lg={6} className="right-col d-flex">
             <div className="animated animatedFadeInUp fadeInUp">
-              <h2 className="division-heading">A view to remember</h2>
+              <h2 className="division-heading">{props.details.title}</h2>
               <p>
-                Our Deluxe Room overlooks the great dunes of Noordwijk and the
-                ever-shifting waves of the North Sea. The room is decorated with
-                beautifully designed furniture and a handmade king size bed.
-                This spacious room also boasts an extraordinary view of the
-                famous Noordwijk sunset.
+                {props.details.description}
               </p>
             </div>
             <div className="">
               <img
                 src={about2}
-                className="img-thumbnail"
+                className="img-thumbnail img-fluid"
                 alt="img"
                 width="70%"
               />

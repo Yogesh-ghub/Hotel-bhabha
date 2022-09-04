@@ -9,9 +9,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 import SliderElement from "./Slider";
 
-import executiveRoom from "../../Assets/images/executive-room.jpeg";
-import superiorRoom from "../../Assets/images/superior-room.jpeg";
-import deluxeRoom from "../../Assets/images/delux-img-4.jpeg";
+import executiveRoom from "../../Assets/images/Executive-room/DSC00799.jpg";
+import superiorRoom from "../../Assets/images/Superior-room/DSC00763.jpg";
+import superAc from "../../Assets/images/Super-ac/DSC00777.jpg";
 
 const RoomDetails = [
   {
@@ -28,26 +28,26 @@ const RoomDetails = [
       "Superior Room are clean and well furnished. we offer rooms equipped with modern amenities. This room is equipped with a ceiling fan, wardrobe, flat-screen TV, and attached bathroom.",
     image: superiorRoom,
   },
+  // {
+  //   id: "deluxe-room",
+  //   title: "Deluxe Room",
+  //   description:
+  //     "The room is a clean and well-maintained room. This room is equipped With a double bed Featuring a shower, private bathroom.",
+  //   image: deluxeRoom,
+  // },
+  // {
+  //   id: "standard-room",
+  //   title: "Standard Room",
+  //   description:
+  //     "Well maintained, Clean family room with air conditioning. This room is equipped with ceiling fan, wardrobe, flat screen TV and attached bathroom. Extra mattress is provided on additional charges and on request.",
+  //   image: executiveRoom,
+  // },
   {
-    id: "deluxe-room",
-    title: "Deluxe Room",
-    description:
-      "The room is a clean and well-maintained room. This room is equipped With a double bed Featuring a shower, private bathroom.",
-    image: deluxeRoom,
-  },
-  {
-    id: "standard-room",
-    title: "Standard Room",
-    description:
-      "Well maintained, Clean family room with air conditioning. This room is equipped with ceiling fan, wardrobe, flat screen TV and attached bathroom. Extra mattress is provided on additional charges and on request.",
-    image: executiveRoom,
-  },
-  {
-    id: "family-room",
-    title: "Family Room",
+    id: "super-ac-room",
+    title: "Super AC Room",
     description:
       "This room fully air conditioned family room is comfortable with a nice environment. Enjoy your stay full value of money. Clean and hygienic stay. Extra mattress is provided on additional charges and on request.",
-    image: executiveRoom,
+    image: superAc,
   },
 ];
 

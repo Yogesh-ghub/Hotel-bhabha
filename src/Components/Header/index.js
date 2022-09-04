@@ -120,21 +120,21 @@ const Header = () => {
                 className="d-block d-lg-none"
               >
                 <div className="nav-dropdown">
-                  <NavDropdown.Item as={Link} to="/rooms/standard-room">
-                    Standard room
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/rooms/deluxe-room">
-                    Delux room
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/rooms/family-room">
-                    Family room
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/rooms/executive-room">
+                  <NavDropdown.Item as={Link} to="/rooms/executiive-room">
                     Executive room
                   </NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/rooms/superior-room">
                     Superior room
                   </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/rooms/super-ac-room">
+                    Super AC Room
+                  </NavDropdown.Item>
+                  {/* <NavDropdown.Item as={Link} to="/rooms/executive-room">
+                    Executive room
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/rooms/superior-room">
+                    Superior room
+                  </NavDropdown.Item> */}
                 </div>
               </NavDropdown>
 
@@ -149,7 +149,7 @@ const Header = () => {
                   >
                     Rooms
                   </a>
-                  <div class="dropdown-menu bg-grey m-0" style={{border: '0px', borderRadius: '0px'}}>
+                  <div class="dropdown-menu bg-grey m-0" style={{border: '0px', borderRadius: '0px', width: "100%"}}>
                     <div class="mega-content px-4">
                       <div class="container-fluid megamenu">
                         <div class="row justify-content-between align-items-center">
@@ -168,22 +168,22 @@ const Header = () => {
                           </div>
                           <div className="col py-4">
                             <div>
-                              <Link to="/rooms/deluxe-room"><figure><img className="img img-fluid room-dropdown-img" src={deluxeRoom} alt="executive room" /></figure> </Link>
-                              <Link className="link" to="/rooms/deluxe-room"><h5 className="text-center dropdown-title my-2">Deluxe room</h5></Link>
+                              <Link to="/rooms/super-ac-room"><figure><img className="img img-fluid room-dropdown-img" src={deluxeRoom} alt="executive room" /></figure> </Link>
+                              <Link className="link" to="/rooms/super-ac-room"><h5 className="text-center dropdown-title my-2">Super AC room</h5></Link>
                             </div>
                           </div>
-                          <div className="col py-4">
+                          {/* <div className="col py-4">
                             <div>
                               <Link to="/rooms/family-room"><figure><img className="img img-fluid room-dropdown-img" src={executiveRoom} alt="executive room" /> </figure></Link>
                               <Link className="link" to="/rooms/family-room"><h5 className="text-center dropdown-title my-2">Executive room</h5></Link>
                             </div>
-                          </div>
-                          <div className="col py-4">
+                          </div> */}
+                          {/* <div className="col py-4">
                             <div>
                               <Link to="/rooms/standard-room"><figure><img className="img img-fluid room-dropdown-img" src={executiveRoom} alt="executive room" /></figure></Link> 
                               <Link className="link" to="/rooms/standard-room"><h5 className="text-center dropdown-title my-2">Executive room</h5></Link>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
