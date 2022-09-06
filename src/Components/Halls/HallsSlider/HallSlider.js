@@ -2,7 +2,9 @@ import React from "react";
 import Slider from "react-slick";
 
 import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
-import sliderimg1 from '../../../Assets/images/gallery8.jpg'
+import banquet from '../../../Assets/images/dining/DSC00742 Large.jpeg'
+import dining from '../../../Assets/images/dining/restaurant2.jpg'
+import conference from '../../../Assets/images/conference/DSC00745 Large.jpeg'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -10,7 +12,7 @@ import SliderElement from './Slider'
 const HallDetails = [
     {
         id: '1',
-        image: sliderimg1,
+        image: dining,
         title: "Dining Hall",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
         smallDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et...",
@@ -21,14 +23,14 @@ const HallDetails = [
     },
     {
         id: '2',
-        image: sliderimg1,
+        image: banquet,
         title: "Banquet Hall",
         description: "It may seem like an extravagant celebration with glamorous clothes, delicious meal and lavishly decorated venue. However, it is most auspicious and traditional event that marks beginning of an intimate companionship together. Therefore, The Hotel Bhabha understands that it is more than a ceremony. It presents more than just the wedding venues. It offers the perfect setting for your dream day. Whether you want a small intimate event or a true wedding bash, we are committed to transform your dream wedding into reality.",
         smallDescription: "It may seem like an extravagant celebration with glamorous clothes, delicious meal and lavishly..."
     },
     {
         id: '3',
-        image: sliderimg1,
+        image: conference,
         title: "Conference Hall",
         description: "With the best of services, state-of-the-art technical capabilities, an experienced team as well as customized menus and innovative decorative themes, you can be sure of a seamless and memorable social event or business meeting. With excellent hospitality services at your fingertips, fast Wi-Fi facilities and ergonomic usage of space and facilities, our conference rooms are the right choice for all your important events!",
         smallDescription: "With the best of services, state-of-the-art technical capabilities, an experienced..."

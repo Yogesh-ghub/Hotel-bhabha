@@ -19,63 +19,7 @@ const AboutUs = () => {
     <Container className="p-4 about-us-container">
       <Row className="d-flex justify-content-between">
         <Col md={12} lg={6}>
-          {/* <Row>
-            <Col
-              md={6}
-              className="col-area my-4"
-            >
-              <Row>
-                <Col md={12}>
-                  <div className="text-area mb-4">
-                    <div className="d-flex justify-content-center my-2">
-                      <IoRestaurant size={48} className="" />
-                    </div>
 
-                    <h4 className="text-center my-2">Best Food</h4>
-                    <p className="text-center">
-                      A Premier Gujrati Thali with Delicious Varieties
-                    </p>
-                  </div>
-                </Col>
-                <Col md={12}>
-                  <div className="about-us-img">
-                    <figure>
-                      <img src={food2} alt="About us" width="100%" />
-                    </figure>
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-
-            <Col
-              md={6}
-              className="col-area my-4"
-            >
-              <Row>
-                <Col md={12}>
-                  <div className="about-us-img">
-
-                    <figure>
-                      <img src={img1} alt="About us " width="100%" />
-                    </figure>
-                  </div>
-                </Col>
-
-                <Col md={12}>
-                  <div className="text-area mt-4">
-                    <div className="d-flex justify-content-center my-2">
-                      <IoBed size={48} className="" />
-                    </div>
-                    <h4 className="text-center my-2">Cozy Bed</h4>
-                    <p className="text-center">
-                      Far Far away, behind the word mountains, far from
-                      countries vokalia
-                    </p>
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-          </Row> */}
           <Row>
             <Col xs={12} sm={6} className="col-area my-4">
               <div className="text-area">

@@ -42,17 +42,6 @@ const ContactForm = (props) => {
     } catch (error) {
       alert("Oops! there is an error");
     }
-
-    // let response = await fetch("http://localhost:4000/api/contact/send", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "Application/json;charset=utf-8",
-    //   },
-    //   body: JSON.stringify(formData),
-    // });
-
-    // resetForm();
-    // setModalShow(true);
   };
 
   const handleChange = (e) => {

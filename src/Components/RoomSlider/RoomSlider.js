@@ -92,7 +92,7 @@ function RoomSlider() {
 
   return (
     <>
-      <div className="room-slider-container container-fluid p-5">
+      <div className="room-slider-container container-fluid p-4">
         <h2 className="division-heading">Stay & Live</h2>
         <Slider {...settings}>
           {RoomDetails.map((room) => {

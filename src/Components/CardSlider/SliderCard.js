@@ -8,7 +8,7 @@ function SliderCard(props) {
           variant="top"
           alt="Card image"
           src={props.image}
-          className="rounded-0"
+          className="rounded-0 card-image"
         />
         <Card.Body className="p-0">
           <Card.Title

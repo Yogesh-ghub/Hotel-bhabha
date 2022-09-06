@@ -8,7 +8,7 @@ const SliderElement = (props) => {
     <div className="slider-column my-4">
       <Container fluid>
         <Row>
-          <Col className="mx-2">
+          <Col xs={12} md className="mx-2">
             <div className="img-container">
               <img
                 src={props.img}

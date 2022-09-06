@@ -97,3 +97,9 @@ figure {
     animation-name: fadeInUp;
     -webkit-animation-name: fadeInUp;
 }
+
+@media (max-width: 576px) {
+    .about-us-container{
+        margin-top: 50px;
+    }
+}

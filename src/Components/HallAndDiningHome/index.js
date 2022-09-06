@@ -2,16 +2,15 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import './index.css'
 import { Container, Row, Col, Button } from "react-bootstrap";
+import dining1 from '../../Assets/images/dining/DSC00735 Large.jpeg'
+import dining2 from '../../Assets/images/dining/DSC00742 Large.jpeg'
+import dining3 from '../../Assets/images/dining/DSC00462 Large.png'
+import dining4 from '../../Assets/images/dining/restaurant2.jpg'
 
-import weeding from "../../Assets/images/weeding.jpg";
-
-import meeting from "../../Assets/images/meeting.jpg";
-// import meeting2 from "../../Assets/images/meeting2.jpg";x
-
-import restaurant2 from "../../Assets/images/restaurant2.jpg";
-// import food1 from "../../Assets/images/food1.jpg";
-// import food2 from "../../Assets/images/food2.jpg";
-
+import conference1 from '../../Assets/images/conference/DSC00816 Large.jpeg'
+import conference2 from '../../Assets/images/conference/DSC00747 Large.jpeg'
+import conference3 from '../../Assets/images/conference/DSC00820 Large.jpeg'
+import conference4 from '../../Assets/images/conference/DSC00743 Large.jpeg'
 function HallAndDiningHome() {
 
   let navigate = useNavigate();
@@ -31,28 +30,28 @@ function HallAndDiningHome() {
                   <Col md={12}>
                     <div className="mt-4 d-lg-block d-none">
                       <figure>
-                        <img src={weeding} alt="About us" width="100%" />
+                        <img src={dining1} alt="About us" width="100%" />
                       </figure>
                     </div>
                   </Col>{" "}
                   <Col md={12}>
                     <div className="mt-4 d-lg-block d-none">
                       <figure>
-                        <img src={meeting} alt="About us" width="100%" />
+                        <img src={dining2} alt="About us" width="100%" />
                       </figure>
                     </div>
                   </Col>{" "}
                   <Col md={12}>
                     <div className="mt-4 d-lg-block d-none">
                       <figure>
-                        <img src={meeting} alt="About us" width="100%" />
+                        <img src={dining3} alt="About us" width="100%" />
                       </figure>
                     </div>
                   </Col>{" "}
                   <Col md={12}>
                     <div className="mt-4">
                       <figure>
-                        <img src={restaurant2} alt="About us" width="100%" />
+                        <img src={dining4} alt="About us" width="100%" />
                       </figure>
                     </div>
                   </Col>
@@ -100,28 +99,28 @@ function HallAndDiningHome() {
                   <Col md={12}>
                     <div className="mt-2 d-lg-block d-none">
                       <figure>
-                        <img src={weeding} alt="About us" width="100%" />
+                        <img src={conference1} alt="About us" width="100%" />
                       </figure>
                     </div>
                   </Col>{" "}
                   <Col md={12}>
                     <div className="mt-2 d-lg-block d-none">
                       <figure>
-                        <img src={meeting} alt="About us" width="100%" />
+                        <img src={conference2} alt="About us" width="100%" />
                       </figure>
                     </div>
                   </Col>{" "}
                   <Col md={12}>
                     <div className="mt-4 d-lg-block d-none">
                       <figure>
-                        <img src={meeting} alt="About us" width="100%" />
+                        <img src={conference3} alt="About us" width="100%" />
                       </figure>
                     </div>
                   </Col>{" "}
                   <Col md={12}>
                     <div className="mt-4">
                       <figure>
-                        <img src={restaurant2} alt="About us" width="100%" />
+                        <img src={conference4} alt="About us" width="100%" />
                       </figure>
                     </div>
                   </Col>
