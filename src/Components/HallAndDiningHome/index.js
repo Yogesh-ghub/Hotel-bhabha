@@ -63,8 +63,7 @@ function HallAndDiningHome() {
                         We organize best in town business meeting and seminars
                       </h3>
                       <p className="">
-                        Far Far away, behind the word mountains, far from
-                        countries vokalia
+                        We have every facility to make your meetings and conference go without a hitch.
                       </p>
                       <Button className="book-now-btn" onClick={()=> handleClick("./dining-hall")}>Explore</Button>
                     </div>
