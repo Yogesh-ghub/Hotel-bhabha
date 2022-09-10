@@ -50,7 +50,6 @@ function HallSlider(props) {
     infinite: true,
     speed: 700,
     slidesToShow: 1,
-    centerMode: true,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 7000,
