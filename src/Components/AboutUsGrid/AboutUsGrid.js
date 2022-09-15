@@ -7,9 +7,9 @@ import about2 from "../../Assets/images/about-grid-small.jpg";
 function AboutUsGrid() {
   return (
     <div className="about-grid-container">
-      <div className="d-lg-flex my-5 justify-content-between ">
+      <div className="d-lg-flex m-5 justify-content-between ">
         <div className=" parent">
-          <img src={about1} alt="aboutus1" className=" img-large" />
+          <img src={about1} alt="aboutus1" className="img-large" />
           <div className="child">
             <img src={about2} alt="aboutus2" className="img-small" />
           </div>
