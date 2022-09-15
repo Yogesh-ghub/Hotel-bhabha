@@ -85,7 +85,7 @@ const Header = () => {
             width={width}
             height={height}
             className="d-inline-block align-top"
-            alt="React Bootstrap logo"
+            alt="logo"
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -120,7 +120,7 @@ const Header = () => {
                 className="d-block d-lg-none"
               >
                 <div className="nav-dropdown">
-                  <NavDropdown.Item as={Link} to="/rooms/executiive-room">
+                  <NavDropdown.Item as={Link} to="/rooms/executive-room">
                     Executive room
                   </NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/rooms/superior-room">
