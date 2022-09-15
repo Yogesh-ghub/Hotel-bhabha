@@ -60,7 +60,7 @@ function HallAndDiningHome() {
                   <Col md={12}>
                     <div className="p-4 mt-4 bg-grey">
                       <h3 className="division-subheading my-3">
-                        We organize best in town business meeting and seminars
+                        We organize best in town business meeting and seminars.
                       </h3>
                       <p className="">
                         We have every facility to make your meetings and conference go without a hitch.
