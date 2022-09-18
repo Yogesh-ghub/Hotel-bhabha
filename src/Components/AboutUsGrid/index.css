@@ -69,6 +69,10 @@
   .child {
     display: none;
   }
+
+  .about-us{
+    margin-left: 15px;
+  }
 }
 
 

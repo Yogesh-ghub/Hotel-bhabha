@@ -137,9 +137,7 @@ const GuestDetailsForm = (props) => {
                     </FloatingLabel>
                   </Col>
                 </Row>
-                <Button variant="primary" onClick={submit} >
-                  Submit
-                </Button>
+                
                 <hr />
                 <Row>
                 <Col md={6}>
@@ -171,6 +169,9 @@ const GuestDetailsForm = (props) => {
                     </FloatingLabel>
                   </Col>
                 </Row>
+                <Button variant="primary" className="float-end book-now-btn px-3" onClick={submit} >
+                  Submit
+                </Button>
               </Form>
             </Col>
           </Row>
