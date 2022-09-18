@@ -21,7 +21,8 @@ const GuestDetailsForm = (props) => {
   const [lastName, SetLastName] = useState("");
   const [phone, setphoneNo] = useState("");
   const [email, setEmail] = useState("");
-
+  const [companyName,setCompanyName]=useState("");
+  const [gstNo,setGstNo]=useState("");
   const dispatch=useDispatch();
 
   const submit= ()=>
@@ -31,7 +32,9 @@ const GuestDetailsForm = (props) => {
       firstName: firstName,
       email: email,
       lastName:lastName,
-      phone:phone
+      phone:phone,
+      companyName:companyName,
+      gstNo:gstNo,
     };
     
     console.log(userDetails);
@@ -150,7 +153,7 @@ const GuestDetailsForm = (props) => {
                         type="text"
                         placeholder="Company Name"
                         className="input-box shadow-none"
-                        onChange={(e) => SetLastName(e.target.value)}
+                        onChange={(e) => setCompanyName(e.target.value)}
                       />
                     </FloatingLabel>
                   </Col>
@@ -164,7 +167,7 @@ const GuestDetailsForm = (props) => {
                         type="text"
                         placeholder="GST Number"
                         className="input-box shadow-none"
-                        onChange={(e) => SetLastName(e.target.value)}
+                        onChange={(e) => setGstNo(e.target.value)}
                       />
                     </FloatingLabel>
                   </Col>
