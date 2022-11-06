@@ -62,7 +62,10 @@ const ContactForm = (props) => {
                 <p className="text-center text-wrap">
                   Panchnath road, near Gandhi Museum, Rajkot - 360001
                 </p>
-                <div className="d-flex gap-4">
+                <p>
+                <FaPhoneAlt /> +91-281-2220861 to +91-281-2220862
+                </p>
+                {/* <div className="d-flex gap-4">
                   <div>
                     <p>
                       <a className="link" href="tel:++91-281-2220861">
@@ -101,7 +104,7 @@ const ContactForm = (props) => {
                       </a>
                     </p>
                   </div>
-                </div>
+                </div> */}
 
                 <p>
                   <a className="link" href="tel:+91-9898789898">

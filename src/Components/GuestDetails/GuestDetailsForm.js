@@ -195,7 +195,7 @@ const GuestDetailsForm = (props) => {
                   <ul className="list-unstyled">
                     <li>The <strong>standard check-in time is 12:00 PM</strong> and the standard <strong>check-out time is 11:00 AM</strong></li>
                     <li>
-                    Early check-in or late check-out is strictly subjected to availability and may be chargeable by the hotel, any early check-in or late check-out request must be directed and reconfirmed with hotel directly.
+                    Early check-in or late check-out is strictly subjected to availability and may be chargeable by the hotel, any early check-in or late check-out request must be directed and reconfirmed by phone with hotel directly.
                     </li>
                     <li>
                     A Valid Photo ID Proof of all guests is mandatory for Check-In procedures. Guests are required to carry a Passport / Aadhar Card / Driving License for Check In procedures.

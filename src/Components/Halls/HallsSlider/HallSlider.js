@@ -32,7 +32,7 @@ const HallDetails = [
         id: '3',
         image: conference,
         title: "Conference Hall",
-        description: "With the best of services, state-of-the-art technical capabilities, an experienced team as well as customized menus and innovative decorative themes, you can be sure of a seamless and memorable social event or business meeting. With excellent hospitality services at your fingertips, fast Wi-Fi facilities and ergonomic usage of space and facilities, our conference rooms are the right choice for all your important events!",
+        description: "With the best of services, state-of-the-art technical capabilities, an experienced team as well as customized menus and innovative decorative themes, you can be sure of a seamless and memorable social event or business meeting. With excellent hospitality services at your fingertips, ergonomic usage of space and facilities, our conference rooms are the right choice for all your important events!",
         smallDescription: "With the best of services, state-of-the-art technical capabilities, an experienced..."
     },
         
