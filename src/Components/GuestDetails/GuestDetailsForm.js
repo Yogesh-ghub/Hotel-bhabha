@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Row,
@@ -10,8 +10,9 @@ import {
 import Button from "react-bootstrap/Button";
 import "./GuestDetailsForm.css";
 import { postUserDetails } from "../../redux/reducer/booking/Booking.action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { putUser } from "../../redux/reducer/date/date.action";
+import Swal from 'sweetalert'
 const now = new Date();
 
 
@@ -23,8 +24,24 @@ const GuestDetailsForm = (props) => {
   const [email, setEmail] = useState("");
   const [companyName,setCompanyName]=useState("");
   const [gstNo,setGstNo]=useState("");
+  const [values, setValues] = useState([]);
+  
   const dispatch=useDispatch();
-
+  
+  useEffect(() => {
+    const val = JSON.parse(localStorage.getItem('userDetails'))
+    if(val){
+      setValues(val.user)
+      SetFirstName(values.firstName)
+      SetLastName(values.lastName)
+      setphoneNo(values.phone)
+      setEmail(values.email)
+      setCompanyName(values.companyName)
+      setGstNo(values.gstNo)
+    }
+    
+  }, [values.firstName, values.lastName]);
+  console.log("values " , values.user)
   const submit= ()=>
   { 
       
@@ -43,6 +60,18 @@ const GuestDetailsForm = (props) => {
        &&   userDetails.email)
     {
       dispatch(putUser(userDetails))
+      Swal({
+        title: "Submitted",
+        type: "success",
+        icon: "success",
+      })
+    }
+    else{
+      Swal({
+        title: "Missing Details",
+        type: "warning",
+        icon: "warning",
+      })
     }
   }
   return (
@@ -82,6 +111,7 @@ const GuestDetailsForm = (props) => {
                           type="text"
                           placeholder="First Name"
                           className="input-box shadow-none"
+                          value={firstName}
                           onChange={(e) => SetFirstName(e.target.value)}
                           required
                         />
@@ -98,6 +128,7 @@ const GuestDetailsForm = (props) => {
                         type="text"
                         placeholder="Last Name"
                         className="input-box shadow-none"
+                        value={lastName}
                         onChange={(e) => SetLastName(e.target.value)}
                         required
                       />
@@ -116,6 +147,7 @@ const GuestDetailsForm = (props) => {
                         type="number"
                         placeholder="Mobile no."
                         className="input-box shadow-none"
+                        value={phone}
                         onChange={(e) => setphoneNo(e.target.value)}
                         required
                       />
@@ -131,6 +163,7 @@ const GuestDetailsForm = (props) => {
                         type="email"
                         placeholder="alex@gmail.com"
                         className="input-box shadow-none"
+                        value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                       />
@@ -153,6 +186,7 @@ const GuestDetailsForm = (props) => {
                         type="text"
                         placeholder="Company Name"
                         className="input-box shadow-none"
+                        value={companyName}
                         onChange={(e) => setCompanyName(e.target.value)}
                       />
                     </FloatingLabel>
@@ -167,6 +201,7 @@ const GuestDetailsForm = (props) => {
                         type="text"
                         placeholder="GST Number"
                         className="input-box shadow-none"
+                        value={gstNo}
                         onChange={(e) => setGstNo(e.target.value)}
                       />
                     </FloatingLabel>

@@ -1,4 +1,4 @@
-import { PUT_DATE,PUT_USER } from "./date.type";
+import { PUT_DATE,PUT_USER,GET_USERDATA, } from "./date.type";
 
 export const  putDate=(data)=>async(dispatch)=>
 {
@@ -30,5 +30,22 @@ export const  putUser=(user)=>async(dispatch)=>
     catch(error)
     {
         return dispatch({type:"ERROR",payload:error})
+    }
+}
+
+export const getUser = () => async (dispatch) => {
+    try {
+
+        let userData = { data: [] };
+
+        if (localStorage.userDetails) {
+            const { data } = JSON.parse(localStorage.getItem("userDetails"));
+            userData.data = data;
+        }
+
+        return dispatch({ type: GET_USERDATA, payload: userData.data }); 
+    }
+    catch (error) {
+        return dispatch({ type: "Error", payload: error });
     }
 }

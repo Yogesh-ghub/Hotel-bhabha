@@ -10,7 +10,7 @@ export const getCart = () => async (dispatch) => {
             cartData.cart = cart;
         }
 
-        return dispatch({ type: GET_CART, payload: cartData.cart });
+        return dispatch({ type: GET_CART, payload: cartData.cart }); 
     }
     catch (error) {
         return dispatch({ type: "Error", payload: error });

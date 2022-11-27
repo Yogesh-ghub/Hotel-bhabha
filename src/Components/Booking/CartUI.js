@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import Swal from 'sweetalert'
 import {
   postDetails,
   postDateDetails,
@@ -72,9 +72,9 @@ function CartUI() {
   }, [reduxState, userReduxState, dateReduxState]);
 
   const payNow = () => {
-    const userDetails = localStorage.getItem("userDetails");
+    const userDetails = JSON.parse(localStorage.getItem('userDetails'))
 
-    if (userDetails) {
+    if (userDetails?.user.firstName && userDetails?.user.email) {
       let options = {
         key: "rzp_test_XNO9l8QlN0j6Rz",
         amount:
@@ -102,7 +102,11 @@ function CartUI() {
       let razorPay = new window.Razorpay(options);
       razorPay.open();
     } else {
-      alert(`fill details first`);
+      Swal({
+        title: "Details Missing",
+        text: "Enter your details first",
+        icon: "warning"
+      });
     }
   };
 
