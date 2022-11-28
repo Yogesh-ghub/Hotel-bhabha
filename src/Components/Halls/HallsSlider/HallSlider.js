@@ -25,7 +25,7 @@ const HallDetails = [
         id: '2',
         image: banquet,
         title: "Banquet Hall",
-        description: "It may seem like an extravagant celebration with glamorous clothes, delicious meal and lavishly decorated venue. However, it is most auspicious and traditional event that marks beginning of an intimate companionship together. Therefore, The Hotel Bhabha understands that it is more than a ceremony. It presents more than just the wedding venues. It offers the perfect setting for your dream day. Whether you want a small intimate event or a true wedding bash, we are committed to transform your dream wedding into reality.",
+        description: "It may seem like an extravagant celebration with delicious meal and lavishly decorated venue. However, it is most auspicious and traditional event that marks beginning of an intimate companionship together. Therefore, The Hotel Bhabha understands that it is more than a ceremony. It presents more than just the wedding venues. It offers the perfect setting for your dream day. Whether you want a small intimate event or a true wedding bash, we are committed to transform your dream wedding into reality.",
         smallDescription: "It may seem like an extravagant celebration with glamorous clothes, delicious meal and lavishly..."
     },
     {

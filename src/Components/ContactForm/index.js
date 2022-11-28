@@ -63,7 +63,7 @@ const ContactForm = (props) => {
                   Panchnath road, near Gandhi Museum, Rajkot - 360001
                 </p>
                 <p>
-                <FaPhoneAlt /> +91-281-2220861 to +91-281-2220862
+                <FaPhoneAlt /> +91-281-2220861 to +91-281-2220866
                 </p>
                 {/* <div className="d-flex gap-4">
                   <div>
