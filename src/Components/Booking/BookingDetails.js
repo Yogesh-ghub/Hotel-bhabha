@@ -25,7 +25,7 @@ function BookingDetails() {
 
   }, []);
 
-
+console.log(hotel)
   return (
     <div>
       <div className="card-container">

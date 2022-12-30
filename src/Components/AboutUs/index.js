@@ -21,19 +21,18 @@ const AboutUs = () => {
         <Col md={12} lg={6}>
 
           <Row>
-            <Col xs={12} sm={6} className="col-area my-4">
+            <Col xs={12} sm={6} className="col-area mt-4 mb-2">
               <div className="text-area">
                 <div className="d-flex justify-content-center my-2">
                   <IoBed size={48} className="" />
                 </div>
                 <h4 className="text-center my-2">Cozy Bed</h4>
                 <p className="text-center">
-                  Far Far away, behind the word mountains, far from countries
-                  vokalia
+                  Come sleep in one of the comfiest beds you'll ever find.
                 </p>
               </div>
             </Col>
-            <Col xs={12} sm={6} className="col-area my-4">
+            <Col xs={12} sm={6} className="col-area mt-4 mb-2">
               <div className="about-us-img">
                 <figure>
                   <img src={img1} alt="About us " width="100%" height="100%" />
@@ -42,14 +41,14 @@ const AboutUs = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs={12} sm={6} className="col-area my-4">
+            <Col xs={12} sm={6} className="col-area mb-4 mt-2">
               <div className="about-us-img">
                 <figure>
                   <img src={food2} alt="About us" width="100%" height="100%" />
                 </figure>
               </div>
             </Col>
-            <Col xs={12} sm={6} className="col-area my-4">
+            <Col xs={12} sm={6} className="col-area mb-4 mt-2">
               <div className="text-area">
                 <div className="d-flex justify-content-center my-2">
                   <IoRestaurant size={48} className="" />

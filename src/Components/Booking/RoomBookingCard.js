@@ -159,13 +159,12 @@ function RoomBookingCard(room) {
     // }
   }, [adult, child, dateReduxState.startDate, dateReduxState.endDate]);
 
-
   return (
     <>
       <Container className="my-3">
         <Row>
           <div className="col-lg-3 col-md-4 ">
-            <img src={about2} alt="img" className="img-fluid" />
+            <img src={room.image} alt="img" className="img-fluid" />
           </div>
           <div className="col-md-8 col-lg-6  p-3 ">
             <h4>{room.name}</h4>

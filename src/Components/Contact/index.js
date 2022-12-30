@@ -14,7 +14,7 @@ function ContactUs(props) {
         <Container>
           <Row>
             <Col md={12} className="contact-desc">
-              <h3 className="font-semibold">Contact Hotel BhaBha</h3>
+              <h3 className="">Contact Hotel Bhabha</h3>
               <p className="mt-2">
                 Get answers to your questions or give feedback, however you like to
                 get in touch and wherever you are in the world. Choose from email,

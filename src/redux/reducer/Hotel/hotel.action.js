@@ -5,7 +5,8 @@ export const getHotel = () => async (dispatch) => {
   try {
     const hotelList = await axios({
       method: "GET",
-      url: "https://hotel-bhabha-backend.herokuapp.com/api/room/",
+      url: "http://3.110.167.147/api/room/",
+      // url: "http://localhost:4000/api/room/",
     });
 
     return dispatch({ type: GET_HOTEL, payload: hotelList.data });
@@ -18,7 +19,8 @@ export const getSpecificROOM = (_id) => async (dispatch) => {
   try {
     const room = await axios({
       method: "GET",
-      url: `https://hotel-bhabha-backend.herokuapp.com/api/room/${_id}`,
+      url: `http://3.110.167.147/api/room/${_id}`,
+      // url: `http://localhost:4000/api/room/${_id}`,
     });
 
     return dispatch({ type: GET_SPECIFIC_ROOM, payload: room.data });

@@ -8,7 +8,8 @@ import axios from "axios";
 export const postDetails = (details) => async (dispatch) => {
   try {
     const datarecieve = await axios.post(
-      "https://hotel-bhabha-backend.herokuapp.com/api/booking",
+      "http://3.110.167.147/api/booking",
+      // "http://localhost:4000/api/booking",
       details
     );
 
@@ -20,7 +21,8 @@ export const postDetails = (details) => async (dispatch) => {
 export const postCartDetails = (details) => async (dispatch) => {
   try {
     const datarecieve = await axios.post(
-      "https://hotel-bhabha-backend.herokuapp.com/api/booking/cart",
+      "http://3.110.167.147/api/booking/cart",
+      // "http://localhost:4000/api/booking/cart",
       details
     );
 
@@ -32,7 +34,8 @@ export const postCartDetails = (details) => async (dispatch) => {
 export const postUserDetails = (details) => async (dispatch) => {
   try {
     const datarecieve = await axios.post(
-      "https://hotel-bhabha-backend.herokuapp.com/api/booking/guest",
+      "http://3.110.167.147/api/booking/guest",
+      // "http://localhost:4000/api/booking/guest",
       details
     );
 

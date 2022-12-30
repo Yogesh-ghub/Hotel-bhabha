@@ -49,7 +49,7 @@ const Basket = (data) => {
           <Col sm={12}>
             <h5>
               {""}
-              Cart ({totalUniqueItems}) total Item :({reduxState.length})
+              <strong>Selected Item {reduxState.length}</strong>
             </h5>
             <table className="table table-light m-0">
               <thead>
@@ -87,7 +87,7 @@ const Basket = (data) => {
 
           </Col>
           <div className="col-auto my-2">
-            <button className="btn btn-danger ms-2">Clear Cart</button>
+            {/* <button className="btn btn-danger ms-2">Clear Cart</button> */}
             <button className="btn btn-primary ms-2" onClick={checkout}>
               Book Now{" "}
             </button>
