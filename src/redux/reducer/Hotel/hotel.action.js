@@ -5,7 +5,7 @@ export const getHotel = () => async (dispatch) => {
   try {
     const hotelList = await axios({
       method: "GET",
-      url: "http://3.110.167.147/api/room/",
+      url: "https://real-cyan-wasp-shoe.cyclic.app/api/room/",
       // url: "http://localhost:4000/api/room/",
     });
 
@@ -19,7 +19,7 @@ export const getSpecificROOM = (_id) => async (dispatch) => {
   try {
     const room = await axios({
       method: "GET",
-      url: `http://3.110.167.147/api/room/${_id}`,
+      url: `https://real-cyan-wasp-shoe.cyclic.app/api/room/${_id}`,
       // url: `http://localhost:4000/api/room/${_id}`,
     });
 

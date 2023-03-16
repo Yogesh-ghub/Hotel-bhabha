@@ -8,7 +8,7 @@ import axios from "axios";
 export const postDetails = (details) => async (dispatch) => {
   try {
     const datarecieve = await axios.post(
-      "http://3.110.167.147/api/booking",
+      "https://real-cyan-wasp-shoe.cyclic.app/api/booking",
       // "http://localhost:4000/api/booking",
       details
     );
@@ -21,7 +21,7 @@ export const postDetails = (details) => async (dispatch) => {
 export const postCartDetails = (details) => async (dispatch) => {
   try {
     const datarecieve = await axios.post(
-      "http://3.110.167.147/api/booking/cart",
+      "https://real-cyan-wasp-shoe.cyclic.app/api/booking/cart",
       // "http://localhost:4000/api/booking/cart",
       details
     );
@@ -34,7 +34,7 @@ export const postCartDetails = (details) => async (dispatch) => {
 export const postUserDetails = (details) => async (dispatch) => {
   try {
     const datarecieve = await axios.post(
-      "http://3.110.167.147/api/booking/guest",
+      "https://real-cyan-wasp-shoe.cyclic.app/api/booking/guest",
       // "http://localhost:4000/api/booking/guest",
       details
     );

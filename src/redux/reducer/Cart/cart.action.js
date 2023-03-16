@@ -106,7 +106,7 @@ export const increteQuantity = (roomId) => async (dispatch) => {
                 }
                 : room
         );
-
+            // console.log(cartData.cart)
         localStorage.setItem("hotelCart", JSON.stringify({ cart: cartData.cart }));
         return dispatch({ type: INCRETE_QUANTITY, payload: cartData.cart });
     }
