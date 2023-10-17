@@ -17,15 +17,12 @@ function BookingDetails() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getHotel()).then((data) => {
-      console.log(data.payload);
       setHotel(data.payload);
       setShowPlaceholder(false)
     });
 
 
   }, []);
-
-console.log(hotel)
   return (
     <div>
       <div className="card-container">

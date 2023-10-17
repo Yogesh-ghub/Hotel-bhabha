@@ -38,7 +38,6 @@ const ContactForm = (props) => {
 
       resetForm();
       setModalShow(true);
-      console.log(response);
     } catch (error) {
       alert("Oops! there is an error");
     }

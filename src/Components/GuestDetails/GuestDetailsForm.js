@@ -41,7 +41,6 @@ const GuestDetailsForm = (props) => {
     }
     
   }, [values.firstName, values.lastName]);
-  console.log("values " , values.user)
   const submit= ()=>
   { 
       
@@ -54,7 +53,6 @@ const GuestDetailsForm = (props) => {
       gstNo:gstNo,
     };
     
-    console.log(userDetails);
 
     if(userDetails.firstName
        &&   userDetails.email)

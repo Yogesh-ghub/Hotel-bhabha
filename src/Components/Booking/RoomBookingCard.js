@@ -33,7 +33,6 @@ function RoomBookingCard(room) {
   const dateReduxState = useSelector(
     (globalState) => globalState.datereducer.date
   );
-  console.log("room booking", dateReduxState.startDate);
 
   const count = differenceInDays(
     new Date(
@@ -48,7 +47,6 @@ function RoomBookingCard(room) {
     )
   );
 
-  console.log("room booking", count);
 
   const [roomDetails, setRoomDetails] = useState([
     {
@@ -58,7 +56,6 @@ function RoomBookingCard(room) {
     },
   ]);
 
-  console.log(roomDetails);
   useEffect(() => {
     room._id &&
       dispatch(getSpecificROOM(room._id))
@@ -67,7 +64,6 @@ function RoomBookingCard(room) {
           return data.payload;
         })
         .then((data) => {
-          console.log(data);
           reduxState.forEach((each) => {
             if (each._id === data._id) {
               setroominfo((prev) => ({ ...prev, isAddedToCart: true }));
@@ -120,7 +116,6 @@ function RoomBookingCard(room) {
     return value.id === 1;
   });
 
-  console.log(filtered.adult);
 
   const updateAdult = (id, value) => {
     if (parseInt(value) + parseInt(child) <= room.guestCapacity) {
@@ -140,17 +135,16 @@ function RoomBookingCard(room) {
   useEffect(() => {
     // function roomPrice(){
 
-    console.log("inside price");
     const totalGuest = parseInt(adult) + parseInt(child);
     if (totalGuest === 1) {
       const totalPrice = room.pricePerNight * (count + 1);
       setPrice(totalPrice);
     } else if (totalGuest === 2) {
-      const totalPrice = (room.pricePerNight + 100) * (count + 1);
+      const totalPrice = (room.pricePerNight + 200) * (count + 1);
       setPrice(totalPrice);
     } else {
       const totalPrice =
-        (room.pricePerNight + 100 + (totalGuest - 2) * 350) * (count + 1);
+        (room.pricePerNight + 200 + (totalGuest - 2) * 350) * (count + 1);
       setPrice(totalPrice);
     }
 

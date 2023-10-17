@@ -37,7 +37,6 @@ const Basket = (data) => {
     dispatch(decreteQuantity(id));
   };
   const removeCart = (id) => {
-    console.log(id);
     dispatch(deleteCart(id));
   };
   return (

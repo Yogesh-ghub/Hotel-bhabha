@@ -65,7 +65,6 @@ const Room = () =>{
     
   })
 
-  console.log(id)
   return (
     <div>
         <Header /> 

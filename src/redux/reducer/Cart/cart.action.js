@@ -38,7 +38,6 @@ export const addToCart = (newRoom) => async (dispatch) => {
 
 export const deleteCart = (roomID) => async (dispatch) => {
     try {
-        console.log(roomID);
         let cartData = { cart: [] };
 
         if (localStorage.hotelCart) {
@@ -89,7 +88,6 @@ export const decreteQuantity = (roomId) => async (dispatch) => {
 }
 export const increteQuantity = (roomId) => async (dispatch) => {
     try {
-        console.log(`roomID:-${roomId}`)
         let cartData = { cart: [] };
 
         if (localStorage.hotelCart) {

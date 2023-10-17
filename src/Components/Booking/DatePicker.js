@@ -26,7 +26,7 @@ const DateRangePickerComp = () => {
   const dispatch=useDispatch();
   // get the target element to toggle
   const refOne = useRef(null);
-  console.log(dates[0].startDate);
+
   useEffect(() => {
     // event listeners
     document.addEventListener("keydown", hideOnEscape, true);
@@ -49,7 +49,6 @@ const DateRangePickerComp = () => {
 
     }
 
-    console.log(dateDetails);
     dispatch(putDate(dateDetails));
   },[dates]);
   // hide dropdown on ESC press
